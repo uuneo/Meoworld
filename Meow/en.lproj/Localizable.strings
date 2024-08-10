@@ -1,0 +1,322 @@
+/* 
+  Localizable.strings
+  Meow
+
+  Created by He Cho on 2024/8/8.
+  
+*/
+
+
+removeMessage = "Remove";
+timeJustNow = "Just now";
+timeMinAgo = "%1$d minute ago";
+timeHourAgo = "%1$d hour ago";
+timeMinHourAgo = "%1$d hour %2$d minutes ago";
+
+
+bottomBarSettings = "Settings";
+bottomBarMsg = "Chat";
+
+bottomBarExample = "Example";
+
+
+
+unknown = "Unknown";
+
+showImage = "Show Image";
+displayImage = "Hide Image";
+
+typechanged = "Message status changed";
+allRead = "All read";
+registerPush = "Register device push";
+
+checkimge = "Checking";
+controlSuccess = "Operation successful";
+register = "Register";
+againRegister = "Re-register";
+notRegistered = "Not registered";
+registered = "Registered";
+icloudHeader = "Notification messages will sync when iCloud is available";
+icloudBody = "iCloud sync";
+badgeModeTitle = "Badge Mode";
+badgeHeader = "Push badge mode, click to modify, long press to clear badge";
+baddgeFooter = "Auto: Unread count, Custom: According to URL parameters";
+
+exportHeader = "Export message list";
+exportTitle = "Export";
+exportFail = "Export failed";
+exportSuccess = "Export successful";
+allSounds = "All sounds";
+
+someMessageCount = "%d messages";
+deviceTokenHeader = "Apple device push token, do not disclose";
+copySuccessText = "Copy successful";
+needRegister = "Please register first";
+commonProblem = "Common problems";
+otherHeader = "Other";
+useHelpTitle = "Usage Help";
+
+opened = "Opened";
+notopen = "Not opened";
+
+autoModeNotClear = "Auto mode cannot clear";
+clearSuccess = "Clear successful";
+
+groupMessageMode = "Group mode";
+defaultMessageMode = "Default mode";
+
+deleteTimeMessage = "Delete messages from the following time";
+messageModeChanged = "Message status changed";
+markNotRead = "Mark as unread";
+markRead = "Mark as read";
+deleteTitle = "Delete";
+
+nothing = "Nothing";
+notread = "Unread";
+deleteMessageGroup = "Delete group";
+groupMarkRead = "Group read";
+nothingMessage = "No messages";
+deleteAllMessage = "Delete all messages";
+allMarkRead = "All read";
+deleteSuccess = "Delete successful";
+deleteFail = "Delete Fail";
+defultGroup = "Default group";
+
+changeServer = "Switch server";
+useExample = "Usage example";
+
+
+pushExampleHeader1 = "Example 1";
+pushExampleFooter1 = "Click the button in the upper right corner to copy the test URL and preview the push effect\nSafari may have cache, please refresh the page if you don't receive the push";
+pushExampleTitle1 = "Push Content";
+pushExampleParams1 = "Push Content";
+
+pushExampleHeader2 = "Example 2";
+pushExampleFooter2 = "The font size of the push title is slightly larger than the push content";
+pushExampleTitle2 =  "Title + Content";
+pushExampleParams2 = "Title/Content";
+
+pushExampleHeader3 = "Click the headphone icon in the upper right corner to view all ringtones";
+pushExampleFooter3 ="Different ringtones can be set for the push";
+pushExampleTitle3 =  "Push Ringtones";
+pushExampleParams3 = "Push Content?sound=minuet";
+
+pushExampleHeader4 = "Customize icon";
+pushExampleFooter4 = "Customize icon with https://image-url";
+pushExampleTitle4 = "Custom Icon";
+pushExampleParams4 = "Push Content?icon=warn";
+
+
+pushExampleHeader6 = "Auto Save";
+pushExampleFooter6 = "Messages are saved by default, unless isArchive=0 is included, messages won't appear in the foreground";
+pushExampleTitle6 = "Do Not Save Message";
+pushExampleParams6 = "Push Content?isArchive=0";
+
+pushExampleHeader7 = "URL Scheme or Web URL";
+pushExampleFooter7 = "Click to open the app";
+pushExampleTitle7 = "Open Third-Party App or Website";
+pushExampleParams7 = "Push Content?icon=weixin&url=weixin://";
+
+pushExampleHeader8 = "Parameters can be used individually or in combination";
+pushExampleFooter8 = "Parameter priority: URL > GET > POST\n If url parameter is not specified, use the API: http://server-address/push";
+pushExampleTitle8 = "Complete Parameters";
+pushExampleParams8 = "?title=title&body=body&icon=https://day.app/assets/images/avatar.jpg&image=https://day.app/assets/images/avatar.jpg&url=weixin://&sound=alarm&group=Group&copy=This is a text to be copied&autocopy=1&isArchive=1&badge=99";
+
+updateSuccess = "Update Completed";
+addNewServerList = "Add New Server";
+newaddServer = "Newly Add Server";
+recoverDefaultServer = "Restore Default Server";
+serverList = "Server List";
+addSuccess = "Addition Successful";
+serverExist = "Server Already Exists";
+
+addNewServerListAddress = "Add New Server Address";
+inputServerAddress = "Enter Server Address";
+verifyFail = "Verification Failed";
+addTitle = "Add";
+online = "Online";
+offline = "Offline";
+serverOnlineFooter = "Swipe left to delete, swipe right to check registration status";
+
+serverName = "Server";
+registerAndCheck = "Register/Check";
+needOneServer = "Must Keep at Least One Service";
+
+groupModeName = "Group";
+allModeName = "All";
+
+hourAgo = "One hour ago";
+dayAgo = "One day ago";
+weekAgo = "One week ago";
+monthAgo = "One month ago";
+allTime = "All Time";
+
+
+copyTitle = "Copy";
+
+
+messageExampleTitle1 = "Example";
+messageExampleGroup1 = "Example";
+messageExampleBody1 = "Click or swipe to modify the message status. This example carries an image. It will automatically hide after receiving the first message.";
+
+messageExampleTitle2 = "Custom ICON - This is a title";
+messageExampleGroup2 = "Development";
+messageExampleBody2 = "Internal icons: info, warn, error, weixin, miniapp. Custom icon = https://image-url";
+
+messageExampleTitle3 = "Click to open other app";
+messageExampleGroup3 = "App";
+messageExampleBody3 = "The 'url' attribute can open URL Schemes. Clicking on the notification message will automatically navigate. Receiving messages while the app is in the foreground will also trigger automatic navigation.";
+
+settingNetWorkHeader = "You must enable network access to use the service";
+settingNetWorkTitle = "Network permissions not enabled";
+openSetting = "Open Settings";
+notificationHeader = "You must enable notifications to use this service";
+notificationTitle = "Notification permissions not enabled";
+openNotification = "Open Permissions";
+
+checkServerDeploy = "Check Server Deployment Tutorial";
+
+buildDesc = "NewBear uses GitHub Actions to build and publish itself to the App Store. You can verify the ‘run_id’ in the URL to ensure Bark was built from its original open-source codebase.";
+
+
+AppIconTitle = "App Icon";
+AppIconTips = "Click to modify the default app icon";
+switchError = "Switching is temporarily unavailable";
+
+
+
+mailTestTips = "Subject includes: NewBear";
+
+mailHeader = "Email triggers the shortcut to run";
+
+mailTitle = "Automation configuration";
+
+toMailTestTitle = "Automation: NewBear";
+
+toMailTestText = "{title:\"Title\",...}";
+
+sendMailFail = "Invocation failed";
+
+sendMailSuccess = "Invocation succeeded";
+
+sendMailTestBtn = "Test";
+
+emailConfigHeader = "Email server configuration, localized service";
+
+emailPasswordPl = "Please enter password";
+
+tomailListHeader = "Recipient email list";
+
+emailNavigationTitle = "Email Automation";
+
+getFail = "Get Fail";
+
+
+cloudData = "Cloud Data";
+
+notData = "Not Data!";
+
+deleteAll = "Del All";
+
+resetKey = "Reset Key";
+
+
+failUrl = "Wrong Url";
+failSave = "Save Failed";
+failAuth = "Please Enable Album Permissions";
+saveSuccess = "Save Successful";
+failOther = "Other Error";
+
+
+doubleClickSave = "Double Click to Save";
+
+
+requestFail = "Request Failed";
+signTitle = "Email Key";
+signSubTitle = "change key with email";
+signHelp = "Don't know how to get started? Get Help";
+signRetry = "Retry";
+signPhoneInput = "Enter your Email";
+signCodeInput = "Enter the verification code";
+signGetCode = "Get Verification Code";
+
+
+serverConfig = "Configure/Modify Server";
+
+changeTipsTitle = "Irreversible Operation!";
+
+changeTips1SubTitle = "Are you sure you want to delete all unread messages?";
+
+changeTips2SubTitle = "Are you sure you want to delete all read messages?";
+
+readAllQuickAction = "Mark All as Read";
+delReadAllQuickAction = "Delete All Read";
+delNotReadAllQuickAction = "Delete All Unread";
+
+
+faqUrl = "https://alarmpaw.twown.com/#/faq";
+docUrl = "https://alarmpaw.twown.com/#/?id=alarmpaw";
+encryptionUrl = "https://alarmpaw.twown.com/#/encryption";
+deployUrl = "https://alarmpaw.twown.com/#/deploy";
+documentation = "Documentation";
+ivComment = "The IV can be randomly generated, but if it is, it needs to be passed in the 'iv'; parameter.";
+opensslEncodingComment = "OpenSSL requires the input Key and IV to be in hexadecimal encoding.";
+ciphertextComment = "The ciphertext may contain special characters, so remember to URL encode it.";
+consoleComment = "The console will print";
+keyComment = "Must be %d bits";
+
+
+cryptoConfigAlgorithm = "Algorithm";
+cryptoConfigMode = "Mode";
+cryptoConfigKey = "Enter key with %d digits";
+cryptoConfigIv = "Enter 16-digit Iv";
+cryptoConfigCopyTitle = "Copy Python sending script";
+cryptoConfigNavTitle = "Algorithm Config";
+cryptoConfigSuccess = "Verification Successful";
+cryptoConfigVerify = "Verify";
+cryptoConfigKeyFail = "Incorrect Key parameter length";
+cryptoConfigIvFail = "Incorrect Iv parameter length";
+cryptoConfigParamsFail = "Incomplete parameters";
+configTitle = "Config";
+
+badgeAuto = "Auto";
+badgeCustom = "Custom";
+
+
+scanViewFailAdress = "Invalid address";
+scanViewAnewScan = "Rescan";
+
+paramsError = "Url Error;";
+
+
+musicConfigList = "Ringtone List";
+customRing = "Custom Ringtone";
+uploadRing = "Upload Ringtone";
+ringTextHead = "Please convert the ringtone";
+ringTextBody = "to caf format";
+ringTextFooter = "with a duration not exceeding 30 seconds.";
+systemRing = "System Ringtones";
+
+
+musicLong30 = "Max 30 sec";
+ 
+findMessageCount = "Found %1$d records";
+
+
+
+
+defaultGroup = "Def";
+
+startUse = "Home Page";
+
+
+contactMe = "Discover Issues";
+
+
+editingtips = "Unedited state";
+
+
+replaceKeyWithMail = "Change Key With Mail";
+
+
+notificationAndNetwork = "open Net And Noti";
