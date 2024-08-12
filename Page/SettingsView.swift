@@ -101,7 +101,7 @@ struct SettingsView: View {
                             Label {
                                 Text("DeviceToken")
                                     .font(.system(size: 15))
-                                    .foregroundStyle(Color("textBlack"))
+                                    .foregroundStyle(.lightDark)
                             } icon: {
                                 Image(systemName: "key.radiowaves.forward")
                                     .scaleEffect(0.9)
@@ -118,6 +118,18 @@ struct SettingsView: View {
                     }
                 }
                 
+                Section {
+                    Toggle(isOn: $toolsManager.archive) {
+                        Text(NSLocalizedString("defaultSave", comment: "默认保存"))
+                    }
+                }footer:{
+                    Text(NSLocalizedString("archiveNote", comment: ""))
+                        .foregroundStyle(.gray)
+                }
+                
+              
+
+                
                 
                 Section(header: Text(NSLocalizedString("configTitle", comment: "配置"))) {
                     Button{
@@ -128,7 +140,7 @@ struct SettingsView: View {
                         HStack(alignment:.center){
                             Label {
                                 Text(NSLocalizedString("AppIconTitle",comment: "程序图标"))
-                                    .foregroundStyle(Color("textBlack"))
+                                    .foregroundStyle(.lightDark)
                             } icon: {
                                 Image(setting_active_app_icon.toLogoImage)
                                     .resizable()
@@ -221,7 +233,7 @@ struct SettingsView: View {
                             
                             Label {
                                 Text(NSLocalizedString("openSetting",comment: ""))
-                                    .foregroundStyle(Color("textBlack"))
+                                    .foregroundStyle(.lightDark)
                             } icon: {
                                 Image(systemName: "gearshape")
                                     .scaleEffect(0.9)
@@ -243,7 +255,7 @@ struct SettingsView: View {
                         HStack(alignment:.center){
                             Label {
                                 Text(NSLocalizedString("commonProblem",comment: ""))
-                                    .foregroundStyle(Color("textBlack"))
+                                    .foregroundStyle(.lightDark)
                             } icon: {
                                 Image(systemName: "questionmark.circle")
                                     .scaleEffect(0.9)
@@ -264,7 +276,7 @@ struct SettingsView: View {
                         HStack(alignment:.center){
                             Label {
                                 Text(NSLocalizedString("useHelpTitle",comment: ""))
-                                    .foregroundStyle(Color("textBlack"))
+                                    .foregroundStyle(.lightDark)
                             } icon: {
                                 Image(systemName: "person.crop.circle.badge.questionmark")
                                     .scaleEffect(0.9)
@@ -286,7 +298,7 @@ struct SettingsView: View {
                         HStack(alignment:.center){
                             Label {
                                 Text(NSLocalizedString("contactMe",comment: ""))
-                                    .foregroundStyle(Color("textBlack"))
+                                    .foregroundStyle(.lightDark)
                             } icon: {
                                 Image(systemName: "questionmark.circle")
                                     .scaleEffect(0.9)
@@ -332,7 +344,7 @@ struct SettingsView: View {
                                 Text(runId)
                                     .foregroundStyle(.gray)
                                 Image(systemName: "chevron.right")
-                            }.foregroundStyle(Color("textBlack"))
+                            }.foregroundStyle(.lightDark)
                         }
                     }
                 }

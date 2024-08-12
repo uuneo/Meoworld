@@ -7,7 +7,6 @@
 
 import Foundation
 import UIKit
-import RealmSwift
 
 
 struct Identifiers {
@@ -17,8 +16,9 @@ struct Identifiers {
 }
 
 
-class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDelegate{
+class AppDelegate: NSObject, UIApplicationDelegate{
     
+    let generator = UISelectionFeedbackGenerator()
     
     func setupRealm() {
         // Tell Realm to use this new configuration object for the default Realm
@@ -46,6 +46,8 @@ class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDele
         }
         
     }
+    
+
     
     
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
@@ -77,49 +79,27 @@ class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDele
         
         UNUserNotificationCenter.current().setNotificationCategories([category])
         
+        
+        
         return true
     }
     
-    
-    
-    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-        notificatonHandler(userInfo: response.notification.request.content.userInfo)
-    }
-    
-    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification) async -> UNNotificationPresentationOptions {
-        if UIApplication.shared.applicationState == .active {
-            stopCallNotificationProcessor()
+    func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
+        if let selectAction = options.shortcutItem{
+            QuickAction.selectAction = selectAction
         }
-        return .sound
+        let sceneonfiguration = UISceneConfiguration(name: "Quick Action Scene", sessionRole: connectingSceneSession.role)
+        sceneonfiguration.delegateClass = QuickActionSceneDelegate.self
+        return sceneonfiguration
     }
     
-    private func notificatonHandler(userInfo: [AnyHashable: Any]) {
-        
-    }
     
-    func applicationWillResignActive(_ application: UIApplication) {
-        // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-        // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
-    }
     
-    func applicationDidEnterBackground(_ application: UIApplication) {
-        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-    }
+   
     
-    func applicationWillEnterForeground(_ application: UIApplication) {
-        // 后台进入前台
-        // bark 同步服务器数据
-        // ServerManager.shared.syncAllServers()
-        // 暂时不知道意图，以后再说
-        
-        // 设置 -1 可以清除应用角标，但不清除通知中心的推送
-        // 设置 0 会将通知中心的所有推送一起清空掉
-        UIApplication.shared.applicationIconBadgeNumber = -1
-        // 如果有响铃通知，则关闭响铃
-        stopCallNotificationProcessor()
-    }
+
     
+
     
     
     /// 停止响铃
@@ -134,3 +114,63 @@ class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDele
     
     
 }
+
+
+class QuickActionSceneDelegate:UIResponder,UIWindowSceneDelegate{
+    func windowScene(_ windowScene: UIWindowScene, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
+        QuickAction.selectAction = shortcutItem
+    }
+}
+
+
+
+extension AppDelegate :UNUserNotificationCenterDelegate{
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        notificatonHandler(userInfo: response.notification.request.content.userInfo)
+        RouterManager.shared.page = .message
+        RouterManager.shared.fullPage = .none
+        completionHandler()
+    }
+    
+    // 处理应用程序在前台是否显示通知
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                willPresent notification: UNNotification,
+                                withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        
+        notificatonHandler(userInfo: notification.request.content.userInfo)
+        
+        generator.prepare()
+        generator.selectionChanged()
+        
+        
+        completionHandler(.badge)
+        
+    }
+    
+    
+    private func notificatonHandler(userInfo: [AnyHashable: Any]) {
+        let url: URL? = {
+            if let url = userInfo["url"] as? String {
+                return URL(string: url)
+            }
+            return nil
+        }()
+        
+        // URL 直接打开
+        if let url = url {
+            MainManager.shared.openUrl(url: url)
+            return
+        }
+        
+        
+        if UIApplication.shared.applicationState == .active {
+            stopCallNotificationProcessor()
+        }
+       
+        
+        
+    }
+
+}
+

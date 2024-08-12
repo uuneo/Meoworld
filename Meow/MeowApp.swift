@@ -12,10 +12,13 @@ import SwiftUI
 struct MeowApp: SwiftUI.App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+              
+            
         }
-       
+        
     }
 }

@@ -44,6 +44,24 @@ class RealmManager{
         guard let realm = realm else { return nil }
         return realm.objects(Message.self)
     }
+    
+    
+    func getReadGroupCount(group:String?) -> Int {
+        
+        guard let group = group else { return 0 }
+        
+        guard let realm = realm else { return 0 }
+        return realm.objects(Message.self).where{$0.group == group}.where{!$0.read}.count
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    
 
     // Update
     func updateObject(_ object: Message, with updates: (Message) -> Void) -> Bool {
@@ -74,6 +92,12 @@ class RealmManager{
             self.readMessage(messages)
         }
     }
+    
+    
+    
+    
+    
+    
     
     
     func updateObjects(_ results: Results<Message>?, with updates: (Message?) -> Void) -> Bool {

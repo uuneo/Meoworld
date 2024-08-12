@@ -15,7 +15,9 @@ enum NotificationContentHandlerItem {
     case archive
     case setIcon
     case setImage
+    case action
     case call
+    
     
     var processor: NotificationContentHandler {
         switch self {
@@ -33,6 +35,8 @@ enum NotificationContentHandlerItem {
             return ImageHandler()
         case .call:
             return CallHandler()
+        case .action:
+            return ActionHandler()
         }
     }
 }

@@ -129,7 +129,7 @@ struct SignInView: View {
                 .keyboardType(.emailAddress)
                 .autocapitalization(.none)
                 .disableAutocorrection(true)
-                .foregroundStyle(.textBlack)
+                .foregroundStyle(.lightDark)
                 .customField(
                     icon: "envelope.fill"
                 )

@@ -26,9 +26,13 @@ struct MessagesView: View {
     
     @State private var pageNumber:Int = 1
     @State private var toolManager = ToolsManager.shared
+    @StateObject private var manager = MainManager.shared
     
     @AppStorage("setting_active_app_icon") var setting_active_app_icon:appIcon = .def
  
+    @State private var errorAnimate1:Bool = false
+    @State private var errorAnimate2:Bool = false
+    @State private var errorAnimate3:Bool = false
     
     var body: some View {
        
@@ -47,7 +51,7 @@ struct MessagesView: View {
                                         
                                         Text( ToolsManager.getGroup(message.group) )
                                             .font(.headline.weight(.bold))
-                                            .foregroundStyle(Color("textBlack"))
+                                            .foregroundStyle(.lightDark)
                                         Spacer()
                                         Text(message.createDate.agoFormatString())
                                             .font(.caption2)
@@ -119,7 +123,8 @@ struct MessagesView: View {
                                 }
                           
                             } label: {
-                                Label(NSLocalizedString("groupMarkRead",comment: ""), systemImage: "envelope")
+                                Label(NSLocalizedString("groupMarkRead",comment: ""), systemImage: RealmManager.shared.getReadGroupCount(group: message.group) == 0 ?  "envelope.open" : "envelope")
+                               
                             }.tint(.blue)
                         }
                     }
@@ -140,6 +145,103 @@ struct MessagesView: View {
                     .navigationTitle(selectGroup)
             }
             .toolbar{
+                
+                Group{
+                    
+                    if !Monitors.shared.isConnected && Monitors.shared.isAuthorized{
+                        ToolbarItem (placement: .topBarLeading){
+                            Button {
+                                manager.openSetting()
+                            } label: {
+                                Image(systemName: "wifi.exclamationmark")
+                                    .foregroundStyle(.yellow)
+                                    .opacity(errorAnimate1 ? 1 : 0.1)
+                                    .onAppear{
+                                        withAnimation(Animation.bouncy(duration: 0.5).repeatForever()) {
+                                            self.errorAnimate1 = true
+                                        }
+                                    }
+                                    .onDisappear{
+                                        self.errorAnimate1 = false
+                                    }
+                                  
+                            }
+
+                        }
+                    }
+                    
+                    if !Monitors.shared.isAuthorized && Monitors.shared.isConnected {
+                        
+                        ToolbarItem (placement: .topBarLeading){
+                            Button {
+                                manager.openSetting()
+                            } label: {
+                                Image(systemName: "bell.slash")
+                                    .foregroundStyle(.red)
+                                    .opacity(errorAnimate2 ? 0.1 : 1)
+                                    .onAppear{
+                                        withAnimation(Animation.bouncy(duration: 0.5).repeatForever()) {
+                                            self.errorAnimate2 = true
+                                        }
+                                    }
+                                    .onDisappear{
+                                        self.errorAnimate2 = false
+                                    }
+                                
+                            }
+
+                        }
+                        
+                        
+                    }
+                    
+                    if !Monitors.shared.isAuthorized && !Monitors.shared.isConnected  {
+                        
+                        ToolbarItem (placement: .topBarLeading){
+                            Button {
+                                manager.openSetting()
+                            } label: {
+                                
+                                ZStack{
+                                    
+                                    Image(systemName: "bell.slash")
+                                        .foregroundStyle(.red)
+                                        .opacity(errorAnimate3 ? 0.1 : 1)
+                                    
+                                    Image(systemName: "wifi.exclamationmark")
+                                        .foregroundStyle(.yellow)
+                                        .opacity(errorAnimate3 ? 1 : 0.1)
+                                       
+                                }
+                                .onAppear{
+                                    withAnimation(Animation.bouncy(duration: 0.5).repeatForever()) {
+                                        self.errorAnimate3 = true
+                                    }
+                                }
+                                .onDisappear{
+                                    self.errorAnimate3 = false
+                                }
+                                
+                              
+                                
+                            }
+
+                        }
+                        
+                        
+                    }
+                }
+                
+                ToolbarItem {
+                    
+                    Button{
+                        RouterManager.shared.fullPage = .example
+                    }label:{
+                        Image(systemName: "questionmark.circle")
+                        
+                    } .foregroundStyle(.lightDark)
+                        .accessibilityIdentifier("HelpButton")
+                }
 
                 
                 ToolbarItem{
@@ -148,7 +250,7 @@ struct MessagesView: View {
                     }label: {
                         Image("baseline_delete_outline_black_24pt")
                         
-                    }  .foregroundStyle(Color("textBlack"))
+                    }  .foregroundStyle(.lightDark)
                     
                 }
             }

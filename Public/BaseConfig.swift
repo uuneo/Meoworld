@@ -5,7 +5,7 @@
 //  Created by He Cho on 2024/8/8.
 //
 
-import RealmSwift
+@_exported import RealmSwift
 import Foundation
 import UIKit
 
@@ -35,7 +35,7 @@ let kRealmDefaultConfiguration = {
 
 struct otherUrl {
 #if DEBUG
-    static let defaultServer = "https://dev.twown.com"
+    static let defaultServer = "http://192.168.0.3:8180"
 #else
     static let defaultServer = "https://push.twown.com"
 #endif
@@ -49,7 +49,7 @@ struct otherUrl {
     static let actinsRunUrl = "https://github.com/96bit/AlarmPaw/actions/runs/"
     static let musicUrl = "https://convertio.co/mp3-caf/"
     static let callback = defaultServer + "/callback"
-    static let issues = "https://github.com/uuneo/NewBear/issues/new"
+    static let issues = "https://github.com/uuneo/MeowWorld/issues/new"
 }
 
 
@@ -77,8 +77,9 @@ struct BaseConfig {
     static let  recordType = "NotificationMessage"
     static let  realmName = "Meowrld.realm"
     static let  kStopCallProcessorKey = "stopCallProcessorNotification"
+    static let  Sounds = "Sounds"
     static let  archiveName = "meowArchive"
-    static let  realmModalVersion:UInt64 = 10
+    static let  realmModalVersion:UInt64 = 1
     
 
 }

@@ -13,6 +13,7 @@ enum SubPage{
     case servers
     case scan
     case music
+    case example
     case appIcon
     case web
     case issues
@@ -21,7 +22,6 @@ enum SubPage{
 
 
 enum TabPage :String{
-    case example = "example"
     case message = "message"
     case setting = "setting"
 }

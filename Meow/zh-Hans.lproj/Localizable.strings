@@ -81,7 +81,7 @@ nothingMessage = "没有消息";
 deleteAllMessage = "删除所有信息";
 deleteSuccess = "删除成功";
 deleteFail = "删除失败";
-defultGroup = "默认组";
+defultGroup = "信息";
 
 
 changeServer = "切换服务器";
@@ -183,7 +183,7 @@ notificationTitle = "通知权限未打开";
 openNotification = "打开权限";
 checkServerDeploy = "查看服务器部署教程";
 
-buildDesc = "NewBear 由 GitHub Actions 构建后上传到 App Store，此信息可帮助你确认当前版本是由开源代码所构建，未经任何人(包含作者)修改。";
+buildDesc = "Meoworld 由 GitHub Actions 构建后上传到 App Store，此信息可帮助你确认当前版本是由开源代码所构建，未经任何人(包含作者)修改。";
 
 
 AppIconTitle = "程序图标";
@@ -191,11 +191,11 @@ AppIconTips = "点击可以修改默认App图标";
 
 switchError = "暂时不能切换";
 
-mailTestTips = "主题包含: NewBear";
+mailTestTips = "主题包含: Meoworld";
 mailHeader = "邮件触发运行捷径";
 mailTitle = "邮件配置";
 
-toMailTestTitle = "自动化: NewBear";
+toMailTestTitle = "自动化: Meoworld";
 toMailTestText = "{title:\"标题\",...}";
 
 sendMailFail = "调用失败";
@@ -312,3 +312,6 @@ editingtips = "非编辑状态";
 replaceKeyWithMail = "修改KEY为邮件地址";
 
 notificationAndNetwork = "打开通知和网络";
+
+defaultSave = "默认保存";
+archiveNote = "当推送请求URL没有指定 isArchive 参数时，将按照此设置来决定是否保存通知消息";

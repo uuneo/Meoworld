@@ -17,17 +17,14 @@ struct EmailPageView:View {
             
             HStack{
                 
-                Text( NSLocalizedString("mailTestTips", comment: "主题包含: NewBear"))
+                Text( NSLocalizedString("mailTestTips", comment: "主题包含: Meoworld"))
                     .font(.caption2)
                 Spacer()
                 Button{
                     self.removeFailToEmail()
                     self.showLoading = true
                     DispatchQueue.main.async {
-                        ToolsManager.sendMail(config: toolsManager.email, title:   NSLocalizedString("toMailTestTitle", comment: "自动化: NewBear"), text:NSLocalizedString("toMailTestText", comment:  "{title:\"标题\",...}")){ error in
-                            
-                           
-                            
+                        ToolsManager.shared.sendMail(title:   NSLocalizedString("toMailTestTitle", comment: "自动化: Meoworld"), text:NSLocalizedString("toMailTestText", comment:  "{title:\"标题\",...}")){ error in
                             
                             if error != nil {
                                 
@@ -36,11 +33,6 @@ struct EmailPageView:View {
                                 
                                 self.toastText = NSLocalizedString("sendMailSuccess", comment:   "调用成功")
                             }
-                            
-                            
-                            
-                            
-                            
                             dispatch_sync_safely_main_queue {
                                
                                 self.showLoading = false

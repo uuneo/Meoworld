@@ -80,7 +80,7 @@ deleteAllMessage = "Delete all messages";
 allMarkRead = "All read";
 deleteSuccess = "Delete successful";
 deleteFail = "Delete Fail";
-defultGroup = "Default group";
+defultGroup = "Info";
 
 changeServer = "Switch server";
 useExample = "Usage example";
@@ -176,7 +176,7 @@ openNotification = "Open Permissions";
 
 checkServerDeploy = "Check Server Deployment Tutorial";
 
-buildDesc = "NewBear uses GitHub Actions to build and publish itself to the App Store. You can verify the ‘run_id’ in the URL to ensure Bark was built from its original open-source codebase.";
+buildDesc = "Meoworld uses GitHub Actions to build and publish itself to the App Store. You can verify the ‘run_id’ in the URL to ensure Bark was built from its original open-source codebase.";
 
 
 AppIconTitle = "App Icon";
@@ -185,13 +185,13 @@ switchError = "Switching is temporarily unavailable";
 
 
 
-mailTestTips = "Subject includes: NewBear";
+mailTestTips = "Subject includes: Meoworld";
 
 mailHeader = "Email triggers the shortcut to run";
 
 mailTitle = "Automation configuration";
 
-toMailTestTitle = "Automation: NewBear";
+toMailTestTitle = "Automation: Meoworld";
 
 toMailTestText = "{title:\"Title\",...}";
 
@@ -320,3 +320,6 @@ replaceKeyWithMail = "Change Key With Mail";
 
 
 notificationAndNetwork = "open Net And Noti";
+
+defaultSave = "Archive by Default";
+archiveNote = "Archive notifications by default if the 'isArchive' parameter is unset.";

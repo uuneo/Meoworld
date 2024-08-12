@@ -24,7 +24,7 @@ struct RingtoneItemView: View {
             }label: {
                 VStack(alignment: .leading){
                     Text("\(name)")
-                        .foregroundStyle(Color("textBlack"))
+                        .foregroundStyle(Color("light_dark"))
                     Text("\(formatDuration(duration))s")
                         .font(.caption)
                         .foregroundStyle(.gray)

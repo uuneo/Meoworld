@@ -159,6 +159,11 @@
 		1966556A2C67392900035E67 /* ScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196655692C67392900035E67 /* ScanView.swift */; };
 		1966556D2C67397000035E67 /* QRScanner in Frameworks */ = {isa = PBXBuildFile; productRef = 1966556C2C67397000035E67 /* QRScanner */; };
 		1966556F2C67412D00035E67 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 1966556E2C67412D00035E67 /* README.md */; };
+		196655722C67761500035E67 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 196655712C67761500035E67 /* PrivacyInfo.xcprivacy */; };
+		196655742C67785000035E67 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 196655732C67785000035E67 /* Launch Screen.storyboard */; };
+		196655772C67837900035E67 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 196655752C67837900035E67 /* InfoPlist.strings */; };
+		1966557A2C67C26300035E67 /* Localizable.strings in Sources */ = {isa = PBXBuildFile; fileRef = 1941D3C82C64D8FF00F4C6EC /* Localizable.strings */; };
+		1966557E2C690FCF00035E67 /* ActionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1966557D2C690FCF00035E67 /* ActionHandler.swift */; };
 		19873D552C662241008B5014 /* RealmSwift in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 1941D4692C66215A00F4C6EC /* RealmSwift */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 /* End PBXBuildFile section */
 
@@ -322,6 +327,12 @@
 		196655672C67380A00035E67 /*  AngularButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = " AngularButton.swift"; sourceTree = "<group>"; };
 		196655692C67392900035E67 /* ScanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanView.swift; sourceTree = "<group>"; };
 		1966556E2C67412D00035E67 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		196655712C67761500035E67 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		196655732C67785000035E67 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		196655762C67837900035E67 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		196655782C67837C00035E67 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		196655792C67BFF000035E67 /* NotificationServiceExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NotificationServiceExtension.entitlements; sourceTree = "<group>"; };
+		1966557D2C690FCF00035E67 /* ActionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -401,6 +412,9 @@
 				1941D38E2C646B1500F4C6EC /* Preview Content */,
 				1941D3C82C64D8FF00F4C6EC /* Localizable.strings */,
 				1941D4412C64F95500F4C6EC /* AppDelegate.swift */,
+				196655712C67761500035E67 /* PrivacyInfo.xcprivacy */,
+				196655732C67785000035E67 /* Launch Screen.storyboard */,
+				196655752C67837900035E67 /* InfoPlist.strings */,
 			);
 			path = Meow;
 			sourceTree = "<group>";
@@ -454,6 +468,7 @@
 		1941D3A52C64D82C00F4C6EC /* NotificationServiceExtension */ = {
 			isa = PBXGroup;
 			children = (
+				196655792C67BFF000035E67 /* NotificationServiceExtension.entitlements */,
 				1941D3CE2C64D9A600F4C6EC /* Handler */,
 				1941D3A62C64D82C00F4C6EC /* NotificationService.swift */,
 				1941D3A82C64D82C00F4C6EC /* Info.plist */,
@@ -491,6 +506,7 @@
 				1941D3DB2C64DBAF00F4C6EC /* IconHandler.swift */,
 				1941D3DD2C64DC0900F4C6EC /* ImageHandler.swift */,
 				1941D3DF2C64DC3B00F4C6EC /* CallHandler.swift */,
+				1966557D2C690FCF00035E67 /* ActionHandler.swift */,
 			);
 			path = Handler;
 			sourceTree = "<group>";
@@ -553,7 +569,6 @@
 			children = (
 				196654F52C66634500035E67 /* Templates */,
 				196654F42C66631E00035E67 /* SubPage */,
-				196654EE2C6662F800035E67 /* ExampleView.swift */,
 				196654F02C66630900035E67 /* MessagesView.swift */,
 				196654F22C66631700035E67 /* SettingsView.swift */,
 			);
@@ -565,6 +580,7 @@
 			children = (
 				196654F62C6663FD00035E67 /* RingtongView.swift */,
 				196654FC2C6665E200035E67 /* ToastView.swift */,
+				196654EE2C6662F800035E67 /* ExampleView.swift */,
 				196655042C66689000035E67 /* RingtoneItemView.swift */,
 				1966553A2C667C9500035E67 /* MessageDetailView.swift */,
 				1966553C2C667CE200035E67 /* MessageView.swift */,
@@ -728,6 +744,7 @@
 				196655112C666FEB00035E67 /* calypso.caf in Resources */,
 				1966556F2C67412D00035E67 /* README.md in Resources */,
 				196655122C666FEB00035E67 /* chime.caf in Resources */,
+				196655742C67785000035E67 /* Launch Screen.storyboard in Resources */,
 				196655132C666FEB00035E67 /* choo.caf in Resources */,
 				196655142C666FEB00035E67 /* descent.caf in Resources */,
 				196655152C666FEB00035E67 /* electronic.caf in Resources */,
@@ -735,6 +752,7 @@
 				196655172C666FEB00035E67 /* glass.caf in Resources */,
 				196655182C666FEB00035E67 /* gotosleep.caf in Resources */,
 				196655192C666FEB00035E67 /* healthnotification.caf in Resources */,
+				196655772C67837900035E67 /* InfoPlist.strings in Resources */,
 				1966551A2C666FEB00035E67 /* horn.caf in Resources */,
 				1966551B2C666FEB00035E67 /* ladder.caf in Resources */,
 				1966551C2C666FEB00035E67 /* mailsent.caf in Resources */,
@@ -752,6 +770,7 @@
 				196655282C666FEB00035E67 /* telegraph.caf in Resources */,
 				196655292C666FEB00035E67 /* tiptoes.caf in Resources */,
 				1966552A2C666FEB00035E67 /* typewriters.caf in Resources */,
+				196655722C67761500035E67 /* PrivacyInfo.xcprivacy in Resources */,
 				1966552B2C666FEB00035E67 /* update.caf in Resources */,
 				1941D3902C646B1500F4C6EC /* Preview Assets.xcassets in Resources */,
 				1941D3CA2C64D8FF00F4C6EC /* Localizable.strings in Resources */,
@@ -869,6 +888,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1966557A2C67C26300035E67 /* Localizable.strings in Sources */,
+				1966557E2C690FCF00035E67 /* ActionHandler.swift in Sources */,
 				196655602C672F9A00035E67 /* ToolBox.swift in Sources */,
 				1966555F2C672F4A00035E67 /* EmailModal.swift in Sources */,
 				1966552C2C6678AA00035E67 /* Enums.swift in Sources */,
@@ -929,6 +950,15 @@
 				1941D3CC2C64D94F00F4C6EC /* zh-Hans */,
 			);
 			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		196655752C67837900035E67 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				196655762C67837900035E67 /* en */,
+				196655782C67837C00035E67 /* zh-Hans */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -1059,8 +1089,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_ALTERNATE_APPICON_NAMES = "AppIcon AppIcon0 AppIcon1";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = Meow/Meow.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -1069,10 +1101,12 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Meow/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Meoworld;
 				INFOPLIST_KEY_NSCameraUsageDescription = "We are using the camera to scan a QR code";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1092,8 +1126,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_ALTERNATE_APPICON_NAMES = "AppIcon AppIcon0 AppIcon1";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = Meow/Meow.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -1102,10 +1138,12 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Meow/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Meoworld;
 				INFOPLIST_KEY_NSCameraUsageDescription = "We are using the camera to scan a QR code";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1124,6 +1162,7 @@
 		1941D3AD2C64D82C00F4C6EC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = NotificationServiceExtension/NotificationServiceExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FUWV6U942Q;
@@ -1149,6 +1188,7 @@
 		1941D3AE2C64D82C00F4C6EC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = NotificationServiceExtension/NotificationServiceExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FUWV6U942Q;

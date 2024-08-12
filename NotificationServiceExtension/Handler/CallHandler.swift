@@ -135,7 +135,7 @@ class CallHandler: NotificationContentHandler {
       
       func getSoundInCustomSoundsDirectory(soundName: String) -> String? {
           // 扩展访问不到主APP中的铃声，需要先共享铃声文件，再实现自定义铃声响铃
-          guard let soundsDirectoryUrl = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.bark")?.appendingPathComponent("Sounds") else {
+          guard let soundsDirectoryUrl = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: BaseConfig.groupName)?.appendingPathComponent(BaseConfig.Sounds) else {
               return nil
           }
           let path = soundsDirectoryUrl.appendingPathComponent(soundName).path

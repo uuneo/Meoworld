@@ -186,4 +186,8 @@ class AudioPlayerManager: ObservableObject{
         }
     }
     
+   static func stopCallNotificationProcessor() {
+        CFNotificationCenterPostNotification(CFNotificationCenterGetDarwinNotifyCenter(), CFNotificationName(BaseConfig.kStopCallProcessorKey as CFString), nil, nil, true)
+    }
+    
 }

@@ -1,0 +1,14 @@
+/* 
+  InfoPlist.strings
+  Meow
+
+  Created by He Cho on 2024/8/10.
+  
+*/
+
+
+CFBundleDisplayName = "电喵";
+CFBundleName = "电喵";
+
+NSCameraUsageDescription = "扫描二维码";
+NSPhotoLibraryUsageDescription = "保存消息图片到相册";

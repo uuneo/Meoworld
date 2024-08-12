@@ -1,0 +1,15 @@
+/* 
+  InfoPlist.strings
+  Meow
+
+  Created by He Cho on 2024/8/10.
+  
+*/
+
+
+
+CFBundleDisplayName = "Meoworld";
+CFBundleName = "Meoworld";
+
+NSCameraUsageDescription = "Scan QR code";
+NSPhotoLibraryUsageDescription = "Save to the gallery";

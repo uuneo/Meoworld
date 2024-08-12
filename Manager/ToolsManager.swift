@@ -17,7 +17,7 @@ class ToolsManager: ObservableObject {
     
     @AppStorage(BaseConfig.CryptoSettingFields,store: defaultStore) var fields:CryptoSettingFields = CryptoSettingFields.data
     
-    @AppStorage(BaseConfig.archiveName,store: defaultStore) var archive:Bool = false
+    @AppStorage(BaseConfig.archiveName,store: defaultStore) var archive:Bool = true
     
     @AppStorage(BaseConfig.badgemode, store: defaultStore) var badgeMode:badgeAutoMode = .auto
     
@@ -105,51 +105,26 @@ extension ToolsManager{
 
 
 extension ToolsManager{
-    static func sendMail(config:emailConfig,title:String,text:String){
+
+    
+    func sendMail(title:String,text:String, completionHandler: ((Error?) -> Void)? = nil){
         
         let smtp = SMTP(
-            hostname: config.smtp,     // SMTP server address
-            email: config.email,        // username to login
-            password: config.password   // password to login
+            hostname: email.smtp,     // SMTP server address
+            email: email.email,        // username to login
+            password: email.password   // password to login
             // "illozqrqvcshbahi"
         )
         
         let mail = Mail(
-            from: Mail.User(name: "NewBear", email: "909038822@qq.com"),
-            to: config.toEmail.map({Mail.User(name: "NewBear", email: $0.mail)}),
+            from: Mail.User(name: "Meoworld", email: email.email),
+            to: email.toEmail.map({Mail.User(name: "Meoworld", email: $0.mail)}),
             subject: title,
             text:text
         )
         
         smtp.send(mail) { (error) in
-            
-#if DEBUG
-            debugPrint(error as Any)
-#endif
-            
-            
-        }
-    }
-    
-    
-    static  func sendMail(config:emailConfig,title:String,text:String, completionHandler: @escaping (Error?) -> Void){
-        
-        let smtp = SMTP(
-            hostname: config.smtp,     // SMTP server address
-            email: config.email,        // username to login
-            password: config.password   // password to login
-            // "illozqrqvcshbahi"
-        )
-        
-        let mail = Mail(
-            from: Mail.User(name: "NewBear", email: "909038822@qq.com"),
-            to: config.toEmail.map({Mail.User(name: "NewBear", email: $0.mail)}),
-            subject: title,
-            text:text
-        )
-        
-        smtp.send(mail) { (error) in
-            completionHandler(error)
+            completionHandler?(error)
         }
         
     }
