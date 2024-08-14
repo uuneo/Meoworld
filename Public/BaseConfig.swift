@@ -35,7 +35,7 @@ let kRealmDefaultConfiguration = {
 
 struct otherUrl {
 #if DEBUG
-    static let defaultServer = "http://192.168.0.3:8180"
+    static let defaultServer = "https://dev.twown.com"
 #else
     static let defaultServer = "https://push.twown.com"
 #endif
