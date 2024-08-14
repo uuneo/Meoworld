@@ -31,7 +31,6 @@ class ArchiveHandler: NotificationContentHandler{
             let url = userInfo["url"] as? String
             let group = userInfo["group"] as? String 
             let icon = userInfo["icon"] as? String
-            let call = userInfo["call"] as? String
             
             
             var mode:String? {

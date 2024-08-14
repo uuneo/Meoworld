@@ -7,7 +7,6 @@
 */
 
 
-removeMessage = "Remove";
 timeJustNow = "Just now";
 timeMinAgo = "%1$d minute ago";
 timeHourAgo = "%1$d hour ago";
@@ -157,11 +156,8 @@ copyTitle = "Copy";
 
 messageExampleTitle1 = "Example";
 messageExampleGroup1 = "Example";
-messageExampleBody1 = "Click or swipe to modify the message status. This example carries an image. It will automatically hide after receiving the first message.";
+messageExampleBody1 = "Click or swipe to modify the message status. This example carries an image";
 
-messageExampleTitle2 = "Custom ICON - This is a title";
-messageExampleGroup2 = "Development";
-messageExampleBody2 = "Internal icons: info, warn, error, weixin, miniapp. Custom icon = https://image-url";
 
 messageExampleTitle3 = "Click to open other app";
 messageExampleGroup3 = "App";

@@ -7,7 +7,7 @@
 */
 
 
-removeMessage = "删除";
+
 timeJustNow = "刚刚";
 timeMinAgo = "%1$d分钟前";
 timeHourAgo = "%1$d小时前";
@@ -161,12 +161,8 @@ allTime = "所有时间";
 
 messageExampleTitle1 = "示例";
 messageExampleGroup1 = "示例";
-messageExampleBody1 = "点击或者滑动可以修改信息状态\n本例子携带了一张图片 示例将在获取第一条消息后自动隐藏";
+messageExampleBody1 = "点击或者滑动可以修改信息状态\n本例子携带了一张图片";
 
-
-messageExampleTitle2 = "自定义ICON，这是一个title";
-messageExampleGroup2 = "开发";
-messageExampleBody2 = "内部自带icon:\n info,warn,error,weixin,miniapp\n 自定义icon=https://图片地址";
 
 
 messageExampleTitle3 = "点击跳转其他app";

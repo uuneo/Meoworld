@@ -60,9 +60,8 @@ extension Message{
    
         static let messages = [
            
-            Message(value: ["title":  NSLocalizedString("messageExampleTitle1",comment: ""),"group":  NSLocalizedString("messageExampleGroup1",comment: ""),"body": NSLocalizedString("messageExampleBody1",comment: ""),"icon":"warn","image":otherUrl.defaultImage,"cloud":true]),
-            Message(value: ["title":NSLocalizedString("messageExampleTitle2",comment: ""),"group":NSLocalizedString("messageExampleGroup2",comment: ""),"body":NSLocalizedString("messageExampleBody2",comment: ""),"icon":otherUrl.defaultImage,"cloud":true]),
-            Message(value: ["group":NSLocalizedString("messageExampleGroup3",comment: ""),"title":NSLocalizedString("messageExampleTitle3",comment: "") ,"body":NSLocalizedString("messageExampleBody3",comment: ""),"url":"weixin://","icon":"weixin","cloud":true])
+            Message(value: ["title":  NSLocalizedString("messageExampleTitle1",comment: ""),"group":  NSLocalizedString("messageExampleGroup1",comment: ""),"body": NSLocalizedString("messageExampleBody1",comment: ""),"icon":"warn","image":otherUrl.defaultImage,"cloud":true,"mode":"999"]),
+            Message(value: ["group":NSLocalizedString("messageExampleGroup3",comment: ""),"title":NSLocalizedString("messageExampleTitle3",comment: "") ,"body":NSLocalizedString("messageExampleBody3",comment: ""),"url":"weixin://","icon":"weixin","cloud":true,"mode":"999"])
         ]
     
 }
