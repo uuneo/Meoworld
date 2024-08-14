@@ -337,6 +337,7 @@
 		1966557D2C690FCF00035E67 /* ActionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionHandler.swift; sourceTree = "<group>"; };
 		19C8C31B2C6CC48800581C8F /* ContactsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsView.swift; sourceTree = "<group>"; };
 		19C8C31D2C6CC79600581C8F /* bookManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bookManager.swift; sourceTree = "<group>"; };
+		19CD2F742C6CE101000C79ED /* NotificationContentExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NotificationContentExtension.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -493,6 +494,7 @@
 		1941D3BA2C64D84600F4C6EC /* NotificationContentExtension */ = {
 			isa = PBXGroup;
 			children = (
+				19CD2F742C6CE101000C79ED /* NotificationContentExtension.entitlements */,
 				1941D3BB2C64D84600F4C6EC /* NotificationViewController.swift */,
 				1941D3BD2C64D84600F4C6EC /* MainInterface.storyboard */,
 				1941D3C02C64D84600F4C6EC /* Info.plist */,
@@ -1222,6 +1224,7 @@
 		1941D3C52C64D84600F4C6EC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = NotificationContentExtension/NotificationContentExtension.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -1249,6 +1252,7 @@
 		1941D3C62C64D84600F4C6EC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = NotificationContentExtension/NotificationContentExtension.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
