@@ -76,7 +76,6 @@
 		1941D4432C64F9DF00F4C6EC /* MessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1941D3F82C64E7C700F4C6EC /* MessageModel.swift */; };
 		1941D46A2C66215A00F4C6EC /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1941D4692C66215A00F4C6EC /* RealmSwift */; };
 		1941D46C2C66216E00F4C6EC /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1941D46B2C66216E00F4C6EC /* RealmSwift */; };
-		1941D46D2C66216E00F4C6EC /* RealmSwift in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 1941D46B2C66216E00F4C6EC /* RealmSwift */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		196654E82C6634D200035E67 /* ToolBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196654E72C6634D200035E67 /* ToolBox.swift */; };
 		196654EA2C66578C00035E67 /* Monitors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196654E92C66578C00035E67 /* Monitors.swift */; };
 		196654EF2C6662F800035E67 /* ExampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196654EE2C6662F800035E67 /* ExampleView.swift */; };
@@ -164,9 +163,9 @@
 		196655772C67837900035E67 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 196655752C67837900035E67 /* InfoPlist.strings */; };
 		1966557A2C67C26300035E67 /* Localizable.strings in Sources */ = {isa = PBXBuildFile; fileRef = 1941D3C82C64D8FF00F4C6EC /* Localizable.strings */; };
 		1966557E2C690FCF00035E67 /* ActionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1966557D2C690FCF00035E67 /* ActionHandler.swift */; };
-		19873D552C662241008B5014 /* RealmSwift in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 1941D4692C66215A00F4C6EC /* RealmSwift */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		19C8C31C2C6CC48800581C8F /* ContactsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C8C31B2C6CC48800581C8F /* ContactsView.swift */; };
 		19C8C31E2C6CC79600581C8F /* bookManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C8C31D2C6CC79600581C8F /* bookManager.swift */; };
+		19CD2F762C6CE40C000C79ED /* RealmSwift in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 1941D4692C66215A00F4C6EC /* RealmSwift */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -205,7 +204,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				1941D46D2C66216E00F4C6EC /* RealmSwift in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -216,7 +214,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				19873D552C662241008B5014 /* RealmSwift in Embed Frameworks */,
+				19CD2F762C6CE40C000C79ED /* RealmSwift in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
