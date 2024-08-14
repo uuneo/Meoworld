@@ -79,7 +79,7 @@ struct BaseConfig {
     static let  kStopCallProcessorKey = "stopCallProcessorNotification"
     static let  Sounds = "Sounds"
     static let  archiveName = "meowArchive"
-    static let  realmModalVersion:UInt64 = 1
+    static let  realmModalVersion:UInt64 = 2
     
 
 }

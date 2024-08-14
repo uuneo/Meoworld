@@ -17,6 +17,7 @@ final class Message: Object , ObjectKeyIdentifiable{
     @Persisted var group:String?
     @Persisted var url:String?
     
+    @Persisted var mode:String?
     @Persisted var createDate = Date()
     @Persisted var read:Bool = false
     
@@ -34,7 +35,7 @@ final class Message: Object , ObjectKeyIdentifiable{
 
 extension Message:Codable{
     enum CodingKeys: String, CodingKey{
-        case id, title, body, icon, group, url, createDate, read
+        case id, title, body, icon, group, url, mode ,createDate, read
     }
     
     func encode(to encoder: any Encoder) throws {
@@ -44,6 +45,7 @@ extension Message:Codable{
         try container.encodeIfPresent(icon, forKey: .icon)
         try container.encodeIfPresent(group, forKey: .group)
         try container.encodeIfPresent(url, forKey: .url)
+        try container.encodeIfPresent(mode, forKey: .mode)
         try container.encodeIfPresent(createDate, forKey: .createDate)
         try container.encodeIfPresent(read, forKey: .read)
        

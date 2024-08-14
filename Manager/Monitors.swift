@@ -85,11 +85,9 @@ class Monitors: ObservableObject {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge, .carPlay], completionHandler: { (_ granted: Bool, _: Error?) -> Void in
             
             if granted {
-                
                 DispatchQueue.main.async{
                     UIApplication.shared.registerForRemoteNotifications()
                 }
-                
             }
             else {
 #if DEBUG

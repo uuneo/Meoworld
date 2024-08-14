@@ -17,7 +17,19 @@ class CallHandler: NotificationContentHandler {
       var needsStop = false
       
       func process(identifier: String, content bestAttemptContent: UNMutableNotificationContent) async throws -> UNMutableNotificationContent {
-          guard let call = bestAttemptContent.userInfo["call"] as? String, call == "1" else {
+          
+          var mode :String{
+              let userInfo = bestAttemptContent.userInfo
+              if let call = userInfo["call"] as? String, call == "1" {
+                  return call
+              }
+              if let mode = userInfo["mode"] as? String, mode == "1" {
+                  return mode
+              }
+              return "0"
+          }
+          
+          guard mode == "1" else {
               return bestAttemptContent
           }
           self.content = bestAttemptContent

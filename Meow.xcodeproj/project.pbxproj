@@ -165,6 +165,8 @@
 		1966557A2C67C26300035E67 /* Localizable.strings in Sources */ = {isa = PBXBuildFile; fileRef = 1941D3C82C64D8FF00F4C6EC /* Localizable.strings */; };
 		1966557E2C690FCF00035E67 /* ActionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1966557D2C690FCF00035E67 /* ActionHandler.swift */; };
 		19873D552C662241008B5014 /* RealmSwift in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 1941D4692C66215A00F4C6EC /* RealmSwift */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		19C8C31C2C6CC48800581C8F /* ContactsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C8C31B2C6CC48800581C8F /* ContactsView.swift */; };
+		19C8C31E2C6CC79600581C8F /* bookManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C8C31D2C6CC79600581C8F /* bookManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -333,6 +335,8 @@
 		196655782C67837C00035E67 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		196655792C67BFF000035E67 /* NotificationServiceExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NotificationServiceExtension.entitlements; sourceTree = "<group>"; };
 		1966557D2C690FCF00035E67 /* ActionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionHandler.swift; sourceTree = "<group>"; };
+		19C8C31B2C6CC48800581C8F /* ContactsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsView.swift; sourceTree = "<group>"; };
+		19C8C31D2C6CC79600581C8F /* bookManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bookManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -461,6 +465,7 @@
 				196655342C667A1B00035E67 /* ImageManager.swift */,
 				196655362C667B0F00035E67 /* RealmManager.swift */,
 				1966554E2C66FCCA00035E67 /* NetworkManager.swift */,
+				19C8C31D2C6CC79600581C8F /* bookManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -590,6 +595,7 @@
 				196655632C67366100035E67 /* ChangeKeyWithEmailView.swift */,
 				196655652C67368F00035E67 /* SignInView.swift */,
 				196655692C67392900035E67 /* ScanView.swift */,
+				19C8C31B2C6CC48800581C8F /* ContactsView.swift */,
 			);
 			path = SubPage;
 			sourceTree = "<group>";
@@ -861,6 +867,7 @@
 				196655032C66681100035E67 /* AudioPlayerManager.swift in Sources */,
 				1966554F2C66FCCA00035E67 /* NetworkManager.swift in Sources */,
 				196655372C667B1000035E67 /* RealmManager.swift in Sources */,
+				19C8C31E2C6CC79600581C8F /* bookManager.swift in Sources */,
 				196654EF2C6662F800035E67 /* ExampleView.swift in Sources */,
 				196655072C66696D00035E67 /* RouterManager.swift in Sources */,
 				196655582C6728E600035E67 /* EmailModal.swift in Sources */,
@@ -873,6 +880,7 @@
 				196655492C66FA3400035E67 /* AppIconView.swift in Sources */,
 				1966553F2C6680AF00035E67 /* String+.swift in Sources */,
 				1966553D2C667CE200035E67 /* MessageView.swift in Sources */,
+				19C8C31C2C6CC48800581C8F /* ContactsView.swift in Sources */,
 				196655512C67270800035E67 /* Color+.swift in Sources */,
 				196654FF2C66664F00035E67 /* View+.swift in Sources */,
 				1941D3892C646B1400F4C6EC /* MeowApp.swift in Sources */,

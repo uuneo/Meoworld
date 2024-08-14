@@ -127,10 +127,6 @@ struct SettingsView: View {
                         .foregroundStyle(.gray)
                 }
                 
-              
-
-                
-                
                 Section(header: Text(NSLocalizedString("configTitle", comment: "配置"))) {
                     Button{
                         RouterManager.shared.sheetPage = .appIcon
@@ -314,41 +310,6 @@ struct SettingsView: View {
                     }
                    
                 }
-                
-                // MARK: GITHUB
-                if let infoDict = Bundle.main.infoDictionary,
-                   let runId = infoDict["GitHub Run Id"] as? String
-                {
-                    Section(footer:Text(NSLocalizedString("buildDesc",comment: ""))){
-                        Button{
-                            if let infoDict = Bundle.main.infoDictionary,
-                               let runId = infoDict["GitHub Run Id"] as? String{
-                                RouterManager.shared.webUrl = otherUrl.actinsRunUrl + runId
-                                RouterManager.shared.fullPage = .web
-                            }
-                            
-                        }label:{
-                            HStack{
-                                Label {
-                                    Text("Github Run Id")
-                                } icon: {
-                                    
-                                    Image("github")
-                                        .resizable()
-                                        .scaledToFit()
-                                        .frame(width: 30)
-                                        .scaleEffect(0.9)
-                                }
-                              
-                                Spacer()
-                                Text(runId)
-                                    .foregroundStyle(.gray)
-                                Image(systemName: "chevron.right")
-                            }.foregroundStyle(.lightDark)
-                        }
-                    }
-                }
-                
                 
                 
             }.listStyle(.insetGrouped)

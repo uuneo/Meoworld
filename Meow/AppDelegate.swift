@@ -34,16 +34,17 @@ class AppDelegate: NSObject, UIApplicationDelegate{
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         let token = deviceToken.map { String(format: "%02.2hhx", $0) }.joined()
-        // MARK: 将设备令牌发送到服务器
-#if DEBUG
-        debugPrint("设备令牌:",token)
-#endif
         
-        MainManager.shared.deviceToken = token
-        // MARK: 注册设备
-        Task{
-           await MainManager.shared.registerAll()
+        // MARK: 将设备令牌发送到服务器
+        if MainManager.shared.deviceToken != token{
+            MainManager.shared.deviceToken = token
+            // MARK: 注册设备
+            Task{
+               await MainManager.shared.registerAll()
+            }
         }
+        
+       
         
     }
     

@@ -114,10 +114,6 @@ extension MainManager{
     
     
     func register(server: serverInfo) async  {
-#if DEBUG
-        print("注册设备")
-#endif
-        
         
         guard let index = servers.firstIndex(where: {$0.id == server.id}) else {
 #if DEBUG
@@ -135,7 +131,6 @@ extension MainManager{
 #if DEBUG
                     print("注册设备: \(String(describing: deviceInfo))")
 #endif
-
                 }
             }
             

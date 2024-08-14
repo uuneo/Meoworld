@@ -16,8 +16,6 @@ struct MeowApp: SwiftUI.App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-              
-            
         }
         
     }
