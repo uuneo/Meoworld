@@ -163,6 +163,7 @@
 		196655772C67837900035E67 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 196655752C67837900035E67 /* InfoPlist.strings */; };
 		1966557A2C67C26300035E67 /* Localizable.strings in Sources */ = {isa = PBXBuildFile; fileRef = 1941D3C82C64D8FF00F4C6EC /* Localizable.strings */; };
 		1966557E2C690FCF00035E67 /* ActionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1966557D2C690FCF00035E67 /* ActionHandler.swift */; };
+		1992DCCD2C6F8606004A5259 /* SoundHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1992DCCC2C6F8606004A5259 /* SoundHandler.swift */; };
 		19C8C31C2C6CC48800581C8F /* ContactsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C8C31B2C6CC48800581C8F /* ContactsView.swift */; };
 		19C8C31E2C6CC79600581C8F /* bookManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C8C31D2C6CC79600581C8F /* bookManager.swift */; };
 		19CD2F762C6CE40C000C79ED /* RealmSwift in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 1941D4692C66215A00F4C6EC /* RealmSwift */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
@@ -333,6 +334,7 @@
 		196655782C67837C00035E67 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		196655792C67BFF000035E67 /* NotificationServiceExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NotificationServiceExtension.entitlements; sourceTree = "<group>"; };
 		1966557D2C690FCF00035E67 /* ActionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionHandler.swift; sourceTree = "<group>"; };
+		1992DCCC2C6F8606004A5259 /* SoundHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundHandler.swift; sourceTree = "<group>"; };
 		19C8C31B2C6CC48800581C8F /* ContactsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsView.swift; sourceTree = "<group>"; };
 		19C8C31D2C6CC79600581C8F /* bookManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bookManager.swift; sourceTree = "<group>"; };
 		19CD2F742C6CE101000C79ED /* NotificationContentExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NotificationContentExtension.entitlements; sourceTree = "<group>"; };
@@ -512,6 +514,7 @@
 				1941D3DD2C64DC0900F4C6EC /* ImageHandler.swift */,
 				1941D3DF2C64DC3B00F4C6EC /* CallHandler.swift */,
 				1966557D2C690FCF00035E67 /* ActionHandler.swift */,
+				1992DCCC2C6F8606004A5259 /* SoundHandler.swift */,
 			);
 			path = Handler;
 			sourceTree = "<group>";
@@ -904,6 +907,7 @@
 				1941D3E52C64DF3900F4C6EC /* BaseConfig.swift in Sources */,
 				1941D3D22C64DA5400F4C6EC /* CiphertextHandler.swift in Sources */,
 				1941D3DA2C64DB6E00F4C6EC /* ArchiveHandler.swift in Sources */,
+				1992DCCD2C6F8606004A5259 /* SoundHandler.swift in Sources */,
 				1941D3DC2C64DBAF00F4C6EC /* IconHandler.swift in Sources */,
 				1941D3D82C64DB0900F4C6EC /* AutoCopyHandler.swift in Sources */,
 				1941D3E72C64DFF300F4C6EC /* ToolsManager.swift in Sources */,

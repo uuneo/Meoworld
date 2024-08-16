@@ -207,11 +207,17 @@ struct SettingsView: View {
                         RingtongView()
                     }label: {
                         
-                        Label {
-                            Text(NSLocalizedString("musicConfigList", comment: "铃声列表") )
-                        } icon: {
-                            Image(systemName: "headphones.circle")
+                        HStack{
+                            Label {
+                                Text(NSLocalizedString("musicConfigList", comment: "铃声列表") )
+                            } icon: {
+                                Image(systemName: "headphones.circle")
+                                    .scaleEffect(0.9)
+                            }
+                            Spacer()
+                            Text(toolsManager.sound)
                                 .scaleEffect(0.9)
+                                .foregroundStyle(.gray)
                         }
                     }
                     

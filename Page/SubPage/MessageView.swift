@@ -12,7 +12,6 @@ struct MessageView: View {
     @ObservedRealmObject var message:Message
     @AppStorage("setting_active_app_icon") var setting_active_app_icon:appIcon = .def
     @State private var toastText:String = ""
-    @State private var showMark:Bool = false
     @State private var textHeight: CGFloat = .zero
     
     
@@ -24,23 +23,12 @@ struct MessageView: View {
         Section {
         
             Grid{
-                if showMark{
-                    GridRow(alignment: .center) {
-                        logoView
-                            .transition(.scale)
-                            
-                    }
-                    .gridCellColumns(2)
-                }
-               
+
                 
                 
                 GridRow {
-                    if !showMark{
-                        logoView
-                            .transition(.scale)
-                            
-                    }
+                   
+                    logoView
                     
                     VStack(alignment: .leading, spacing:5){
                         
@@ -60,9 +48,9 @@ struct MessageView: View {
                         Spacer()
                         
                       
-                    }.padding( showMark ? .vertical : .leading)
+                    }.padding( .leading)
                 }
-                .gridCellColumns(showMark ? 2 : 1)
+                .gridCellColumns(1)
                 
                 
             }
@@ -92,10 +80,15 @@ extension MessageView{
                 if let icon = message.icon,
                    ToolsManager.startsWithHttpOrHttps(icon){
                     AsyncImageView(imageUrl: icon )
-                    
                 }else{
-                    Image(setting_active_app_icon.toLogoImage)
-                        .resizable()
+                    if let mode = message.mode,mode == "1"{
+                        Image(appIcon.zero.toLogoImage)
+                            .resizable()
+                    }else{
+                        Image(setting_active_app_icon.toLogoImage)
+                            .resizable()
+                    }
+                   
                 }
             }
             .aspectRatio(contentMode: .fit)

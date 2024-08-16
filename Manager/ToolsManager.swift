@@ -23,6 +23,8 @@ class ToolsManager: ObservableObject {
     
     @AppStorage(BaseConfig.emailConfig,store: defaultStore) var email:emailConfig = emailConfig.data
     
+    @AppStorage(BaseConfig.defaultSound, store: defaultStore) var sound:String = "silence"
+    
     // MARK: 解密
     func decrypt(ciphertext: String, iv: String? = nil) throws -> [AnyHashable: Any] {
         

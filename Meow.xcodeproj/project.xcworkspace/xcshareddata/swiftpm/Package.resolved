@@ -1,5 +1,5 @@
 {
-  "originHash" : "d04295d431fc501899e6ea1bac0a3ef29a10fd75f379cc8d011258b4485c8a6e",
+  "originHash" : "c052f587dfa050735e63c58512f11c79f01cff873ab1bf26c1b392390aa03e43",
   "pins" : [
     {
       "identity" : "bluecryptor",
@@ -79,7 +79,7 @@
       "location" : "https://github.com/realm/realm-swift",
       "state" : {
         "branch" : "master",
-        "revision" : "76d79455a3d736ec01d4ef1864aa62cc5f0fc2cb"
+        "revision" : "95c99a826aa06dae3ca40011491afd5acf890ad5"
       }
     },
     {

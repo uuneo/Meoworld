@@ -32,12 +32,15 @@ class NotificationService: UNNotificationServiceExtension {
             // call 需要放在最后面，因为这个 Processor 不会主动退出， 会一直等到 ServiceExtension 被终止
             let processors: [NotificationContentHandlerItem] = [
                 .ciphertext,
+                .sound,
                 .level,
                 .autoCopy,
                 .archive,
                 .setIcon,
                 .setImage,
-                .call
+                .action,
+                .call,
+                
             ]
             
             // 各个 processor 依次对推送进行处理

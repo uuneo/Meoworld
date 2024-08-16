@@ -104,10 +104,15 @@ pushExampleTitle3 =  "推送铃声";
 pushExampleParams3 = "推送内容?sound=minuet";
 
 
-pushExampleHeader4 = "自定义推送图标";
+pushExampleHeader4 = "需要ios15及以上";
 pushExampleFooter4 = "可以自定义icon=https://图片网址";
 pushExampleTitle4 = "自定义icon";
 pushExampleParams4 = "推送内容?icon=warn";
+
+pushExampleHeader5 = "";
+pushExampleFooter5 ="如果要使用这个参数，设置中的角标模式需要设置成自定义";
+pushExampleTitle5 =  "自定义角标";
+pushExampleParams5 = "自定义角标?badge=1";
 
 pushExampleHeader6 = "自动保存";
 pushExampleFooter6 = "消息默认保存，除非携带isArchive=0，信息不会在前台出现";
@@ -120,10 +125,31 @@ pushExampleTitle7 = "打开第三方App或者网站";
 pushExampleParams7 = "推送内容?icon=weixin&url=weixin://";
 
 
-pushExampleHeader8 = "参数均可单独或组合使用";
-pushExampleFooter8 = "参数权重: URL > GET > POST\n 如果不指定url参数，需调用接口:http://服务器地址/push";
-pushExampleTitle8 = "完整参数";
-pushExampleParams8 = "?title=title&body=body&icon=https://day.app/assets/images/avatar.jpg&image=https://day.app/assets/images/avatar.jpg&url=weixin://&sound=alarm&group=分组&copy=这是一段要复制的内容&autocopy=1&isArchive=1&badge=99";
+pushExampleHeader8 = "默认分组名：信息";
+pushExampleFooter8 = "推送将按照group参数分组显示在通知中心和应用程序内";
+pushExampleTitle8 = "推送消息分组";
+pushExampleParams8 = "推送消息分组?group=groupName";
+
+
+pushExampleHeader9 = "持续响铃";
+pushExampleFooter9 ="通知铃声将持续播放30s，同时收到多个将按顺序依次响铃";
+pushExampleTitle9 =  "持续响铃";
+pushExampleParams9 = "持续响铃?call=1";
+
+pushExampleHeader10 = "可对通知设置中断级别";
+pushExampleFooter10 ="可选参数值：\nactive: 默认值，系统会立即亮屏显示通知。\ntimeSensitive: 时效性通知，可在专注模式下显示通知。\npassive： 仅添加到列表，不会亮屏提醒";
+pushExampleTitle10 =  "时效性通知";
+pushExampleParams10 = "时效性通知?level=timeSensitive";
+
+pushExampleHeader11 = "需要在设置>算法设置中进行配置";
+pushExampleFooter11 = "发送和接收时对推送内容进行加密和解密";
+pushExampleTitle11 = "推送加密";
+pushExampleParams11 = "?ciphertext=加密后的数据";
+
+pushExampleHeader12 = "参数均可单独或组合使用";
+pushExampleFooter12 = "参数权重: URL > GET > POST\n 如果不指定url参数，需调用接口:http://服务器地址/push";
+pushExampleTitle12 = "完整参数";
+pushExampleParams12 = "?title=title&body=body&icon=https://day.app/assets/images/avatar.jpg&image=https://day.app/assets/images/avatar.jpg&url=weixin://&sound=alarm&group=分组&copy=这是一段要复制的内容&autocopy=1&isArchive=1&badge=99&call=1";
 
 
 
@@ -282,7 +308,7 @@ scanViewAnewScan =  "重新扫码";
 
 paramsError = "参数错误";
 
-musicConfigList = "铃声列表";
+musicConfigList = "铃声设置";
 customRing = "自定义铃声";
 uploadRing = "上传铃声";
 ringTextHead = "请先将铃声";

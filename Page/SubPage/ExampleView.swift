@@ -73,10 +73,7 @@ extension ExampleView{
         ForEach(PushExample.datas,id: \.id){ item in
             let server =  manager.servers[pickerSeletion]
             let resultUrl = server.url + "/" + server.key + "/" + item.params
-            Section(
-                header:Text(item.header),
-                footer: Text(item.footer)
-            ) {
+            Section{
                 HStack{
                     Text(item.title)
                         .font(.headline)
@@ -86,11 +83,7 @@ extension ExampleView{
                         .padding(.horizontal)
                         .onTapGesture {
                             UIPasteboard.general.string = resultUrl
-                            
-                          
                             self.toastText = NSLocalizedString("copySuccessText", comment:  "复制成功")
-                            
-                          
                         }
                     Image(systemName: "safari")
                         .onTapGesture {
@@ -111,7 +104,19 @@ extension ExampleView{
                         }
                 }
                 Text(resultUrl).font(.caption)
+               
+            }header:{
+                Text(item.header)
+            }footer:{
+                VStack(alignment: .leading){
+                    Text(item.footer)
+                    Divider()
+                        .background(Color.blue)
+                }
+
             }
+            
+           
         }
        
     }

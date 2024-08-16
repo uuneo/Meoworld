@@ -100,10 +100,15 @@ pushExampleFooter3 ="Different ringtones can be set for the push";
 pushExampleTitle3 =  "Push Ringtones";
 pushExampleParams3 = "Push Content?sound=minuet";
 
-pushExampleHeader4 = "Customize icon";
+pushExampleHeader4 = "Requires iOS 15 or later";
 pushExampleFooter4 = "Customize icon with https://image-url";
 pushExampleTitle4 = "Custom Icon";
 pushExampleParams4 = "Push Content?icon=warn";
+
+pushExampleHeader5 = "";
+pushExampleFooter5 = "To use this parameter, the badge mode in Settings needs to be set to custom";
+pushExampleTitle5 =  "Custom Badge";
+pushExampleParams5 = "Custom badge?badge=1";
 
 
 pushExampleHeader6 = "Auto Save";
@@ -116,10 +121,32 @@ pushExampleFooter7 = "Click to open the app";
 pushExampleTitle7 = "Open Third-Party App or Website";
 pushExampleParams7 = "Push Content?icon=weixin&url=weixin://";
 
-pushExampleHeader8 = "Parameters can be used individually or in combination";
-pushExampleFooter8 = "Parameter priority: URL > GET > POST\n If url parameter is not specified, use the API: http://server-address/push";
-pushExampleTitle8 = "Complete Parameters";
-pushExampleParams8 = "?title=title&body=body&icon=https://day.app/assets/images/avatar.jpg&image=https://day.app/assets/images/avatar.jpg&url=weixin://&sound=alarm&group=Group&copy=This is a text to be copied&autocopy=1&isArchive=1&badge=99";
+pushExampleHeader8 = "Default group name: Information";
+pushExampleFooter8 = "Push notifications will be grouped according to the group parameter and displayed in the Notification Center and within the app";
+pushExampleTitle8 = "Push Notification Grouping";
+pushExampleParams8 = "Push notification grouping?group=groupName";
+
+pushExampleHeader9 = "Continuous Ringing";
+pushExampleFooter9 = "The notification sound will play continuously for 30 seconds. If multiple notifications are received, they will ring sequentially.";
+pushExampleTitle9 = "Continuous Ringing";
+pushExampleParams9 = "Push content?call=1";
+
+pushExampleHeader10 = "You can set the interruption level for notifications";
+pushExampleFooter10 = "Optional parameter values:\nactive: Default value, the system will immediately wake the screen to display the notification.\ntimeSensitive: Time-sensitive notifications, which can be displayed even in Focus mode.\npassive: Adds to the list only, without waking the screen for an alert";
+pushExampleTitle10 =  "Time-sensitive Notification";
+pushExampleParams10 = "Time-sensitive notification?level=timeSensitive";
+
+pushExampleHeader11 = "Needs to be configured in Settings > Algorithm Settings";
+pushExampleFooter11 = "Encrypt and decrypt push content when sending and receiving";
+pushExampleTitle11 = "Push Encryption";
+pushExampleParams11 = "?ciphertext=Encrypted data";
+
+
+pushExampleHeader12 = "Parameters can be used individually or in combination";
+pushExampleFooter12 = "Parameter priority: URL > GET > POST\n If url parameter is not specified, use the API: http://server-address/push";
+pushExampleTitle12 = "Complete Parameters";
+pushExampleParams12 = "?title=title&body=body&icon=https://day.app/assets/images/avatar.jpg&image=https://day.app/assets/images/avatar.jpg&url=weixin://&sound=alarm&group=Group&copy= needs to be copied.&autocopy=1&isArchive=1&badge=99&call=1";
+
 
 updateSuccess = "Update Completed";
 addNewServerList = "Add New Server";
@@ -285,7 +312,7 @@ scanViewAnewScan = "Rescan";
 paramsError = "Url Error;";
 
 
-musicConfigList = "Ringtone List";
+musicConfigList = "Ringtone Settings";
 customRing = "Custom Ringtone";
 uploadRing = "Upload Ringtone";
 ringTextHead = "Please convert the ringtone";

@@ -13,16 +13,27 @@ class IconHandler: NotificationContentHandler{
         if #available(iOSApplicationExtension 15.0, *) {
             let userInfo = bestAttemptContent.userInfo
             
-            guard let imageUrl = userInfo["icon"] as? String,
-                  let imageFileUrl = await ImageDownloader.downloadImage(imageUrl)
-            else {
-                return bestAttemptContent
+            var avatar = INImage(named: appIcon.zero.toLogoImage)
+            
+
+            if let imageUrl = userInfo["icon"] as? String,
+               let imageFileUrl = await ImageDownloader.downloadImage(imageUrl){
+                
+                avatar = INImage(imageData: NSData(contentsOfFile: imageFileUrl)! as Data)
+                
+            }else{
+                guard userInfo["mode"] as? String == "1" || userInfo["call"] as? String == "1" else{
+                    return bestAttemptContent
+                }
             }
+            
+            
             
             var personNameComponents = PersonNameComponents()
             personNameComponents.nickname = bestAttemptContent.title
             
-            let avatar = INImage(imageData: NSData(contentsOfFile: imageFileUrl)! as Data)
+           
+            
             let senderPerson = INPerson(
                 personHandle: INPersonHandle(value: "", type: .unknown),
                 nameComponents: personNameComponents,

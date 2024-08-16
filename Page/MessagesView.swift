@@ -91,14 +91,19 @@ struct MessagesView: View {
                                     VStack( spacing:10){
                                         
                                         Group{
+            
                                             if let icon = message.icon,
                                                ToolsManager.startsWithHttpOrHttps(icon){
-                                                
                                                 AsyncImageView(imageUrl: icon )
-                                                
                                             }else{
-                                                Image(setting_active_app_icon.toLogoImage)
-                                                    .resizable()
+                                                if let mode = message.mode,mode == "1"{
+                                                    Image(appIcon.zero.toLogoImage)
+                                                        .resizable()
+                                                }else{
+                                                    Image(setting_active_app_icon.toLogoImage)
+                                                        .resizable()
+                                                }
+                                               
                                             }
                                         }
                                         .aspectRatio(contentMode: .fit)

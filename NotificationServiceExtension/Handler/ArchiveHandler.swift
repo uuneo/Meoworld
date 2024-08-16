@@ -32,6 +32,9 @@ class ArchiveHandler: NotificationContentHandler{
             let group = userInfo["group"] as? String 
             let icon = userInfo["icon"] as? String
             
+            if group == nil{
+                bestAttemptContent.threadIdentifier = NSLocalizedString("defultGroup", comment: "")
+            }
             
             var mode:String? {
                 if let mode = userInfo["mode"] as? String{
@@ -68,6 +71,10 @@ class ArchiveHandler: NotificationContentHandler{
                 bestAttemptContent.badge = NSNumber(value: badge)
             }
         }
+        
+        
+        
+        
         
         return bestAttemptContent
     }

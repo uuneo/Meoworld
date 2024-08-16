@@ -12,51 +12,80 @@ struct RingtoneItemView: View {
     @State var audio:URL
     @State var duration:Double = 0.0
     
+    @AppStorage(BaseConfig.defaultSound, store: defaultStore) var sound:String = "silence"
+    
     var name:String {
-        return audio.deletingPathExtension().lastPathComponent
+        audio.deletingPathExtension().lastPathComponent
     }
     @ObservedObject var audioPlayerManager: AudioPlayerManager
     @Binding var toastText:String
+    
+    var selectSound:Bool{
+        sound == audio.deletingPathExtension().lastPathComponent
+        
+    }
+    
     var body: some View{
         HStack{
-            Button{
-                audioPlayerManager.togglePlay(audioURL: audio)
-            }label: {
-                VStack(alignment: .leading){
-                    Text("\(name)")
-                        .foregroundStyle(Color("light_dark"))
-                    Text("\(formatDuration(duration))s")
-                        .font(.caption)
-                        .foregroundStyle(.gray)
+            
+            HStack{
+                if selectSound{
+                    Image(systemName: "checkmark.circle")
+                        .frame(width: 35)
+                        .foregroundStyle(Color.green)
+                }
+                
+                Button{
+                    audioPlayerManager.togglePlay(audioURL: audio)
+                }label: {
+                    VStack(alignment: .leading){
+                        Text("\(name)")
+                            .foregroundStyle(Color("light_dark"))
+                        Text("\(formatDuration(duration))s")
+                            .font(.caption)
+                            .foregroundStyle(.gray)
+                    }
                 }
             }
             
-           
-                HStack{
-                    Spacer()
-                    if duration <= 30{
+            
+            
+            
+            HStack{
+                Spacer()
+                if duration <= 30{
                     Image(systemName: "doc.on.doc")
                         .foregroundStyle(.gray)
                         .onTapGesture {
                             UIPasteboard.general.string = self.name
                             self.toastText =  NSLocalizedString("copySuccessText",comment: "")
                         }
-                    }else{
-                        Text(NSLocalizedString("musicLong30",comment: "长度不能超过30秒"))
-                            .foregroundStyle(.red)
-                    }
-                    
+                }else{
+                    Text(NSLocalizedString("musicLong30",comment: "长度不能超过30秒"))
+                        .foregroundStyle(.red)
                 }
-           
-           
+                
+            }
             
-           
             
-        }.task {
+            
+            
+            
+        }
+        .swipeActions(edge: .leading) {
+            Button {
+                sound = audio.deletingPathExtension().lastPathComponent
+            } label: {
+                Text("选择")
+            }
+            
+        }
+        
+        .task {
             do {
                 let duration = try await loadVideoDuration(fromURL: self.audio)
                 self.duration =  duration
-               
+                
                 
             } catch {
 #if DEBUG

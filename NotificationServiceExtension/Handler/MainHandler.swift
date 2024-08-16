@@ -10,6 +10,7 @@ import Foundation
 
 enum NotificationContentHandlerItem {
     case ciphertext
+    case sound
     case level
     case autoCopy
     case archive
@@ -17,6 +18,7 @@ enum NotificationContentHandlerItem {
     case setImage
     case action
     case call
+    
     
     
     var processor: NotificationContentHandler {
@@ -37,6 +39,9 @@ enum NotificationContentHandlerItem {
             return CallHandler()
         case .action:
             return ActionHandler()
+        case .sound:
+            return SoundHandler()
+    
         }
     }
 }

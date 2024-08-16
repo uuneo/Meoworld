@@ -96,7 +96,8 @@ struct RingtongView: View {
             
             Section{
                 ForEach(audioMusics.0, id: \.self) { url in
-               RingtoneItemView(audio: url,audioPlayerManager: AudioPlayerManager.shard,toastText: $toastText)
+                    RingtoneItemView(audio: url,audioPlayerManager: AudioPlayerManager.shard,toastText: $toastText)
+                        
                 }
             }header: {
                 Text(NSLocalizedString("systemRing", comment: "自带铃声"))

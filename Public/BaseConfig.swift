@@ -80,6 +80,7 @@ struct BaseConfig {
     static let  Sounds = "Sounds"
     static let  archiveName = "meowArchive"
     static let  realmModalVersion:UInt64 = 2
+    static let  defaultSound = "defaultSound"
     
 
 }
