@@ -20,6 +20,8 @@ func dispatch_sync_safely_main_queue(_ block: () -> ()) {
 }
 
 
+
+
 struct CirclePreferenceKey: PreferenceKey {
     static var defaultValue: CGFloat = 0
     static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) {

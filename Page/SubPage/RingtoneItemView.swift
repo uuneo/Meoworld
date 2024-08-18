@@ -75,6 +75,7 @@ struct RingtoneItemView: View {
         .swipeActions(edge: .leading) {
             Button {
                 sound = audio.deletingPathExtension().lastPathComponent
+                audioPlayerManager.togglePlay(audioURL: audio)
             } label: {
                 Text("选择")
             }

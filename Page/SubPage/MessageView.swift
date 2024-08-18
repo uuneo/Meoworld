@@ -36,6 +36,7 @@ struct MessageView: View {
                         if let title = message.title{
                             highlightedText(searchText: searchText, text: title)
                                 .font(.system(.headline))
+                                .textSelection(.enabled)
                                 
                             Divider()
                         }
@@ -43,6 +44,7 @@ struct MessageView: View {
                         if let body = message.body{
                             highlightedText(searchText: searchText, text: body)
                                 .font(.subheadline)
+                                .textSelection(.enabled)
                         }
            
                         Spacer()

@@ -10,6 +10,7 @@ import RealmSwift
 
 struct MessageDetailView: View {
     var messages:Results<Message>
+    
     @Environment(\.dismiss) private var dismiss
     @Environment(\.presentationMode) var presentationMode
     @State private var toastText:String = ""

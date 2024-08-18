@@ -313,12 +313,12 @@ paramsError = "Url Error;";
 
 
 musicConfigList = "Ringtone Settings";
-customRing = "Custom Ringtone";
+customRing = "Custom Ringtone，swipe right to set as default.";
 uploadRing = "Upload Ringtone";
 ringTextHead = "Please convert the ringtone";
 ringTextBody = "to caf format";
 ringTextFooter = "with a duration not exceeding 30 seconds.";
-systemRing = "System Ringtones";
+systemRing = "Ringtones, swipe right to set as default.";
 
 
 musicLong30 = "Max 30 sec";
@@ -346,3 +346,4 @@ notificationAndNetwork = "open Net And Noti";
 
 defaultSave = "Archive by Default";
 archiveNote = "Archive notifications by default if the 'isArchive' parameter is unset.";
+

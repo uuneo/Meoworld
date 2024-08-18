@@ -7,13 +7,11 @@
 
 import SwiftUI
 import RealmSwift
-import CloudKit
 import Combine
-
 
 struct SettingsView: View {
     @ObservedResults(Message.self) var messages
-
+    
     @State private var isArchive:Bool = false
     @State private var webShow:Bool = false
     @State private var webUrl:String = otherUrl.helpWebUrl
@@ -33,29 +31,25 @@ struct SettingsView: View {
     @StateObject private var toolsManager = ToolsManager.shared
     @AppStorage("setting_active_app_icon") var setting_active_app_icon:appIcon = .def
     
+    @State private var document = TextDocument(text: "123")
+    
     @State private var timerz: AnyCancellable?
     
     var body: some View {
         
         VStack{
             List{
-        
-              
+                
+                
                 
                 Section(header:Text(NSLocalizedString("exportHeader",comment: ""))) {
                     HStack{
+        
                         Button {
                             
                             if RealmManager.shared.getObject()?.count ?? 0 > 0{
-                                
                                 self.showLoading = true
-                                
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3){
-                                    self.exportJSON()
-                                    self.showLoading = false
-                                    self.isShareSheetPresented.toggle()
-                                }
-                               
+                                self.exportFiles()
                                
                             }else{
                                 self.toastText = NSLocalizedString("nothingMessage", comment: "")
@@ -68,7 +62,7 @@ struct SettingsView: View {
                             Label {
                                 Text(NSLocalizedString("exportTitle",comment: ""))
                             } icon: {
-                                Image(systemName: "square.and.arrow.down")
+                                Image(systemName: "square.and.arrow.up")
                                     .scaleEffect(0.9)
                             }
                             
@@ -76,7 +70,7 @@ struct SettingsView: View {
                             
                             
                             
-
+                            
                         }
                         
                         Spacer()
@@ -84,14 +78,12 @@ struct SettingsView: View {
                     }
                     
                 }
-             
-                
                 Section(footer:Text(NSLocalizedString("deviceTokenHeader",comment: ""))) {
                     Button{
                         if manager.deviceToken != ""{
                             manager.copy(text:manager.deviceToken)
                             self.toastText = NSLocalizedString("copySuccessText", comment: "")
-                         
+                            
                         }else{
                             self.toastText = NSLocalizedString("needRegister", comment: "")
                         }
@@ -106,9 +98,9 @@ struct SettingsView: View {
                                 Image(systemName: "key.radiowaves.forward")
                                     .scaleEffect(0.9)
                             }
-
-
-                           
+                            
+                            
+                            
                             Spacer()
                             Text(maskString(manager.deviceToken))
                                 .foregroundStyle(.gray)
@@ -132,7 +124,7 @@ struct SettingsView: View {
                         RouterManager.shared.sheetPage = .appIcon
                     }label: {
                         
-
+                        
                         HStack(alignment:.center){
                             Label {
                                 Text(NSLocalizedString("AppIconTitle",comment: "程序图标"))
@@ -151,8 +143,8 @@ struct SettingsView: View {
                         }
                         
                     }
-                
-
+                    
+                    
                     Picker(selection: toolsManager.$badgeMode) {
                         Text(NSLocalizedString("badgeAuto",comment: "自动")).tag(badgeAutoMode.auto)
                         Text(NSLocalizedString("badgeCustom",comment: "自定义")).tag(badgeAutoMode.custom)
@@ -173,7 +165,7 @@ struct SettingsView: View {
                             ToolsManager.shared.changeBadge(badge: -1)
                         }
                     }
-
+                    
                     
                     
                     NavigationLink(destination:
@@ -191,7 +183,7 @@ struct SettingsView: View {
                     
                     NavigationLink(destination:
                                     CryptoConfigView()
-                                        .toolbar(.hidden, for: .tabBar)
+                        .toolbar(.hidden, for: .tabBar)
                     ) {
                         
                         
@@ -223,11 +215,11 @@ struct SettingsView: View {
                     
                     
                 }
-            
-
+                
+                
                 Section(header:Text(NSLocalizedString("otherHeader",comment: ""))) {
                     
-                   
+                    
                     Button{
                         manager.openSetting()
                     }label: {
@@ -241,7 +233,7 @@ struct SettingsView: View {
                                     .scaleEffect(0.9)
                                 
                             }
-
+                            
                             Spacer()
                             Image(systemName: "chevron.right")
                                 .foregroundStyle(.gray)
@@ -252,7 +244,7 @@ struct SettingsView: View {
                     Button{
                         RouterManager.shared.fullPage = .web
                         RouterManager.shared.webUrl =  otherUrl.problemWebUrl
-
+                        
                     }label: {
                         HStack(alignment:.center){
                             Label {
@@ -262,7 +254,7 @@ struct SettingsView: View {
                                 Image(systemName: "questionmark.circle")
                                     .scaleEffect(0.9)
                             }
-
+                            
                             Spacer()
                             Image(systemName: "chevron.right")
                                 .foregroundStyle(.gray)
@@ -283,7 +275,7 @@ struct SettingsView: View {
                                 Image(systemName: "person.crop.circle.badge.questionmark")
                                     .scaleEffect(0.9)
                             }
-
+                            
                             Spacer()
                             Image(systemName: "chevron.right")
                                 .foregroundStyle(.gray)
@@ -305,21 +297,21 @@ struct SettingsView: View {
                                 Image(systemName: "questionmark.circle")
                                     .scaleEffect(0.9)
                             }
-
+                            
                             Spacer()
                             Image(systemName: "chevron.right")
                                 .foregroundStyle(.gray)
                         }
                         
-                       
-
+                        
+                        
                     }
-                   
+                    
                 }
                 
                 
             }.listStyle(.insetGrouped)
-                
+            
             
         }
         .loading(showLoading)
@@ -345,9 +337,9 @@ struct SettingsView: View {
                                 .onDisappear{
                                     self.errorAnimate1 = false
                                 }
-                              
+                            
                         }
-
+                        
                     }
                 }
                 
@@ -370,7 +362,7 @@ struct SettingsView: View {
                                 }
                             
                         }
-
+                        
                     }
                     
                     
@@ -392,7 +384,7 @@ struct SettingsView: View {
                                 Image(systemName: "wifi.exclamationmark")
                                     .foregroundStyle(.yellow)
                                     .opacity(errorAnimate3 ? 1 : 0.1)
-                                   
+                                
                             }
                             .onAppear{
                                 withAnimation(Animation.bouncy(duration: 0.5).repeatForever()) {
@@ -403,19 +395,19 @@ struct SettingsView: View {
                                 self.errorAnimate3 = false
                             }
                             
-                          
+                            
                             
                         }
-
+                        
                     }
                     
                     
                 }
             }
             
-           
+            
             ToolbarItem {
-     
+                
                 Button {
                     
                     RouterManager.shared.showServerListView.toggle()
@@ -423,17 +415,19 @@ struct SettingsView: View {
                     Image(systemName: "externaldrive.badge.wifi")
                         .foregroundStyle(serverColor)
                 }
-
+                
             }
-        
+            
             
         }
-
+       
+        
         .sheet(isPresented: $isShareSheetPresented) {
-            ShareSheet(activityItems: [self.jsonFileUrl!])
+            ShareSheet(fileUrl: jsonFileUrl!)
                 .presentationDetents([.medium, .large])
         }
         .onAppear {
+            
             DispatchQueue.global().async {
                 Task{
                     let color = await MainManager.shared.healthAllColor()
@@ -447,7 +441,8 @@ struct SettingsView: View {
             ServersView()
                 .toolbar(.hidden, for: .tabBar)
         }
-       
+      
+        
         
         
     }
@@ -466,45 +461,61 @@ extension SettingsView{
         
         return start + masked + end
     }
+    
+    
+    
 }
 
 
 
 extension SettingsView{
-    func exportJSON() {
-        do {
-            let msgs = Array(messages)
-            let jsonData = try JSONEncoder().encode(msgs)
-            
-            guard let jsonString = String(data: jsonData, encoding: .utf8),
-                  let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else{
+    
+    func exportFiles(){
+        
+        DispatchQueue.global().async {
+            do{
                 
-                self.toastText = NSLocalizedString("exportFail", comment: "")
-               
-                return
+                let realm = try Realm()
+                
+                let messages = realm.objects(Message.self).sorted(byKeyPath: "createDate", ascending: false)
+                let jsonData = try JSONEncoder().encode(messages)
+                
+                let fileManager = FileManager.default
+                let tempDirectoryURL = fileManager.temporaryDirectory
+                let fileName = "meow_messages_\(Date().formatString(format: "yyyy_MM_dd_HH_mm_ss")).json"
+                let linkURL = tempDirectoryURL.appendingPathComponent(fileName)
+                
+                // 清空temp文件夹
+                try fileManager
+                    .contentsOfDirectory(at: tempDirectoryURL, includingPropertiesForKeys: nil, options: .skipsSubdirectoryDescendants)
+                    .forEach { file in
+                        try? fileManager.removeItem(atPath: file.path)
+                    }
+                
+                
+                try jsonData.write(to: linkURL)
+                DispatchQueue.main.async {
+                    self.jsonFileUrl = linkURL
+                    self.toastText = NSLocalizedString("exportSuccess", comment: "")
+                    self.showLoading = false
+                    self.isShareSheetPresented.toggle()
+                }
+                
+                
+             
+                
+                
+                
+                
+            } catch {
+    #if DEBUG
+                print("errors: \(error.localizedDescription)")
+    #endif
+                
             }
-            
-            let fileURL = documentsDirectory.appendingPathComponent("messages.json")
-            try jsonString.write(to: fileURL, atomically: false, encoding: .utf8)
-            self.jsonFileUrl = fileURL
-            self.toastText = NSLocalizedString("exportSuccess", comment: "")
-
-#if DEBUG
-            print("JSON file saved at: \(fileURL.absoluteString)")
-#endif
-            
-            
-           
-           
-        } catch {
-            
-            self.toastText = NSLocalizedString("exportFail", comment: "")
-           
-#if DEBUG
-            print("Error encoding JSON: \(error.localizedDescription)")
-#endif
-           
         }
+        
+       
     }
     
     func getDocumentsDirectory() -> URL {

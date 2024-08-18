@@ -6,16 +6,21 @@
 //
 
 import SwiftUI
+import UIKit
 
 struct ShareSheet: UIViewControllerRepresentable {
-    let activityItems: [Any]
+    let fileUrl: URL
+    let applicationActivities: [UIActivity]? = nil
     
     func makeUIViewController(context: Context) -> UIActivityViewController {
-        let activityViewController = UIActivityViewController(activityItems: activityItems, applicationActivities: nil)
-        return activityViewController
+        
+        
+        let viewController = UIActivityViewController(activityItems:[fileUrl],applicationActivities: applicationActivities)
+        
+        return viewController
     }
     
-    func updateUIViewController(_ uiViewController: UIActivityViewController, context: Context) {
-        // Update the view controller if needed
-    }
+    func updateUIViewController(_ uiViewController: UIActivityViewController, context: Context) {}
+ 
 }
+

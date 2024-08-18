@@ -309,12 +309,12 @@ scanViewAnewScan =  "重新扫码";
 paramsError = "参数错误";
 
 musicConfigList = "铃声设置";
-customRing = "自定义铃声";
+customRing = "自定义铃声，右滑设置默认铃声";
 uploadRing = "上传铃声";
 ringTextHead = "请先将铃声";
 ringTextBody = "转换成 caf 格式";
 ringTextFooter  =  "时长不超过 30 秒。";
-systemRing = "自带铃声";
+systemRing = "自带铃声，右滑设置默认铃声";
 
 
 musicLong30 = "长度不能超过30秒";
@@ -337,3 +337,4 @@ notificationAndNetwork = "打开通知和网络";
 
 defaultSave = "默认保存";
 archiveNote = "当推送请求URL没有指定 isArchive 参数时，将按照此设置来决定是否保存通知消息";
+
