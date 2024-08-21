@@ -14,6 +14,7 @@ class MainManager:ObservableObject {
    static let shared = MainManager()
     
     @AppStorage(BaseConfig.deviceToken, store: defaultStore) var deviceToken:String = ""
+    @AppStorage(BaseConfig.voipDeviceToken,store: defaultStore) var voipDeviceToken = ""
     @AppStorage(BaseConfig.server) var servers:[serverInfo] = [serverInfo.serverDefault]
     
     

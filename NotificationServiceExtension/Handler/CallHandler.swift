@@ -38,6 +38,7 @@ class CallHandler: NotificationContentHandler {
           self.sendLocalNotification(identifier: identifier, content: bestAttemptContent)
           self.cancelRemoteNotification(content: bestAttemptContent)
           await startAudioWork()
+
           return bestAttemptContent
       }
       

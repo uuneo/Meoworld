@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftyJSON
 
 class ArchiveHandler: NotificationContentHandler{
     private lazy var realm: Realm? = {

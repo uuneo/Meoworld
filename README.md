@@ -26,3 +26,7 @@
 ## 贡献
 
 我们欢迎开发者和用户贡献代码、报告问题或提出改进建议。你可以通过 GitHub 提交 PR 或 Issues。
+
+### VOIP
+
+* openssl pkcs12 -in pushvoip.p12 -out VOIP.pem -nodes -clcerts -legacy

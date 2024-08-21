@@ -7,7 +7,8 @@
 
 import Foundation
 import UIKit
-
+import PushKit
+import SwiftyJSON
 
 struct Identifiers {
     static let reminderCategory = "myNotificationCategory"
@@ -40,15 +41,15 @@ class AppDelegate: NSObject, UIApplicationDelegate{
             MainManager.shared.deviceToken = token
             // MARK: 注册设备
             Task{
-               await MainManager.shared.registerAll()
+                await MainManager.shared.registerAll()
             }
         }
         
-       
+        
         
     }
     
-
+    
     
     
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
@@ -81,6 +82,8 @@ class AppDelegate: NSObject, UIApplicationDelegate{
         UNUserNotificationCenter.current().setNotificationCategories([category])
         
         
+        self.voipRegistration()
+        
         
         return true
     }
@@ -96,11 +99,11 @@ class AppDelegate: NSObject, UIApplicationDelegate{
     
     
     
-   
     
-
     
-
+    
+    
+    
     
     
     /// 停止响铃
@@ -113,13 +116,59 @@ class AppDelegate: NSObject, UIApplicationDelegate{
     
     
     
-    
 }
 
 
-class QuickActionSceneDelegate:UIResponder,UIWindowSceneDelegate{
-    func windowScene(_ windowScene: UIWindowScene, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
-        QuickAction.selectAction = shortcutItem
+
+extension AppDelegate :PKPushRegistryDelegate{
+    
+    func pushRegistry(_ registry: PKPushRegistry, didUpdate pushCredentials: PKPushCredentials, for type: PKPushType) {
+        print(pushCredentials.token)
+        let deviceToken = pushCredentials.token.map { String(format: "%02x", $0) }.joined()
+        
+        MainManager.shared.voipDeviceToken = deviceToken
+#if DEBUG
+        print("pushRegistry -> deviceToken :\(deviceToken)")
+#endif
+        
+    }
+    
+    func pushRegistry(_ registry: PKPushRegistry, didInvalidatePushTokenFor type: PKPushType) {
+        print("pushRegistry:didInvalidatePushTokenForType:")
+    }
+    // Register for VoIP notifications
+    func voipRegistration() {
+        // Create a push registry object
+        let mainQueue = DispatchQueue.main
+        let voipRegistry: PKPushRegistry = PKPushRegistry(queue: mainQueue)
+        voipRegistry.delegate = self
+        voipRegistry.desiredPushTypes = [PKPushType.voIP]
+    }
+    
+    // Handle incoming pushes
+    func pushRegistry(_ registry: PKPushRegistry, didReceiveIncomingPushWith payload: PKPushPayload, for type: PKPushType, completion: @escaping () -> Void) {
+        let data = payload.dictionaryPayload
+        
+        debugPrint(data)
+        
+        let name = (data["aps"] as? [String: Any])?["name"] as? String
+        
+        
+        let uuid  = UUID()
+        
+        CallManager.shared.reportIncomingCall(uuid: uuid, sender: name ?? "Lynn", hasVideo: false) { eror in
+            if let error = eror{
+                print(error)
+            }
+        }
+        
+//        
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 10){
+//            CallManager.shared.endCall(uuid: uuid, endedAt: .now, reason: .remoteEnded)
+//        }
+//    
+        
+        
     }
 }
 
@@ -168,10 +217,21 @@ extension AppDelegate :UNUserNotificationCenterDelegate{
         if UIApplication.shared.applicationState == .active {
             stopCallNotificationProcessor()
         }
-       
+        
         
         
     }
-
+    
 }
+
+
+
+
+
+class QuickActionSceneDelegate:UIResponder,UIWindowSceneDelegate{
+    func windowScene(_ windowScene: UIWindowScene, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
+        QuickAction.selectAction = shortcutItem
+    }
+}
+
 

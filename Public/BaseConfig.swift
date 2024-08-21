@@ -63,6 +63,7 @@ struct BaseConfig {
     static let  cloudMessageName = "MeowMessageCloud"
     static let  settingName = "cryptoSettingFields"
     static let  deviceToken = "deviceToken"
+    static let  voipDeviceToken = "voipDeviceToken"
     static let  imageCache = "shard"
     static let  badgemode = "Meowbadgemode"
     static let  server = "serverArrayStroage"

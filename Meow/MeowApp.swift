@@ -16,7 +16,7 @@ struct MeowApp: SwiftUI.App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-              
+            //          CallManager.shared.processForIncomingCall(sender: "Abhainy", uuid: UUID())
         }
         
     }

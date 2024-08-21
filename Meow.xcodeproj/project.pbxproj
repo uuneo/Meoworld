@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1924F7842C73237E007F43CD /* CallManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1924F7832C73237E007F43CD /* CallManager.swift */; };
+		1924F7872C73749F007F43CD /* Provider+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1924F7862C73749F007F43CD /* Provider+.swift */; };
+		1924F78A2C74E613007F43CD /* WebRTC in Frameworks */ = {isa = PBXBuildFile; productRef = 1924F7892C74E613007F43CD /* WebRTC */; };
 		1941D3892C646B1400F4C6EC /* MeowApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1941D3882C646B1400F4C6EC /* MeowApp.swift */; };
 		1941D38B2C646B1400F4C6EC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1941D38A2C646B1400F4C6EC /* ContentView.swift */; };
 		1941D38D2C646B1500F4C6EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1941D38C2C646B1500F4C6EC /* Assets.xcassets */; };
@@ -225,6 +228,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1924F7832C73237E007F43CD /* CallManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallManager.swift; sourceTree = "<group>"; };
+		1924F7862C73749F007F43CD /* Provider+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Provider+.swift"; sourceTree = "<group>"; };
 		1941D3852C646B1400F4C6EC /* Meow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Meow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1941D3882C646B1400F4C6EC /* MeowApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeowApp.swift; sourceTree = "<group>"; };
 		1941D38A2C646B1400F4C6EC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -352,6 +357,7 @@
 				196655432C6680FC00035E67 /* Kingfisher in Frameworks */,
 				1941D46A2C66215A00F4C6EC /* RealmSwift in Frameworks */,
 				196655562C67289E00035E67 /* SwiftSMTP in Frameworks */,
+				1924F78A2C74E613007F43CD /* WebRTC in Frameworks */,
 				196655452C66810D00035E67 /* SwiftyJSON in Frameworks */,
 				1966556D2C67397000035E67 /* QRScanner in Frameworks */,
 				1941D3EA2C64E29800F4C6EC /* CryptoSwift in Frameworks */,
@@ -472,6 +478,7 @@
 				1966554E2C66FCCA00035E67 /* NetworkManager.swift */,
 				19C8C31D2C6CC79600581C8F /* bookManager.swift */,
 				198037322C70C18000F9DBDD /* ExportManager.swift */,
+				1924F7832C73237E007F43CD /* CallManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -535,6 +542,7 @@
 				196655402C6680C800035E67 /* URLSession+.swift */,
 				196655502C67270800035E67 /* Color+.swift */,
 				198037342C70F6A400F9DBDD /* Object+.swift */,
+				1924F7862C73749F007F43CD /* Provider+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -649,6 +657,7 @@
 				196655442C66810D00035E67 /* SwiftyJSON */,
 				196655552C67289E00035E67 /* SwiftSMTP */,
 				1966556C2C67397000035E67 /* QRScanner */,
+				1924F7892C74E613007F43CD /* WebRTC */,
 			);
 			productName = Meow;
 			productReference = 1941D3852C646B1400F4C6EC /* Meow.app */;
@@ -734,6 +743,7 @@
 				1941D4682C66215A00F4C6EC /* XCRemoteSwiftPackageReference "realm-swift" */,
 				196655542C67289E00035E67 /* XCRemoteSwiftPackageReference "Swift-SMTP" */,
 				1966556B2C67397000035E67 /* XCRemoteSwiftPackageReference "QRScanner" */,
+				1924F7882C74E613007F43CD /* XCRemoteSwiftPackageReference "WebRTC" */,
 			);
 			productRefGroup = 1941D3862C646B1400F4C6EC /* Products */;
 			projectDirPath = "";
@@ -868,9 +878,11 @@
 				1966555C2C672BEE00035E67 /* ShareSheet.swift in Sources */,
 				1941D3992C64D4AE00F4C6EC /* BaseConfig.swift in Sources */,
 				196654FD2C6665E200035E67 /* ToastView.swift in Sources */,
+				1924F7842C73237E007F43CD /* CallManager.swift in Sources */,
 				1941D39F2C64D67E00F4C6EC /* MainManager.swift in Sources */,
 				196654E82C6634D200035E67 /* ToolBox.swift in Sources */,
 				1966553B2C667C9500035E67 /* MessageDetailView.swift in Sources */,
+				1924F7872C73749F007F43CD /* Provider+.swift in Sources */,
 				196655622C67308600035E67 /* LoadingView.swift in Sources */,
 				196655412C6680C800035E67 /* URLSession+.swift in Sources */,
 				196655312C66791000035E67 /* AsyncImageView.swift in Sources */,
@@ -1329,6 +1341,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		1924F7882C74E613007F43CD /* XCRemoteSwiftPackageReference "WebRTC" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/stasel/WebRTC";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 127.0.0;
+			};
+		};
 		1941D3E12C64DC8E00F4C6EC /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
@@ -1380,6 +1400,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		1924F7892C74E613007F43CD /* WebRTC */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1924F7882C74E613007F43CD /* XCRemoteSwiftPackageReference "WebRTC" */;
+			productName = WebRTC;
+		};
 		1941D3E22C64DC8E00F4C6EC /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 1941D3E12C64DC8E00F4C6EC /* XCRemoteSwiftPackageReference "Kingfisher" */;
