@@ -404,7 +404,7 @@ struct SettingsView: View {
                     
                 }
             }
-            
+
             
             ToolbarItem {
                 
@@ -417,6 +417,8 @@ struct SettingsView: View {
                 }
                 
             }
+            
+           
             
             
         }
@@ -441,7 +443,6 @@ struct SettingsView: View {
             ServersView()
                 .toolbar(.hidden, for: .tabBar)
         }
-      
         
         
         

@@ -28,3 +28,48 @@ extension CXProviderConfiguration {
     return configuration
     }
 }
+
+
+extension CXProvider {
+    // To ensure initializing only at once. Lazy stored property doesn't ensure it.
+    static var custom: CXProvider {
+        
+        // Configure provider with sendbird's customzied configuration.
+        let configuration = CXProviderConfiguration.custom
+        let provider = CXProvider(configuration: configuration)
+        
+        return provider
+    }
+}
+
+
+extension CXCallUpdate {
+    func update(with remoteUserID: String, hasVideo: Bool, incoming: Bool) {
+        // the other caller is identified by a CXHandle object
+        let remoteHandle = CXHandle(type: .generic, value: remoteUserID)
+        
+        self.remoteHandle = remoteHandle
+        self.localizedCallerName = remoteUserID
+        self.hasVideo = hasVideo
+    }
+    
+    func onFailed(with uuid: UUID) {
+        let remoteHandle = CXHandle(type: .generic, value: "Unknown")
+        
+        self.remoteHandle = remoteHandle
+        self.localizedCallerName = "Unknown"
+        self.hasVideo = false
+    }
+}
+
+
+typealias ErrorHandler = ((NSError?) -> ())
+
+
+extension Notification.Name {
+    static let DidCallEnd = Notification.Name("DidCallEnd")
+    static let DidCallAccepted = Notification.Name("DidCallAccepted")
+}
+
+
+

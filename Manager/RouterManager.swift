@@ -22,6 +22,7 @@ class RouterManager:ObservableObject{
     
     
     var fullPageShow:Binding<Bool>{
+    
         Binding {
             self.fullPage != .none
         } set: { value in

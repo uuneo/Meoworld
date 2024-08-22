@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 import PushKit
 import SwiftyJSON
+import CallKit
 
 struct Identifiers {
     static let reminderCategory = "myNotificationCategory"
@@ -20,6 +21,8 @@ struct Identifiers {
 class AppDelegate: NSObject, UIApplicationDelegate{
     
     let generator = UISelectionFeedbackGenerator()
+    
+    let pushRegistry = PKPushRegistry(queue: DispatchQueue.main)
     
     func setupRealm() {
         // Tell Realm to use this new configuration object for the default Realm
@@ -48,6 +51,8 @@ class AppDelegate: NSObject, UIApplicationDelegate{
         
         
     }
+    
+
     
     
     
@@ -82,7 +87,9 @@ class AppDelegate: NSObject, UIApplicationDelegate{
         UNUserNotificationCenter.current().setNotificationCategories([category])
         
         
-        self.voipRegistration()
+        pushRegistry.delegate = self
+        pushRegistry.desiredPushTypes = [.voIP]
+    
         
         
         return true
@@ -136,14 +143,7 @@ extension AppDelegate :PKPushRegistryDelegate{
     func pushRegistry(_ registry: PKPushRegistry, didInvalidatePushTokenFor type: PKPushType) {
         print("pushRegistry:didInvalidatePushTokenForType:")
     }
-    // Register for VoIP notifications
-    func voipRegistration() {
-        // Create a push registry object
-        let mainQueue = DispatchQueue.main
-        let voipRegistry: PKPushRegistry = PKPushRegistry(queue: mainQueue)
-        voipRegistry.delegate = self
-        voipRegistry.desiredPushTypes = [PKPushType.voIP]
-    }
+
     
     // Handle incoming pushes
     func pushRegistry(_ registry: PKPushRegistry, didReceiveIncomingPushWith payload: PKPushPayload, for type: PKPushType, completion: @escaping () -> Void) {
@@ -151,22 +151,12 @@ extension AppDelegate :PKPushRegistryDelegate{
         
         debugPrint(data)
         
-        let name = (data["aps"] as? [String: Any])?["name"] as? String
-        
-        
-        let uuid  = UUID()
-        
-        CallManager.shared.reportIncomingCall(uuid: uuid, sender: name ?? "Lynn", hasVideo: false) { eror in
-            if let error = eror{
-                print(error)
-            }
-        }
-        
+//        let name = (data["aps"] as? [String: Any])?["name"] as? String
 //        
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 10){
-//            CallManager.shared.endCall(uuid: uuid, endedAt: .now, reason: .remoteEnded)
-//        }
-//    
+//        
+//        let uuid  = UUID()
+        
+        
         
         
     }

@@ -7,7 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1924F7842C73237E007F43CD /* CallManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1924F7832C73237E007F43CD /* CallManager.swift */; };
+		191011772C76090D00BECBA8 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 191011762C76090D00BECBA8 /* WidgetKit.framework */; };
+		191011792C76090D00BECBA8 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 191011782C76090D00BECBA8 /* SwiftUI.framework */; };
+		1910117C2C76090D00BECBA8 /* MeowWorkLiveBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1910117B2C76090D00BECBA8 /* MeowWorkLiveBundle.swift */; };
+		1910117E2C76090D00BECBA8 /* MeowWorkLiveLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1910117D2C76090D00BECBA8 /* MeowWorkLiveLiveActivity.swift */; };
+		191011802C76090D00BECBA8 /* MeowWorkLive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1910117F2C76090D00BECBA8 /* MeowWorkLive.swift */; };
+		191011822C76090D00BECBA8 /* AppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191011812C76090D00BECBA8 /* AppIntent.swift */; };
+		191011842C76090F00BECBA8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 191011832C76090F00BECBA8 /* Assets.xcassets */; };
+		191011882C76090F00BECBA8 /* MeowWorkLiveExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 191011752C76090D00BECBA8 /* MeowWorkLiveExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		1924F7872C73749F007F43CD /* Provider+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1924F7862C73749F007F43CD /* Provider+.swift */; };
 		1924F78A2C74E613007F43CD /* WebRTC in Frameworks */ = {isa = PBXBuildFile; productRef = 1924F7892C74E613007F43CD /* WebRTC */; };
 		1941D3892C646B1400F4C6EC /* MeowApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1941D3882C646B1400F4C6EC /* MeowApp.swift */; };
@@ -175,6 +182,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		191011862C76090F00BECBA8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1941D37D2C646B1400F4C6EC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 191011742C76090D00BECBA8;
+			remoteInfo = MeowWorkLiveExtension;
+		};
 		1941D3A92C64D82C00F4C6EC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 1941D37D2C646B1400F4C6EC /* Project object */;
@@ -200,6 +214,7 @@
 			files = (
 				1941D3AB2C64D82C00F4C6EC /* NotificationServiceExtension.appex in Embed Foundation Extensions */,
 				1941D3C32C64D84600F4C6EC /* NotificationContentExtension.appex in Embed Foundation Extensions */,
+				191011882C76090F00BECBA8 /* MeowWorkLiveExtension.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -228,7 +243,15 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		1924F7832C73237E007F43CD /* CallManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallManager.swift; sourceTree = "<group>"; };
+		191011752C76090D00BECBA8 /* MeowWorkLiveExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MeowWorkLiveExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		191011762C76090D00BECBA8 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		191011782C76090D00BECBA8 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		1910117B2C76090D00BECBA8 /* MeowWorkLiveBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeowWorkLiveBundle.swift; sourceTree = "<group>"; };
+		1910117D2C76090D00BECBA8 /* MeowWorkLiveLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeowWorkLiveLiveActivity.swift; sourceTree = "<group>"; };
+		1910117F2C76090D00BECBA8 /* MeowWorkLive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeowWorkLive.swift; sourceTree = "<group>"; };
+		191011812C76090D00BECBA8 /* AppIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIntent.swift; sourceTree = "<group>"; };
+		191011832C76090F00BECBA8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		191011852C76090F00BECBA8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1924F7862C73749F007F43CD /* Provider+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Provider+.swift"; sourceTree = "<group>"; };
 		1941D3852C646B1400F4C6EC /* Meow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Meow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1941D3882C646B1400F4C6EC /* MeowApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeowApp.swift; sourceTree = "<group>"; };
@@ -350,6 +373,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		191011722C76090D00BECBA8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				191011792C76090D00BECBA8 /* SwiftUI.framework in Frameworks */,
+				191011772C76090D00BECBA8 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1941D3822C646B1400F4C6EC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -388,6 +420,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1910117A2C76090D00BECBA8 /* MeowWorkLive */ = {
+			isa = PBXGroup;
+			children = (
+				1910117B2C76090D00BECBA8 /* MeowWorkLiveBundle.swift */,
+				1910117D2C76090D00BECBA8 /* MeowWorkLiveLiveActivity.swift */,
+				1910117F2C76090D00BECBA8 /* MeowWorkLive.swift */,
+				191011812C76090D00BECBA8 /* AppIntent.swift */,
+				191011832C76090F00BECBA8 /* Assets.xcassets */,
+				191011852C76090F00BECBA8 /* Info.plist */,
+			);
+			path = MeowWorkLive;
+			sourceTree = "<group>";
+		};
 		1941D37C2C646B1400F4C6EC = {
 			isa = PBXGroup;
 			children = (
@@ -401,6 +446,7 @@
 				1941D3872C646B1400F4C6EC /* Meow */,
 				1941D3A52C64D82C00F4C6EC /* NotificationServiceExtension */,
 				1941D3BA2C64D84600F4C6EC /* NotificationContentExtension */,
+				1910117A2C76090D00BECBA8 /* MeowWorkLive */,
 				1941D3B52C64D84600F4C6EC /* Frameworks */,
 				1941D3862C646B1400F4C6EC /* Products */,
 			);
@@ -412,6 +458,7 @@
 				1941D3852C646B1400F4C6EC /* Meow.app */,
 				1941D3A42C64D82C00F4C6EC /* NotificationServiceExtension.appex */,
 				1941D3B42C64D84600F4C6EC /* NotificationContentExtension.appex */,
+				191011752C76090D00BECBA8 /* MeowWorkLiveExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -478,7 +525,6 @@
 				1966554E2C66FCCA00035E67 /* NetworkManager.swift */,
 				19C8C31D2C6CC79600581C8F /* bookManager.swift */,
 				198037322C70C18000F9DBDD /* ExportManager.swift */,
-				1924F7832C73237E007F43CD /* CallManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -499,6 +545,8 @@
 			children = (
 				1941D3B62C64D84600F4C6EC /* UserNotifications.framework */,
 				1941D3B82C64D84600F4C6EC /* UserNotificationsUI.framework */,
+				191011762C76090D00BECBA8 /* WidgetKit.framework */,
+				191011782C76090D00BECBA8 /* SwiftUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -633,6 +681,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		191011742C76090D00BECBA8 /* MeowWorkLiveExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1910118B2C76090F00BECBA8 /* Build configuration list for PBXNativeTarget "MeowWorkLiveExtension" */;
+			buildPhases = (
+				191011712C76090D00BECBA8 /* Sources */,
+				191011722C76090D00BECBA8 /* Frameworks */,
+				191011732C76090D00BECBA8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MeowWorkLiveExtension;
+			productName = MeowWorkLiveExtension;
+			productReference = 191011752C76090D00BECBA8 /* MeowWorkLiveExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		1941D3842C646B1400F4C6EC /* Meow */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1941D3932C646B1500F4C6EC /* Build configuration list for PBXNativeTarget "Meow" */;
@@ -648,6 +713,7 @@
 			dependencies = (
 				1941D3AA2C64D82C00F4C6EC /* PBXTargetDependency */,
 				1941D3C22C64D84600F4C6EC /* PBXTargetDependency */,
+				191011872C76090F00BECBA8 /* PBXTargetDependency */,
 			);
 			name = Meow;
 			packageProductDependencies = (
@@ -715,6 +781,9 @@
 				LastSwiftUpdateCheck = 1540;
 				LastUpgradeCheck = 1540;
 				TargetAttributes = {
+					191011742C76090D00BECBA8 = {
+						CreatedOnToolsVersion = 15.4;
+					};
 					1941D3842C646B1400F4C6EC = {
 						CreatedOnToolsVersion = 15.4;
 					};
@@ -752,11 +821,20 @@
 				1941D3842C646B1400F4C6EC /* Meow */,
 				1941D3A32C64D82C00F4C6EC /* NotificationServiceExtension */,
 				1941D3B32C64D84600F4C6EC /* NotificationContentExtension */,
+				191011742C76090D00BECBA8 /* MeowWorkLiveExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		191011732C76090D00BECBA8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				191011842C76090F00BECBA8 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1941D3832C646B1400F4C6EC /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -855,6 +933,17 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		191011712C76090D00BECBA8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				191011802C76090D00BECBA8 /* MeowWorkLive.swift in Sources */,
+				191011822C76090D00BECBA8 /* AppIntent.swift in Sources */,
+				1910117C2C76090D00BECBA8 /* MeowWorkLiveBundle.swift in Sources */,
+				1910117E2C76090D00BECBA8 /* MeowWorkLiveLiveActivity.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1941D3812C646B1400F4C6EC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -878,7 +967,6 @@
 				1966555C2C672BEE00035E67 /* ShareSheet.swift in Sources */,
 				1941D3992C64D4AE00F4C6EC /* BaseConfig.swift in Sources */,
 				196654FD2C6665E200035E67 /* ToastView.swift in Sources */,
-				1924F7842C73237E007F43CD /* CallManager.swift in Sources */,
 				1941D39F2C64D67E00F4C6EC /* MainManager.swift in Sources */,
 				196654E82C6634D200035E67 /* ToolBox.swift in Sources */,
 				1966553B2C667C9500035E67 /* MessageDetailView.swift in Sources */,
@@ -953,6 +1041,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		191011872C76090F00BECBA8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 191011742C76090D00BECBA8 /* MeowWorkLiveExtension */;
+			targetProxy = 191011862C76090F00BECBA8 /* PBXContainerItemProxy */;
+		};
 		1941D3AA2C64D82C00F4C6EC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 1941D3A32C64D82C00F4C6EC /* NotificationServiceExtension */;
@@ -996,6 +1089,62 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		191011892C76090F00BECBA8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = FUWV6U942Q;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MeowWorkLive/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = MeowWorkLive;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = me.uuneo.Meoworld.MeowWorkLive;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1910118A2C76090F00BECBA8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = FUWV6U942Q;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MeowWorkLive/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = MeowWorkLive;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = me.uuneo.Meoworld.MeowWorkLive;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		1941D3912C646B1500F4C6EC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1302,6 +1451,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		1910118B2C76090F00BECBA8 /* Build configuration list for PBXNativeTarget "MeowWorkLiveExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				191011892C76090F00BECBA8 /* Debug */,
+				1910118A2C76090F00BECBA8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		1941D3802C646B1400F4C6EC /* Build configuration list for PBXProject "Meow" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
