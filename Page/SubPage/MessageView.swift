@@ -21,43 +21,39 @@ struct MessageView: View {
     var searchText:String = ""
     var body: some View {
         Section {
-        
-            Grid{
-
+            
+            HStack(alignment: .bottom){
+                logoView
+                    .padding(.trailing)
                 
-                
-                GridRow {
-                   
-                    logoView
+                VStack(alignment: .leading, spacing:5){
                     
-                    VStack(alignment: .leading, spacing:5){
-                        
-           
+                    HStack{
                         if let title = message.title{
                             highlightedText(searchText: searchText, text: title)
                                 .font(.system(.headline))
                                 .textSelection(.enabled)
-                                
-                            Divider()
+                            Spacer()
                         }
-                
+                    }
+                    
+                    HStack{
                         if let body = message.body{
                             highlightedText(searchText: searchText, text: body)
                                 .font(.subheadline)
                                 .textSelection(.enabled)
                         }
-           
-                        Spacer()
                         
-                      
-                    }.padding( .leading)
+                        Spacer()
+                    }
+                    
                 }
-                .gridCellColumns(1)
-                
-                
+                    .padding(10)
+                    .background(Color("light_gray"))
+                    .clipShape(RoundedRectangle(cornerRadius: 10))
             }
             .toast(info: $toastText)
-            .padding(.top, 10)
+            
         }header: {
             HStack{
                 Spacer()
@@ -104,9 +100,9 @@ extension MessageView{
                 }
             }
             
-            highlightedText(searchText: searchText, text: limitTextToLines(message.group ?? "", charactersPerLine: 10) )
-                .font(.system(size:10))
-                .foregroundStyle(message.read ? .gray : .red)
+//            highlightedText(searchText: searchText, text: limitTextToLines(message.group ?? "", charactersPerLine: 10) )
+//                .font(.system(size:10))
+//                .foregroundStyle(message.read ? .gray : .red)
 
                
             
@@ -162,5 +158,10 @@ extension MessageView{
     List {
         MessageView(message: Message(value: [ "id":"123","title":"123","read":true,"icon":"error","group":"123","image":"https://day.app/assets/images/avatar.jpg","body":"123"]))
             .frame(width: 300)
+            .listRowBackground(Color.clear)
+            .listSectionSeparator(.hidden)
+            
     }.listStyle(GroupedListStyle())
+        
+    
 }

@@ -19,7 +19,7 @@ class RouterManager:ObservableObject{
     @Published var scanUrl:String = ""
     
     @Published var showServerListView:Bool = false
-    
+     
     
     var fullPageShow:Binding<Bool>{
     

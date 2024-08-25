@@ -23,6 +23,8 @@ struct MessageDetailView: View {
         List {
             ForEach(messages.prefix( showMsgCount ), id: \.id) { message in
                     MessageView(message: message)
+                    .listRowBackground(Color.clear)
+                    .listSectionSeparator(.hidden)
                         .swipeActions(edge: .leading) {
                             Button {
                                 let _ = RealmManager.shared.updateObject(message) { item2 in

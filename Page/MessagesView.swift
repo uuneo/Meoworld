@@ -34,6 +34,8 @@ struct MessagesView: View {
     @State private var errorAnimate2:Bool = false
     @State private var errorAnimate3:Bool = false
     
+    @State private var showExample:Bool = false
+    
     var body: some View {
        
             List {
@@ -149,6 +151,11 @@ struct MessagesView: View {
                     .toolbar(.hidden, for: .tabBar)
                     .navigationTitle(selectGroup)
             }
+        
+            .navigationDestination(isPresented: $showExample){
+                ExampleView()
+            }
+        
             .toolbar{
                 
                 Group{
@@ -240,7 +247,7 @@ struct MessagesView: View {
                 ToolbarItem {
                     
                     Button{
-                        RouterManager.shared.fullPage = .example
+                        self.showExample.toggle()
                     }label:{
                         Image(systemName: "questionmark.circle")
                         
@@ -379,5 +386,8 @@ extension MessagesView{
   
 }
 #Preview {
-    MessagesView()
+    NavigationStack{
+        MessagesView()
+    }
+   
 }

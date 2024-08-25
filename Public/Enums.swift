@@ -13,7 +13,6 @@ enum SubPage{
     case servers
     case scan
     case music
-    case example
     case appIcon
     case web
     case issues

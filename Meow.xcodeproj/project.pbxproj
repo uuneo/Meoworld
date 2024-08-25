@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		190B88D32C7A09140050099B /* FontAnimation+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190B88D22C7A09140050099B /* FontAnimation+.swift */; };
 		191011772C76090D00BECBA8 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 191011762C76090D00BECBA8 /* WidgetKit.framework */; };
 		191011792C76090D00BECBA8 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 191011782C76090D00BECBA8 /* SwiftUI.framework */; };
 		1910117C2C76090D00BECBA8 /* MeowWorkLiveBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1910117B2C76090D00BECBA8 /* MeowWorkLiveBundle.swift */; };
@@ -243,6 +244,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		190B88D22C7A09140050099B /* FontAnimation+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FontAnimation+.swift"; sourceTree = "<group>"; };
 		191011752C76090D00BECBA8 /* MeowWorkLiveExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MeowWorkLiveExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		191011762C76090D00BECBA8 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		191011782C76090D00BECBA8 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -420,6 +422,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		190B88D12C7A08F60050099B /* animations */ = {
+			isa = PBXGroup;
+			children = (
+				190B88D22C7A09140050099B /* FontAnimation+.swift */,
+			);
+			path = animations;
+			sourceTree = "<group>";
+		};
 		1910117A2C76090D00BECBA8 /* MeowWorkLive */ = {
 			isa = PBXGroup;
 			children = (
@@ -436,6 +446,7 @@
 		1941D37C2C646B1400F4C6EC = {
 			isa = PBXGroup;
 			children = (
+				190B88D12C7A08F60050099B /* animations */,
 				1966556E2C67412D00035E67 /* README.md */,
 				1941D3FD2C64F32B00F4C6EC /* Sounds */,
 				1941D3EE2C64E39600F4C6EC /* Extensions */,
@@ -813,6 +824,7 @@
 				196655542C67289E00035E67 /* XCRemoteSwiftPackageReference "Swift-SMTP" */,
 				1966556B2C67397000035E67 /* XCRemoteSwiftPackageReference "QRScanner" */,
 				1924F7882C74E613007F43CD /* XCRemoteSwiftPackageReference "WebRTC" */,
+				190B88D02C79CE2D0050099B /* XCRemoteSwiftPackageReference "MessengerKit" */,
 			);
 			productRefGroup = 1941D3862C646B1400F4C6EC /* Products */;
 			projectDirPath = "";
@@ -994,6 +1006,7 @@
 				19C8C31C2C6CC48800581C8F /* ContactsView.swift in Sources */,
 				196655512C67270800035E67 /* Color+.swift in Sources */,
 				196654FF2C66664F00035E67 /* View+.swift in Sources */,
+				190B88D32C7A09140050099B /* FontAnimation+.swift in Sources */,
 				1941D3892C646B1400F4C6EC /* MeowApp.swift in Sources */,
 				196655472C66F97100035E67 /* SFSafariView.swift in Sources */,
 				196654F32C66631700035E67 /* SettingsView.swift in Sources */,
@@ -1284,6 +1297,8 @@
 				INFOPLIST_FILE = Meow/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Meoworld;
 				INFOPLIST_KEY_NSCameraUsageDescription = "We are using the camera to scan a QR code";
+				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
+				INFOPLIST_KEY_NSSupportsLiveActivitiesFrequentUpdates = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -1321,6 +1336,8 @@
 				INFOPLIST_FILE = Meow/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Meoworld;
 				INFOPLIST_KEY_NSCameraUsageDescription = "We are using the camera to scan a QR code";
+				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
+				INFOPLIST_KEY_NSSupportsLiveActivitiesFrequentUpdates = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -1499,6 +1516,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		190B88D02C79CE2D0050099B /* XCRemoteSwiftPackageReference "MessengerKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/steve228uk/MessengerKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.6;
+			};
+		};
 		1924F7882C74E613007F43CD /* XCRemoteSwiftPackageReference "WebRTC" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/stasel/WebRTC";

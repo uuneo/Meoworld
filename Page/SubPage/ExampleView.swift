@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct ExampleView: View {
-    @Environment(\.dismiss) var dismiss
     @State private var username:String = ""
     @State private var title:String = ""
     @State private var pickerSeletion:Int = 0
@@ -49,15 +48,7 @@ struct ExampleView: View {
                                 .foregroundStyle(Color.gray)
                         }
                     }
-                    
-                    ToolbarItem {
-                        Button{
-                            dismiss()
-                        }label: {
-                            Image(systemName: "xmark.seal")
-                                .foregroundStyle(Color.gray)
-                        }
-                    }
+                
                     
                 }
                 .toast(info: $toastText )

@@ -79,8 +79,6 @@ struct ContentView: View {
                 ChangeKeyWithEmailView()
             case .servers:
                 ServersView(showClose: true)
-            case .example:
-                ExampleView()
             case .music:
                 RingtongView()
             case .scan:
