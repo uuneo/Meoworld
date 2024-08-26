@@ -29,7 +29,7 @@ struct SettingsView: View {
     @StateObject private var manager = MainManager.shared
     @StateObject private var router = RouterManager.shared
     @StateObject private var toolsManager = ToolsManager.shared
-    @AppStorage("setting_active_app_icon") var setting_active_app_icon:appIcon = .def
+    @AppStorage(BaseConfig.activeAppIcon) var setting_active_app_icon:appIcon = .def
     
     @State private var document = TextDocument(text: "123")
     
@@ -284,28 +284,21 @@ struct SettingsView: View {
                         
                     }
                     
-                    Button{
-                        RouterManager.shared.webUrl = otherUrl.issues
-                        RouterManager.shared.fullPage = .web
-                        
-                    }label: {
-                        HStack(alignment:.center){
-                            Label {
-                                Text(NSLocalizedString("contactMe",comment: ""))
-                                    .foregroundStyle(.lightDark)
-                            } icon: {
-                                Image(systemName: "questionmark.circle")
-                                    .scaleEffect(0.9)
-                            }
+                    
+                    NavigationLink {
+                        ChatDemo()
+                            .toolbar(.hidden, for: .tabBar)
                             
-                            Spacer()
-                            Image(systemName: "chevron.right")
-                                .foregroundStyle(.gray)
+                    } label: {
+                        Label {
+                            Text(NSLocalizedString("contactMe",comment: ""))
+                                .foregroundStyle(.lightDark)
+                        } icon: {
+                            Image(systemName: "questionmark.circle")
+                                .scaleEffect(0.9)
                         }
-                        
-                        
-                        
                     }
+
                     
                 }
                 

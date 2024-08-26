@@ -7,7 +7,6 @@
 */
 
 
-
 timeJustNow = "刚刚";
 timeMinAgo = "%1$d分钟前";
 timeHourAgo = "%1$d小时前";
@@ -128,7 +127,7 @@ pushExampleParams7 = "推送内容?icon=weixin&url=weixin://";
 pushExampleHeader8 = "默认分组名：信息";
 pushExampleFooter8 = "推送将按照group参数分组显示在通知中心和应用程序内";
 pushExampleTitle8 = "推送消息分组";
-pushExampleParams8 = "推送消息分组?group=groupName";
+pushExampleParams8 = "推送消息分组?group=测试";
 
 
 pushExampleHeader9 = "持续响铃";
@@ -187,7 +186,7 @@ allTime = "所有时间";
 
 messageExampleTitle1 = "示例";
 messageExampleGroup1 = "示例";
-messageExampleBody1 = "点击或者滑动可以修改信息状态\n本例子携带了一张图片";
+messageExampleBody1 = "点击或者滑动可以修改信息状态";
 
 
 
@@ -327,14 +326,13 @@ defaultGroup = "默认";
 
 startUse = "进入首页";
 
-contactMe = "发现问题";
+contactMe = "联系我";
 
 editingtips = "非编辑状态";
 
-replaceKeyWithMail = "修改KEY为邮件地址";
+replaceKeyWithMail = "修改KEY";
 
 notificationAndNetwork = "打开通知和网络";
 
 defaultSave = "默认保存";
 archiveNote = "当推送请求URL没有指定 isArchive 参数时，将按照此设置来决定是否保存通知消息";
-

@@ -11,12 +11,17 @@ import SwiftUI
 @main
 struct MeowApp: SwiftUI.App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
-    
+    @AppStorage("start_first_pahe") var firstStartShow:Bool = true
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
-            //          CallManager.shared.processForIncomingCall(sender: "Abhainy", uuid: UUID())
+            
+            ZStack{
+                ContentView()
+                if firstStartShow{
+                    StartPageHelpView(show: $firstStartShow)
+                }
+            }
         }
         
     }

@@ -104,3 +104,26 @@ class ImageSaver: NSObject {
     
     
 }
+
+
+struct AsyncImageDefault: View {
+    var icon: String?
+    var defIcon:appIcon = appIcon.def
+    var size:CGSize = CGSize(width: 35, height: 35)
+    var shape: AnyShape  = AnyShape(RoundedRectangle(cornerRadius: 10))
+    var body: some View {
+        
+        Group{
+            if let icon = icon{
+                AsyncImageView(imageUrl: icon )
+            }else{
+                Image(defIcon.toLogoImage)
+                    .resizable()
+            }
+        }
+        .aspectRatio(contentMode: .fit)
+        .frame(width: size.width, height: size.height, alignment: .center)
+        .clipShape(shape)
+    }
+    
+}

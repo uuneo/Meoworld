@@ -7,6 +7,7 @@
 
 import SwiftUI
 import RealmSwift
+import Shiny
 
 struct ContentView: View {
     
@@ -41,6 +42,7 @@ struct ContentView: View {
             .badge(readCount)
             .tabItem {
                 Label(NSLocalizedString("bottomBarMsg",comment: ""), systemImage: "ellipsis.message")
+                    
             }
             
             // MARK: 设置页面
@@ -51,6 +53,7 @@ struct ContentView: View {
            
             .tabItem {
                 Label(NSLocalizedString("bottomBarSettings",comment: ""), systemImage: "gearshape")
+                    
             }
             .tag(TabPage.setting)
             
@@ -92,6 +95,8 @@ struct ContentView: View {
             case .issues:
                 SFSafariViewWrapper(url: router.webUrl)
                     .ignoresSafeArea()
+            case .contactMe:
+                ChatDemo()
             default:
                 EmptyView()
             }

@@ -17,6 +17,7 @@ enum SubPage{
     case web
     case issues
     case none
+    case contactMe
 }
 
 

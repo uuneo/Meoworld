@@ -82,6 +82,7 @@ struct BaseConfig {
     static let  archiveName = "meowArchive"
     static let  realmModalVersion:UInt64 = 2
     static let  defaultSound = "defaultSound"
+    static let  activeAppIcon = "setting_active_app_icon"
     
 
 }

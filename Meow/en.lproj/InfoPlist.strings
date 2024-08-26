@@ -7,9 +7,8 @@
 */
 
 
-
-CFBundleDisplayName = "Meoworld";
-CFBundleName = "Meoworld";
+CFBundleDisplayName = "FlashCat.";
+CFBundleName = "FlashCat.";
 
 NSCameraUsageDescription = "Scan QR code";
 NSPhotoLibraryUsageDescription = "Save to the gallery";

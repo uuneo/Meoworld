@@ -7,10 +7,11 @@
 */
 
 
+
 timeJustNow = "Just now";
-timeMinAgo = "%1$d minute ago";
-timeHourAgo = "%1$d hour ago";
-timeMinHourAgo = "%1$d hour %2$d minutes ago";
+timeMinAgo = "%1$dm ago";
+timeHourAgo = "%1$dh ago";
+timeMinHourAgo = "%1$dh %2$dm ago";
 
 
 bottomBarSettings = "Settings";
@@ -124,7 +125,7 @@ pushExampleParams7 = "Push Content?icon=weixin&url=weixin://";
 pushExampleHeader8 = "Default group name: Information";
 pushExampleFooter8 = "Push notifications will be grouped according to the group parameter and displayed in the Notification Center and within the app";
 pushExampleTitle8 = "Push Notification Grouping";
-pushExampleParams8 = "Push notification grouping?group=groupName";
+pushExampleParams8 = "Push notification grouping?group=Test";
 
 pushExampleHeader9 = "Continuous Ringing";
 pushExampleFooter9 = "The notification sound will play continuously for 30 seconds. If multiple notifications are received, they will ring sequentially.";
@@ -183,7 +184,7 @@ copyTitle = "Copy";
 
 messageExampleTitle1 = "Example";
 messageExampleGroup1 = "Example";
-messageExampleBody1 = "Click or swipe to modify the message status. This example carries an image";
+messageExampleBody1 = "Click or swipe to modify the message status.";
 
 
 messageExampleTitle3 = "Click to open other app";
@@ -333,13 +334,13 @@ defaultGroup = "Def";
 startUse = "Home Page";
 
 
-contactMe = "Discover Issues";
+contactMe = "Contact me";
 
 
 editingtips = "Unedited state";
 
 
-replaceKeyWithMail = "Change Key With Mail";
+replaceKeyWithMail = "Change Key";
 
 
 notificationAndNetwork = "open Net And Noti";

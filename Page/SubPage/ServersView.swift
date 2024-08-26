@@ -76,18 +76,12 @@ struct ServersView: View {
                         }
                         
                        
-                    }else{
-                        Button {
-                            RouterManager.shared.fullPage = .login
-                            
-                        } label: {
-                            HStack{
-                                Spacer()
-                                Label(NSLocalizedString("replaceKeyWithMail", comment: "替换key为邮件"), systemImage: "pencil")
-                                Spacer()
-                            }
-                        }
                     }
+                    
+                    Text("")
+                        .listRowBackground(Color.clear)
+                        .listRowSeparator(.hidden)
+                        
                     
                    
                     ForEach(MainManager.shared.servers,id: \.id){item in
@@ -126,15 +120,15 @@ struct ServersView: View {
                         }
                         .padding(.vertical,5)
                         .swipeActions(edge: .leading, allowsFullSwipe: true) {
-                            Button{
-                                Task{
-                                    await MainManager.shared.register(server: item)
-                                }
-                                self.toastText = NSLocalizedString("controlSuccess", comment: "")
-                            }label: {
-                                Text(NSLocalizedString("registerAndCheck",comment: ""))
+                            
+                            Button {
+                                RouterManager.shared.fullPage = .login
+                                
+                            } label: {
+                               Text(NSLocalizedString("replaceKeyWithMail", comment: "修改key"))
                             }.tint(.blue)
                         }
+                        .listRowSeparator(.hidden)
                         .swipeActions(edge: .leading) {
                             Button{
                                 
@@ -151,6 +145,7 @@ struct ServersView: View {
                                 Text(NSLocalizedString("resetKey",comment: "重置Key"))
                             }.tint(.red)
                         }
+                        
                     }
                     .onDelete(perform: { indexSet in
                         if isEditing == .active{
@@ -169,12 +164,14 @@ struct ServersView: View {
 
                     
                 }
+                .listRowSpacing(20)
                 .refreshable {
                     await MainManager.shared.registerAll()
                 }
                 
+                
             }
-            .listRowSpacing(20)
+          
             .toast(info: $toastText)
             
                 .toolbar{

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AppIconView: View {
     @Environment(\.dismiss) var dismiss
-    @AppStorage("setting_active_app_icon") var setting_active_app_icon:appIcon = .def
+    @AppStorage(BaseConfig.activeAppIcon) var setting_active_app_icon:appIcon = .def
     @State var toastText = ""
     let columns: [GridItem] = Array(repeating: .init(.flexible()), count: 3)
     var body: some View {

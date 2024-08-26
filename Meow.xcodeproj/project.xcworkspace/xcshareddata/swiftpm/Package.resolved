@@ -1,6 +1,15 @@
 {
-  "originHash" : "5ea1e28e49bc2d7f7cd3dc776e9183a2ec7c98d9265b1a70fb3351cc52584107",
+  "originHash" : "d35850ea9921e29b7d8cb0a972e91ab04ad3fa08ebbd1eb8d7de967bfaa7056e",
   "pins" : [
+    {
+      "identity" : "activityindicatorview",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/exyte/ActivityIndicatorView",
+      "state" : {
+        "revision" : "9970fd0bb7a05dad0b6566ae1f56937716686b24",
+        "version" : "1.1.1"
+      }
+    },
     {
       "identity" : "bluecryptor",
       "kind" : "remoteSourceControl",
@@ -29,12 +38,39 @@
       }
     },
     {
+      "identity" : "chat",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/exyte/Chat.git",
+      "state" : {
+        "revision" : "09b8e831a8ebac6d156117463270d205804542ca",
+        "version" : "2.0.3"
+      }
+    },
+    {
+      "identity" : "concentriconboarding",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/uuneo/ConcentricOnboarding.git",
+      "state" : {
+        "branch" : "master",
+        "revision" : "b3cebee77f55f073d6113b14eb6364ea051121d5"
+      }
+    },
+    {
       "identity" : "cryptoswift",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/krzyzanowskim/CryptoSwift.git",
       "state" : {
         "revision" : "678d442c6f7828def400a70ae15968aef67ef52d",
         "version" : "1.8.3"
+      }
+    },
+    {
+      "identity" : "floatingbutton",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/exyte/FloatingButton",
+      "state" : {
+        "revision" : "cf77c2f124df1423d90a9a1985e9b9ccfa4b9b3e",
+        "version" : "1.3.0"
       }
     },
     {
@@ -53,6 +89,15 @@
       "state" : {
         "revision" : "e82d34eab3f0b05391082b11ea07d3b70d2f65bb",
         "version" : "1.9.200"
+      }
+    },
+    {
+      "identity" : "mediapicker",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/exyte/MediaPicker.git",
+      "state" : {
+        "revision" : "88769b1b69c2b5e5fa5b65522c08bc7b667a6cb8",
+        "version" : "2.2.3"
       }
     },
     {
@@ -83,6 +128,15 @@
       }
     },
     {
+      "identity" : "shiny",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/maustinstar/shiny.git",
+      "state" : {
+        "branch" : "master",
+        "revision" : "862360b8ab6b9ea9eb1156569a30f154b22625a5"
+      }
+    },
+    {
       "identity" : "swift-log",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-log.git",
@@ -98,6 +152,15 @@
       "state" : {
         "revision" : "4b7666bb8cee33f0cb367786af17b9a2ebb63047",
         "version" : "6.0.0"
+      }
+    },
+    {
+      "identity" : "swiftui-introspect",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/siteline/swiftui-introspect",
+      "state" : {
+        "revision" : "807f73ce09a9b9723f12385e592b4e0aaebd3336",
+        "version" : "1.3.0"
       }
     },
     {

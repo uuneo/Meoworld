@@ -10,7 +10,7 @@ import RealmSwift
 
 struct MessageView: View {
     @ObservedRealmObject var message:Message
-    @AppStorage("setting_active_app_icon") var setting_active_app_icon:appIcon = .def
+    @AppStorage(BaseConfig.activeAppIcon) var setting_active_app_icon:appIcon = .def
     @State private var toastText:String = ""
     @State private var textHeight: CGFloat = .zero
     
@@ -49,7 +49,7 @@ struct MessageView: View {
                     
                 }
                     .padding(10)
-                    .background(Color("light_gray"))
+                    .background(Color("lightAndgray"))
                     .clipShape(RoundedRectangle(cornerRadius: 10))
             }
             .toast(info: $toastText)
@@ -99,12 +99,7 @@ extension MessageView{
                         .offset(x:5 , y: -5)
                 }
             }
-            
-//            highlightedText(searchText: searchText, text: limitTextToLines(message.group ?? "", charactersPerLine: 10) )
-//                .font(.system(size:10))
-//                .foregroundStyle(message.read ? .gray : .red)
 
-               
             
         }.onTapGesture {
             if let url =  message.url{
@@ -117,18 +112,42 @@ extension MessageView{
             
         }
     }
+//    
+//    func highlightedText(searchText:String, text:String) -> some View {
+//        guard let range = text.range(of: searchText) else {
+//            return Text(text)
+//        }
+//        
+//        let startIndex = text.distance(from: text.startIndex, to: range.lowerBound)
+//        let endIndex = text.distance(from: text.startIndex, to: range.upperBound)
+//        let prefix = Text(text.prefix(startIndex))
+//        let highlighted = Text(text[text.index(text.startIndex, offsetBy: startIndex)..<text.index(text.startIndex, offsetBy: endIndex)]).bold().foregroundColor(.red)
+//        let suffix = Text(text.suffix(text.count - endIndex))
+//        
+//        return prefix + highlighted + suffix
+//    }
     
-    func highlightedText(searchText:String, text:String) -> some View {
-        guard let range = text.range(of: searchText) else {
+    
+    func highlightedText(searchText: String, text: String) -> some View {
+        // 将搜索文本和目标文本都转换为小写
+        let lowercasedSearchText = searchText.lowercased()
+        let lowercasedText = text.lowercased()
+        
+        // 在小写版本中查找范围
+        guard let range = lowercasedText.range(of: lowercasedSearchText) else {
             return Text(text)
         }
         
+        // 计算原始文本中的索引
         let startIndex = text.distance(from: text.startIndex, to: range.lowerBound)
         let endIndex = text.distance(from: text.startIndex, to: range.upperBound)
+        
+        // 使用原始文本创建前缀、匹配文本和后缀
         let prefix = Text(text.prefix(startIndex))
         let highlighted = Text(text[text.index(text.startIndex, offsetBy: startIndex)..<text.index(text.startIndex, offsetBy: endIndex)]).bold().foregroundColor(.red)
         let suffix = Text(text.suffix(text.count - endIndex))
         
+        // 返回组合的文本视图
         return prefix + highlighted + suffix
     }
 }

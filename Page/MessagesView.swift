@@ -7,6 +7,7 @@
 
 import SwiftUI
 import RealmSwift
+import Shiny
 
 struct MessagesView: View {
     @State private var mainManager = MainManager()
@@ -28,7 +29,7 @@ struct MessagesView: View {
     @State private var toolManager = ToolsManager.shared
     @StateObject private var manager = MainManager.shared
     
-    @AppStorage("setting_active_app_icon") var setting_active_app_icon:appIcon = .def
+    @AppStorage(BaseConfig.activeAppIcon) var setting_active_app_icon:appIcon = .def
  
     @State private var errorAnimate1:Bool = false
     @State private var errorAnimate2:Bool = false
@@ -52,13 +53,17 @@ struct MessagesView: View {
                                     HStack{
                                         
                                         Text( ToolsManager.getGroup(message.group) )
+                                            .shiny()
                                             .font(.headline.weight(.bold))
                                             .foregroundStyle(.lightDark)
+                                            
                                         Spacer()
                                         Text(message.createDate.agoFormatString())
                                             .font(.caption2)
+                                            .shiny()
                                         Image(systemName: "chevron.forward")
                                             .font(.caption2)
+                                            .shiny()
                                     }
                                     
                                     HStack{

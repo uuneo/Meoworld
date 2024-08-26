@@ -10,13 +10,13 @@ import SwiftUI
 import Combine
 import Network
 
-class MainManager:ObservableObject {
+class MainManager: ObservableObject {
    static let shared = MainManager()
     
     @AppStorage(BaseConfig.deviceToken, store: defaultStore) var deviceToken:String = ""
     @AppStorage(BaseConfig.voipDeviceToken,store: defaultStore) var voipDeviceToken = ""
     @AppStorage(BaseConfig.server) var servers:[serverInfo] = [serverInfo.serverDefault]
-    
+    @AppStorage(BaseConfig.activeAppIcon) var activeAppIcon:appIcon = .def
     
 }
 
@@ -184,6 +184,7 @@ extension MainManager{
                 hasFalse = true
                 if let index = servers.firstIndex(where: {$0.id == server.id}){
                     dispatch_sync_safely_main_queue {
+                        debugPrint(index)
                         self.servers[index].status = false
                     }
                 }

@@ -7,8 +7,9 @@
 */
 
 
-CFBundleDisplayName = "电喵";
-CFBundleName = "电喵";
+
+CFBundleDisplayName = "闪喵";
+CFBundleName = "闪喵";
 
 NSCameraUsageDescription = "扫描二维码";
 NSPhotoLibraryUsageDescription = "保存消息图片到相册";

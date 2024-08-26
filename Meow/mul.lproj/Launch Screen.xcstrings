@@ -1,0 +1,23 @@
+{
+  "sourceLanguage" : "zh-Hans",
+  "strings" : {
+    "GJd-Yh-RWb.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"闪电喵.\"; ObjectID = \"GJd-Yh-RWb\";",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "FlashCat."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "闪电喵."
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}
