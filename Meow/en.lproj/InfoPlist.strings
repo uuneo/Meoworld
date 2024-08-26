@@ -12,3 +12,7 @@ CFBundleName = "FlashCat.";
 
 NSCameraUsageDescription = "Scan QR code";
 NSPhotoLibraryUsageDescription = "Save to the gallery";
+
+NSPhotoLibraryUsageDescription = "The app needs access to your photo library to allow you to upload images.";
+NSCameraUsageDescription = "The app needs access to your camera to take photos.";
+NSLocationWhenInUseUsageDescription = "The app needs access to your location to provide better services.";

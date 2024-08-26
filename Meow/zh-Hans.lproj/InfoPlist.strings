@@ -13,3 +13,8 @@ CFBundleName = "闪喵";
 
 NSCameraUsageDescription = "扫描二维码";
 NSPhotoLibraryUsageDescription = "保存消息图片到相册";
+
+
+NSPhotoLibraryUsageDescription = "应用需要访问您的照片库以便您可以上传图片。";
+NSCameraUsageDescription = "应用需要使用您的相机以便拍摄照片。";
+NSLocationWhenInUseUsageDescription = "应用需要访问您的位置以提供更好的服务。";
