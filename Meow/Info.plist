@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Apps need access to your location to provide better services</string>
+	<key>NSCameraUsageDescription</key>
+	<string>The app needs to use your camera in order to take photos.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>We need access to your photo album！</string>
 	<key>BGTaskSchedulerPermittedIdentifiers</key>
