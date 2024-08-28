@@ -336,3 +336,20 @@ notificationAndNetwork = "打开通知和网络";
 
 defaultSave = "默认保存";
 archiveNote = "当推送请求URL没有指定 isArchive 参数时，将按照此设置来决定是否保存通知消息";
+
+
+firstStartTitle = "允许必要的权限";
+firstStartHeader = "Tips 1";
+firstStartContent = "没有通知权限,App将不能运行";
+
+firstStartTitle1 = "多种发推方式";
+firstStartHeader1 = "Tips 2";
+firstStartContent1 = "最简单的直接浏览器输入url调用，也可以使用任何已知的程序脚本";
+
+firstStartTitle2 = "实现自动化";
+firstStartHeader2 = "Tips 3";
+firstStartContent2 = "配合邮件配置，实现收到消息自动执行某种功能";
+
+firstStartTitle3 = "私有服务器支持";
+firstStartHeader3 = "Tips 4";
+firstStartContent3 = "自定义服务器，让消息传递更安全！";

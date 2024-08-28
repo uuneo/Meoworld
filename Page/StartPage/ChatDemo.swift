@@ -12,7 +12,6 @@ struct ChatDemo: View {
     @Environment(\.presentationMode) private var presentationMode
     @State var messages: [ExyteChat.Message] = []
     
-    // (id: UUID().uuidString, user: ExyteChat.User(id: UUID().uuidString, name: "测试", avatarURL: Bundle.main.url(forResource: "logo", withExtension: "png"), isCurrentUser: true), status: .read, createdAt: .now, text: value.text, attachments: [], recording: nil, replyMessage: nil)
 
     var body: some View {
         ChatView(messages: messages){value in

@@ -348,3 +348,20 @@ notificationAndNetwork = "open Net And Noti";
 defaultSave = "Archive by Default";
 archiveNote = "Archive notifications by default if the 'isArchive' parameter is unset.";
 
+
+
+firstStartTitle = "Allow Necessary Permissions";
+firstStartHeader = "Tips 1";
+firstStartContent = "Without notification permissions, the app will not function";
+
+firstStartTitle1 = "Multiple Tweeting Methods";
+firstStartHeader1 = "Tips 2";
+firstStartContent1 = "You can simply enter the URL in the browser or use any known program script";
+
+firstStartTitle2 = "Automate Processes";
+firstStartHeader2 = "Tips 3";
+firstStartContent2 = "Combine with email configuration to automatically execute a function upon receiving a message";
+
+firstStartTitle3 = "Private Server Support";
+firstStartHeader3 = "Tips 4";
+firstStartContent3 = "Customize your server for more secure message transmission!";

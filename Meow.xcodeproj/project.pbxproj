@@ -16,6 +16,9 @@
 		190B88E92C7B57CC0050099B /* ChatDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190B88E82C7B57CC0050099B /* ChatDemo.swift */; };
 		190B88EC2C7B62EB0050099B /* ConcentricOnboarding in Frameworks */ = {isa = PBXBuildFile; productRef = 190B88EB2C7B62EB0050099B /* ConcentricOnboarding */; };
 		190B89122C7C6EDC0050099B /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 190B89112C7C6EDC0050099B /* Launch Screen.storyboard */; };
+		190B891C2C7CCAEA0050099B /* ScalingHeaderScrollView in Frameworks */ = {isa = PBXBuildFile; productRef = 190B891B2C7CCAEA0050099B /* ScalingHeaderScrollView */; };
+		190B891E2C7CCB070050099B /* ScrollHeaderDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190B891D2C7CCB070050099B /* ScrollHeaderDemo.swift */; };
+		190B89232C7CE5CD0050099B /* button+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190B89222C7CE5CC0050099B /* button+.swift */; };
 		1924F7872C73749F007F43CD /* Provider+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1924F7862C73749F007F43CD /* Provider+.swift */; };
 		1924F78A2C74E613007F43CD /* WebRTC in Frameworks */ = {isa = PBXBuildFile; productRef = 1924F7892C74E613007F43CD /* WebRTC */; };
 		1941D3892C646B1400F4C6EC /* MeowApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1941D3882C646B1400F4C6EC /* MeowApp.swift */; };
@@ -243,6 +246,8 @@
 		190B89102C7C6EDC0050099B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Base.lproj/Launch Screen.storyboard"; sourceTree = "<group>"; };
 		190B89132C7C6EDC0050099B /* mul */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = mul; path = "mul.lproj/Launch Screen.xcstrings"; sourceTree = "<group>"; };
 		190B89192C7CA3340050099B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MainInterface.strings; sourceTree = "<group>"; };
+		190B891D2C7CCB070050099B /* ScrollHeaderDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollHeaderDemo.swift; sourceTree = "<group>"; };
+		190B89222C7CE5CC0050099B /* button+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "button+.swift"; sourceTree = "<group>"; };
 		191011762C76090D00BECBA8 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		191011782C76090D00BECBA8 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		1924F7862C73749F007F43CD /* Provider+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Provider+.swift"; sourceTree = "<group>"; };
@@ -377,6 +382,7 @@
 				1924F78A2C74E613007F43CD /* WebRTC in Frameworks */,
 				196655452C66810D00035E67 /* SwiftyJSON in Frameworks */,
 				1966556D2C67397000035E67 /* QRScanner in Frameworks */,
+				190B891C2C7CCAEA0050099B /* ScalingHeaderScrollView in Frameworks */,
 				1941D3EA2C64E29800F4C6EC /* CryptoSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -420,6 +426,7 @@
 				190B88E12C7B49660050099B /* StartPageHelpView.swift */,
 				190B88E32C7B4CC80050099B /* MorkData.swift */,
 				190B88E82C7B57CC0050099B /* ChatDemo.swift */,
+				190B891D2C7CCB070050099B /* ScrollHeaderDemo.swift */,
 			);
 			path = StartPage;
 			sourceTree = "<group>";
@@ -581,6 +588,7 @@
 				196655502C67270800035E67 /* Color+.swift */,
 				198037342C70F6A400F9DBDD /* Object+.swift */,
 				1924F7862C73749F007F43CD /* Provider+.swift */,
+				190B89222C7CE5CC0050099B /* button+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -700,6 +708,7 @@
 				190B88D52C7B43CD0050099B /* Shiny */,
 				190B88E62C7B57B60050099B /* ExyteChat */,
 				190B88EB2C7B62EB0050099B /* ConcentricOnboarding */,
+				190B891B2C7CCAEA0050099B /* ScalingHeaderScrollView */,
 			);
 			productName = Meow;
 			productReference = 1941D3852C646B1400F4C6EC /* Meow.app */;
@@ -789,6 +798,7 @@
 				190B88D42C7B43CD0050099B /* XCRemoteSwiftPackageReference "shiny" */,
 				190B88E52C7B57B60050099B /* XCRemoteSwiftPackageReference "Chat" */,
 				190B88EA2C7B62EB0050099B /* XCRemoteSwiftPackageReference "ConcentricOnboarding" */,
+				190B891A2C7CCAEA0050099B /* XCRemoteSwiftPackageReference "ScalingHeaderScrollView" */,
 			);
 			productRefGroup = 1941D3862C646B1400F4C6EC /* Products */;
 			projectDirPath = "";
@@ -914,6 +924,7 @@
 				196654F12C66630900035E67 /* MessagesView.swift in Sources */,
 				196655052C66689000035E67 /* RingtoneItemView.swift in Sources */,
 				1941D4432C64F9DF00F4C6EC /* MessageModel.swift in Sources */,
+				190B891E2C7CCB070050099B /* ScrollHeaderDemo.swift in Sources */,
 				1966555A2C672A3100035E67 /* CryptoConfigView.swift in Sources */,
 				1941D38B2C646B1400F4C6EC /* ContentView.swift in Sources */,
 				196655662C67368F00035E67 /* SignInView.swift in Sources */,
@@ -958,6 +969,7 @@
 				196655472C66F97100035E67 /* SFSafariView.swift in Sources */,
 				196654F32C66631700035E67 /* SettingsView.swift in Sources */,
 				196655642C67366100035E67 /* ChangeKeyWithEmailView.swift in Sources */,
+				190B89232C7CE5CD0050099B /* button+.swift in Sources */,
 				190B88E42C7B4CC80050099B /* MorkData.swift in Sources */,
 				196654FB2C66652B00035E67 /* Array+.swift in Sources */,
 				196655352C667A1B00035E67 /* ImageManager.swift in Sources */,
@@ -1429,6 +1441,14 @@
 				kind = branch;
 			};
 		};
+		190B891A2C7CCAEA0050099B /* XCRemoteSwiftPackageReference "ScalingHeaderScrollView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/exyte/ScalingHeaderScrollView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.4;
+			};
+		};
 		1924F7882C74E613007F43CD /* XCRemoteSwiftPackageReference "WebRTC" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/stasel/WebRTC";
@@ -1502,6 +1522,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 190B88EA2C7B62EB0050099B /* XCRemoteSwiftPackageReference "ConcentricOnboarding" */;
 			productName = ConcentricOnboarding;
+		};
+		190B891B2C7CCAEA0050099B /* ScalingHeaderScrollView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 190B891A2C7CCAEA0050099B /* XCRemoteSwiftPackageReference "ScalingHeaderScrollView" */;
+			productName = ScalingHeaderScrollView;
 		};
 		1924F7892C74E613007F43CD /* WebRTC */ = {
 			isa = XCSwiftPackageProductDependency;
