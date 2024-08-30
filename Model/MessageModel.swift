@@ -16,6 +16,7 @@ final class Message: Object , ObjectKeyIdentifiable{
     @Persisted var icon:String?
     @Persisted var group:String?
     @Persisted var url:String?
+    @Persisted var from:String?
     
     @Persisted var mode:String?
     @Persisted var createDate = Date()
@@ -26,16 +27,14 @@ final class Message: Object , ObjectKeyIdentifiable{
     }
 
     override class func indexedProperties() -> [String] {
-        return ["group", "createDate"]
+        return ["group", "createDate", "from"]
     }
 }
 
 
-
-
 extension Message:Codable{
     enum CodingKeys: String, CodingKey{
-        case id, title, body, icon, group, url, mode ,createDate, read
+        case id, title, body, icon, group, url, mode ,createDate, read, from
     }
     
     func encode(to encoder: any Encoder) throws {
@@ -48,6 +47,7 @@ extension Message:Codable{
         try container.encodeIfPresent(mode, forKey: .mode)
         try container.encodeIfPresent(createDate, forKey: .createDate)
         try container.encodeIfPresent(read, forKey: .read)
+        try container.encodeIfPresent(from, forKey: .from)
        
     }
 }

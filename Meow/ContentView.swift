@@ -43,6 +43,7 @@ struct ContentView: View {
             .tabItem {
                 Label(NSLocalizedString("bottomBarMsg",comment: ""), systemImage: "ellipsis.message")
                     
+                    
             }
             
             // MARK: 设置页面
@@ -95,8 +96,6 @@ struct ContentView: View {
             case .issues:
                 SFSafariViewWrapper(url: router.webUrl)
                     .ignoresSafeArea()
-            case .contactMe:
-                ChatDemo()
             default:
                 EmptyView()
             }
@@ -182,6 +181,7 @@ struct ContentView: View {
 
 extension ContentView{
     func backgroundModeHandler(of value:ScenePhase){
+        
         switch value{
         case .active:
 #if DEBUG
@@ -194,7 +194,6 @@ extension ContentView{
 #if DEBUG
                 print(name)
 #endif
-                
                 RouterManager.shared.page = .message
                 switch name{
                 case "allread":
@@ -207,10 +206,14 @@ extension ContentView{
                     break
                 }
             }
+            
+            HapticsManager.shared.restartEngine()
         case .background:
             MainManager.shared.addQuickActions()
+            HapticsManager.shared.stopEngine()
             
         default:
+
             break
             
         }

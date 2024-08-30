@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ChangeKeyWithEmailView: View {
-    @Environment(\.dismiss) var closeView
+    @Environment(\.dismiss) var dismiss
     @State var appear = false
     @State var appearBackground = false
     @State var viewState = CGSize.zero
@@ -42,9 +42,7 @@ struct ChangeKeyWithEmailView: View {
             
             
             GeometryReader { proxy in
-                SignInView(closeFunc: {
-                    self.closeView()
-                })
+                SignInView()
                 .rotationEffect(.degrees(viewState.width / 40))
                 .rotation3DEffect(.degrees(viewState.height / 20), axis: (x: 1, y: 0, z: 0), perspective: 1)
                 .shadow(color: Color("Shadow").opacity(0.2), radius: 30, x: 0, y: 30)
@@ -110,7 +108,7 @@ struct ChangeKeyWithEmailView: View {
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-            closeView()
+            dismiss()
         }
   
     }

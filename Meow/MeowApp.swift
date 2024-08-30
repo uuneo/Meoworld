@@ -21,6 +21,7 @@ struct MeowApp: SwiftUI.App {
                 if firstStartShow{
                     StartPageHelpView(show: $firstStartShow)
                 }
+                
             }
         }
         

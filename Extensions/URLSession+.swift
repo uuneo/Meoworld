@@ -40,6 +40,17 @@ extension URLComponents{
         }
         return parameters
     }
+    
+    func getParams(from params: [String: Any])-> [URLQueryItem] {
+        var queryItems: [URLQueryItem] = []
+        for (key, value) in params {
+            queryItems.append(URLQueryItem(name: key, value: "\(value)"))
+        }
+        return queryItems
+    }
+    
+    
+    
 }
 
 

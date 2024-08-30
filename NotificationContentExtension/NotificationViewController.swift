@@ -10,58 +10,79 @@ import UserNotifications
 import UserNotificationsUI
 
 class NotificationViewController: UIViewController, UNNotificationContentExtension {
-    let noticeLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = UIColor(named: "light_dark")
-        label.text = NSLocalizedString("copyTitle", comment: "")
-        label.font = UIFont.systemFont(ofSize: 16)
-        label.textAlignment = .center
-        return label
-    }()
-
+    
+    @IBOutlet var imageView: UIImageView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.addSubview(self.noticeLabel)
-        self.preferredContentSize = CGSize(width: 0, height: 1)
+        self.imageView.contentMode = .scaleAspectFit
+        self.imageView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 100)
+        self.preferredContentSize = CGSize(width: self.view.frame.width, height: 100)
     }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.preferredContentSize = CGSize(width: 0, height: 1)
-    }
-
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        self.preferredContentSize = CGSize(width: 0, height: 1)
-    }
+    
+    
 
     func didReceive(_ notification: UNNotification) {
-        guard notification.request.content.userInfo["autocopy"] as? String == "1"
-            || notification.request.content.userInfo["automaticallycopy"] as? String == "1"
-        else {
-            return
+        let userInfo = notification.request.content.userInfo
+        
+        if userInfo["autocopy"] as? String == "1"  || userInfo["automaticallycopy"] as? String == "1"{
+            if let copy = userInfo["copy"] as? String {
+                UIPasteboard.general.string = copy
+            }
+            else {
+                UIPasteboard.general.string = notification.request.content.body
+            }
         }
-        if let copy = notification.request.content.userInfo["copy"] as? String {
-            UIPasteboard.general.string = copy
+        
+        if let imageUrl = userInfo["image"] as? String{
+            Task{
+               
+                if let imageFileUrl = await ImageManager.downloadImage(imageUrl),
+                   let image = UIImage(contentsOfFile: imageFileUrl){
+                    let viewWidth = self.view.frame.width
+                    let aspectRatio = image.size.width / image.size.height
+                    let viewHeight = viewWidth / aspectRatio
+                    DispatchQueue.main.async { [weak self] in
+                        if let self = self{
+                            imageView.image = image
+                            self.imageView.frame = CGRect(x: 0, y: 0, width: viewWidth, height: viewHeight)
+                            self.preferredContentSize = CGSize(width: viewWidth, height: viewHeight)
+                        }
+                        
+                    }
+                }
+            }
+            
+        }else{
+            self.preferredContentSize = CGSize(width: 0, height: 0)
         }
-        else {
-            UIPasteboard.general.string = notification.request.content.body
-        }
+        
     }
-
+    
     func didReceive(_ response: UNNotificationResponse, completionHandler completion: @escaping (UNNotificationContentExtensionResponseOption) -> Void) {
+        
+        
         let userInfo = response.notification.request.content.userInfo
-
-        if let copy = userInfo["copy"] as? String {
-            UIPasteboard.general.string = copy
+        
+        
+        switch response.actionIdentifier{
+            
+        case Identifiers.detailAction:
+            completion(.dismissAndForwardAction)
+            
+        case Identifiers.copyAction:
+            if let copy = userInfo["copy"] as? String {
+                UIPasteboard.general.string = copy
+            }
+            else {
+                UIPasteboard.general.string = response.notification.request.content.body
+            }
+            completion(.dismiss)
+        default:
+            completion(.dismiss)
         }
-        else {
-            UIPasteboard.general.string = response.notification.request.content.body
-        }
-
-        self.preferredContentSize = CGSize(width: 0, height: 40)
-        self.noticeLabel.frame = CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 40)
-
-        completion(.doNotDismiss)
+        
+        
     }
 }

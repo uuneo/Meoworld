@@ -47,7 +47,7 @@ exportFail = "导出失败";
 exportSuccess = "导出成功";
 allSounds = "所有铃声";
 
-copyTitle = "复制";
+copyTitle = "复制后关闭";
 
 someMessageCount = "%d条消息";
 deviceTokenHeader = "苹果设备推送Token,不要外泄";
@@ -353,3 +353,25 @@ firstStartContent2 = "配合邮件配置，实现收到消息自动执行某种�
 firstStartTitle3 = "私有服务器支持";
 firstStartHeader3 = "Tips 4";
 firstStartContent3 = "自定义服务器，让消息传递更安全！";
+
+historyImage = "历史图片";
+
+closeTitle = "关闭消息";
+detailTitle = "查看详情";
+
+submitBtn = "保存";
+cancelBtn = "取消";
+
+
+// ---------------------------------
+photoAlbumName = "相册名";
+selectBtn = "选择";
+selectAll = "全选";
+cancelSelectAll = "取消全选";
+imageName = "图片";
+selectImageCount = "已选择%d张图片";
+selectImage = "选择图片";
+dangerHandler = "危险操作！";
+deleteImageCount = "删除%d张图片, 删除后不能恢复!";
+saveImages = "保存图片";
+saveImageCountImageNamePhoto = "保存%1$d张图片到 %2$@ 相册";

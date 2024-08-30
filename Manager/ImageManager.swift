@@ -39,9 +39,7 @@ final class ImageManager{
     /// 下载推送图片
     /// - Parameter imageUrl: 图片URL字符串
     /// - Returns: 保存在本地中的`图片 File URL`
-    static func downloadImage(_ imageUrl: String) async -> String? {
-        
-        
+    class func downloadImage(_ imageUrl: String) async -> String? {
         guard let groupUrl = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: BaseConfig.groupName),
               let cache = try? ImageCache(name: "shared", cacheDirectoryURL: groupUrl),
               let imageResource = URL(string: imageUrl)
@@ -58,16 +56,14 @@ final class ImageManager{
         guard let result = try? await downloadImage(url: imageResource).get() else {
             return nil
         }
-        
         // 缓存图片
         await storeImage(cache: cache, data: result.originalData, key: imageResource.cacheKey)
         
-        
         return cache.cachePath(forKey: imageResource.cacheKey)
-        //        return result.originalData
     }
-    
+
     
 }
+
 
 

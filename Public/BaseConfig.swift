@@ -5,31 +5,6 @@
 //  Created by He Cho on 2024/8/8.
 //
 
-@_exported import RealmSwift
-import Foundation
-import UIKit
-
-let defaultStore = UserDefaults(suiteName: BaseConfig.groupName)
-
-let kRealmDefaultConfiguration = {
-    let groupUrl = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: BaseConfig.groupName)
-    
-    let fileUrl = groupUrl?.appendingPathComponent(BaseConfig.realmName)
-    
-    let config = Realm.Configuration(
-        fileURL: fileUrl,
-        schemaVersion: BaseConfig.realmModalVersion,
-        migrationBlock: { _, oldSchemaVersion in
-            // We haven’t migrated anything yet, so oldSchemaVersion == 0
-            if oldSchemaVersion < 1 {
-                // Nothing to do!
-                // Realm will automatically detect new properties and removed properties
-                // And will update the schema on disk automatically
-            }
-        }
-    )
-    return config
-}()
 
 
 
@@ -58,7 +33,6 @@ struct otherUrl {
 
 
 struct BaseConfig {
-    
     static let  groupName = "group.Meoworld"
     static let  cloudMessageName = "MeowMessageCloud"
     static let  settingName = "cryptoSettingFields"
@@ -80,10 +54,10 @@ struct BaseConfig {
     static let  kStopCallProcessorKey = "stopCallProcessorNotification"
     static let  Sounds = "Sounds"
     static let  archiveName = "meowArchive"
-    static let  realmModalVersion:UInt64 = 2
+    static let  realmModalVersion:UInt64 = 3
     static let  defaultSound = "defaultSound"
     static let  activeAppIcon = "setting_active_app_icon"
-    
+    static let customPhotoName = "CustomPhotoName"
 
 }
 

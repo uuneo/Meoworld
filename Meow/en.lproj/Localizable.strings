@@ -179,7 +179,7 @@ monthAgo = "One month ago";
 allTime = "All Time";
 
 
-copyTitle = "Copy";
+copyTitle = "CopyAndClose";
 
 
 messageExampleTitle1 = "Example";
@@ -365,3 +365,26 @@ firstStartContent2 = "Combine with email configuration to automatically execute 
 firstStartTitle3 = "Private Server Support";
 firstStartHeader3 = "Tips 4";
 firstStartContent3 = "Customize your server for more secure message transmission!";
+
+historyImage = "History";
+
+
+closeTitle = "Close Message";
+detailTitle = "View Details";
+
+submitBtn = "Submit";
+cancelBtn = "Cancel";
+
+
+
+photoAlbumName = "Album Name";
+selectBtn = "Select";
+selectAll = "Select All";
+cancelSelectAll = "Deselect All";
+imageName = "Image";
+selectImageCount = "%d images selected";
+selectImage = "Select Image";
+dangerHandler = "Dangerous Operation!";
+deleteImageCount = "Delete %d images. This action cannot be undone!";
+saveImages = "Save Images";
+saveImageCountImageNamePhoto = "Save %1$d images to the %2$@ album";

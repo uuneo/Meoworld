@@ -15,12 +15,14 @@ struct ServersView: View {
     @State private var serverText:String = ""
     @State private var serverName:String = ""
     @State private var pickerSelect:requestHeader = .https
+    
+    @State private var login:Bool = false
     var showClose:Bool = false
     
     var body: some View {
         NavigationStack{
             VStack{
-               
+                
                 List{
                     
                     
@@ -39,14 +41,14 @@ struct ServersView: View {
                                             Text(requestHeader.http.rawValue).tag(requestHeader.http)
                                             Text(requestHeader.https.rawValue).tag(requestHeader.https)
                                         }label: {
-                                           Text("")
+                                            Text("")
                                         } .pickerStyle(.automatic)
                                             .frame(maxWidth: 100)
                                             .offset(x:-30)
                                         Spacer()
                                     }
                                 }
-
+                            
                         }header: {
                             Text(NSLocalizedString("addNewServerListAddress",comment: ""))
                         }footer: {
@@ -75,15 +77,15 @@ struct ServersView: View {
                             }.padding(.vertical)
                         }
                         
-                       
+                        
                     }
                     
                     Text("")
                         .listRowBackground(Color.clear)
                         .listRowSeparator(.hidden)
-                        
                     
-                   
+                    
+                    
                     ForEach(MainManager.shared.servers,id: \.id){item in
                         HStack(alignment: .center){
                             Image(item.status ? "online": "offline")
@@ -122,10 +124,10 @@ struct ServersView: View {
                         .swipeActions(edge: .leading, allowsFullSwipe: true) {
                             
                             Button {
-                                RouterManager.shared.fullPage = .login
+                                self.login.toggle()
                                 
                             } label: {
-                               Text(NSLocalizedString("replaceKeyWithMail", comment: "修改key"))
+                                Text(NSLocalizedString("replaceKeyWithMail", comment: "修改key"))
                             }.tint(.blue)
                         }
                         .listRowSeparator(.hidden)
@@ -161,7 +163,7 @@ struct ServersView: View {
                     .onMove(perform: { indices, newOffset in
                         MainManager.shared.servers.move(fromOffsets: indices, toOffset: newOffset)
                     })
-
+                    
                     
                 }
                 .listRowSpacing(20)
@@ -171,49 +173,53 @@ struct ServersView: View {
                 
                 
             }
-          
+            
             .toast(info: $toastText)
             
-                .toolbar{
-                    
-                    ToolbarItem {
-                        Button {
-                            RouterManager.shared.fullPage = .scan
-                        } label: {
-                            Image(systemName: "qrcode.viewfinder")
-                        }
-
-                    }
+            .toolbar{
                 
-                    ToolbarItem {
-                        EditButton()
+                ToolbarItem {
+                    Button {
+                        RouterManager.shared.fullPage = .scan
+                    } label: {
+                        Image(systemName: "qrcode.viewfinder")
                     }
-                   
                     
-                    if showClose {
-                       
-                        ToolbarItem{
-                            Button {
-                                dismiss()
-                            } label: {
-                                Image(systemName: "xmark.seal")
-                            }
-
+                }
+                
+                ToolbarItem {
+                    EditButton()
+                }
+                
+                
+                if showClose {
+                    
+                    ToolbarItem{
+                        Button {
+                            dismiss()
+                        } label: {
+                            Image(systemName: "xmark.seal")
                         }
+                        
                     }
                 }
-                .environment(\.editMode, $isEditing)
-                .navigationTitle(NSLocalizedString("serverList",comment: ""))
+            }
+            .environment(\.editMode, $isEditing)
+            .navigationTitle(NSLocalizedString("serverList",comment: ""))
             
-                .onChange(of: isEditing) { value in
-                    
-                    if value == .inactive && serverName.count > 0{
-                        let (_, toast) =  MainManager.shared.addServer(pickerSelect.rawValue, url: serverName)
-                        self.toastText = toast
-                        self.serverName = ""
-                    }
-                   
+            .onChange(of: isEditing) { value in
+                
+                if value == .inactive && serverName.count > 0{
+                    let (_, toast) =  MainManager.shared.addServer(pickerSelect.rawValue, url: serverName)
+                    self.toastText = toast
+                    self.serverName = ""
                 }
+                
+            }
+            
+            .fullScreenCover(isPresented: $login) {
+                ChangeKeyWithEmailView()
+            }
             
         }
     }

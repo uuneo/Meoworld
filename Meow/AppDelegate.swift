@@ -12,16 +12,11 @@ import SwiftyJSON
 import CallKit
 
 
-struct Identifiers {
-    static let reminderCategory = "myNotificationCategory"
-    static let cancelAction = "cancel"
-    static let copyAction = "copy"
-}
+
 
 
 class AppDelegate: NSObject, UIApplicationDelegate{
     
-    let generator = UISelectionFeedbackGenerator()
     
     let pushRegistry = PKPushRegistry(queue: DispatchQueue.main)
     
@@ -77,11 +72,14 @@ class AppDelegate: NSObject, UIApplicationDelegate{
         UNUserNotificationCenter.current().delegate = self
         
         
-        let copyAction =  UNNotificationAction(identifier:Identifiers.copyAction, title: NSLocalizedString("copyTitle",comment: ""), options: [],icon: .init(systemImageName: "doc.on.doc"))
+        let copyAction =  UNNotificationAction(identifier:Identifiers.copyAction, title: NSLocalizedString("copyTitle",comment: ""), options: [.destructive],icon: .init(systemImageName: "doc.on.doc"))
+        
+        
+        let detailActionAction =  UNNotificationAction(identifier:Identifiers.detailAction, title: NSLocalizedString("detailTitle",comment: ""), options: [.foreground],icon: .init(systemImageName: "ellipsis.circle"))
         
         // 创建 category
         let category = UNNotificationCategory(identifier: Identifiers.reminderCategory,
-                                              actions: [copyAction],
+                                              actions: [copyAction, detailActionAction],
                                               intentIdentifiers: [],
                                               options: [.hiddenPreviewsShowTitle])
         
@@ -152,13 +150,6 @@ extension AppDelegate :PKPushRegistryDelegate{
         
         debugPrint(data)
         
-//        let name = (data["aps"] as? [String: Any])?["name"] as? String
-//        
-//        
-//        let uuid  = UUID()
-        
-        
-        
         
     }
 }
@@ -181,8 +172,10 @@ extension AppDelegate :UNUserNotificationCenterDelegate{
         
         notificatonHandler(userInfo: notification.request.content.userInfo)
         
-        generator.prepare()
-        generator.selectionChanged()
+//        MainManager.triggerNotificationFeedback(type: .warning)
+    
+        
+        HapticsManager.shared.complexSuccess()
         
         
         completionHandler(.badge)
@@ -212,6 +205,7 @@ extension AppDelegate :UNUserNotificationCenterDelegate{
         
         
     }
+    
     
 }
 

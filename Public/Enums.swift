@@ -17,7 +17,6 @@ enum SubPage{
     case web
     case issues
     case none
-    case contactMe
 }
 
 
@@ -152,4 +151,11 @@ enum QuickAction{
             userInfo: allDelNotReaduserInfo
         )
     ]
+}
+
+struct Identifiers {
+    static let reminderCategory = "myNotificationCategory"
+    static let cancelAction = "cancel"
+    static let copyAction = "copy"
+    static let detailAction = "viewDetail"
 }

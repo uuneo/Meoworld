@@ -17,7 +17,7 @@ class IconHandler: NotificationContentHandler{
             
 
             if let imageUrl = userInfo["icon"] as? String,
-               let imageFileUrl = await ImageDownloader.downloadImage(imageUrl){
+               let imageFileUrl = await ImageManager.downloadImage(imageUrl){
                 
                 avatar = INImage(imageData: NSData(contentsOfFile: imageFileUrl)! as Data)
                 

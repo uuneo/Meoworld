@@ -26,6 +26,7 @@ struct SettingsView: View {
     @State private var errorAnimate2:Bool = false
     @State private var errorAnimate3:Bool = false
     @State private var showLoading:Bool = false
+
     @StateObject private var manager = MainManager.shared
     @StateObject private var router = RouterManager.shared
     @StateObject private var toolsManager = ToolsManager.shared
@@ -34,6 +35,10 @@ struct SettingsView: View {
     @State private var document = TextDocument(text: "123")
     
     @State private var timerz: AnyCancellable?
+    
+    @State var valueToUse: Int = 0
+    
+   
     
     var body: some View {
         
@@ -118,6 +123,30 @@ struct SettingsView: View {
                     Text(NSLocalizedString("archiveNote", comment: ""))
                         .foregroundStyle(.gray)
                 }
+                
+                
+                
+                
+                Section {
+                    
+                    NavigationLink {
+                        ImageCacheView()
+                            .toolbar(.hidden, for: .tabBar)
+                            .navigationTitle(NSLocalizedString("historyImage", comment: "历史图片"))
+        
+                    } label: {
+                        Label(NSLocalizedString("historyImage", comment: "历史图片"), systemImage: "photo.on.rectangle")
+                    }
+                
+                  
+                }header :{
+                    Text(NSLocalizedString("historyImage", comment: "历史图片"))
+                        .foregroundStyle(.gray)
+                }
+                
+                
+                
+                
                 
                 Section(header: Text(NSLocalizedString("configTitle", comment: "配置"))) {
                     Button{
@@ -283,21 +312,6 @@ struct SettingsView: View {
                         
                         
                     }
-                    
-                    
-                    NavigationLink {
-                        ChatDemo()
-                            .toolbar(.hidden, for: .tabBar)
-                            
-                    } label: {
-                        Label {
-                            Text(NSLocalizedString("contactMe",comment: ""))
-                                .foregroundStyle(.lightDark)
-                        } icon: {
-                            Image(systemName: "questionmark.circle")
-                                .scaleEffect(0.9)
-                        }
-                    }
 
                     
                 }
@@ -320,10 +334,10 @@ struct SettingsView: View {
                             manager.openSetting()
                         } label: {
                             Image(systemName: "wifi.exclamationmark")
-                                .foregroundStyle(.yellow)
+                                .foregroundStyle(.red)
                                 .opacity(errorAnimate1 ? 1 : 0.1)
                                 .onAppear{
-                                    withAnimation(Animation.bouncy(duration: 0.5).repeatForever()) {
+                                    withAnimation(Animation.bouncy(duration: 0.3).repeatForever()) {
                                         self.errorAnimate1 = true
                                     }
                                 }
@@ -346,7 +360,7 @@ struct SettingsView: View {
                                 .foregroundStyle(.red)
                                 .opacity(errorAnimate2 ? 0.1 : 1)
                                 .onAppear{
-                                    withAnimation(Animation.bouncy(duration: 0.5).repeatForever()) {
+                                    withAnimation(Animation.bouncy(duration: 0.3).repeatForever()) {
                                         self.errorAnimate2 = true
                                     }
                                 }
@@ -372,15 +386,15 @@ struct SettingsView: View {
                                 
                                 Image(systemName: "bell.slash")
                                     .foregroundStyle(.red)
-                                    .opacity(errorAnimate3 ? 0.1 : 1)
+                                    .opacity(errorAnimate3 ? 0 : 1)
                                 
                                 Image(systemName: "wifi.exclamationmark")
-                                    .foregroundStyle(.yellow)
-                                    .opacity(errorAnimate3 ? 1 : 0.1)
+                                    .foregroundStyle(.red)
+                                    .opacity(errorAnimate3 ? 1 : 0)
                                 
                             }
                             .onAppear{
-                                withAnimation(Animation.bouncy(duration: 0.5).repeatForever()) {
+                                withAnimation(Animation.bouncy(duration: 0.3).repeatForever()) {
                                     self.errorAnimate3 = true
                                 }
                             }
@@ -397,7 +411,9 @@ struct SettingsView: View {
                     
                 }
             }
-
+ 
+            
+            
             
             ToolbarItem {
                 
@@ -436,6 +452,8 @@ struct SettingsView: View {
             ServersView()
                 .toolbar(.hidden, for: .tabBar)
         }
+       
+       
         
         
         
@@ -518,5 +536,8 @@ extension SettingsView{
 }
 
 #Preview {
-    SettingsView()
+    NavigationStack{
+        SettingsView()
+    }
+   
 }

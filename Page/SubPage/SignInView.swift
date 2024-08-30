@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SignInView: View {
+    @Environment(\.dismiss) var dismiss
     @State private var emailName:String = ""
     @State private var codeNumber:String = ""
     @State private var isCountingDown:Bool = false
@@ -22,8 +23,6 @@ struct SignInView: View {
     
     @StateObject private var manager = MainManager.shared
     @StateObject private var router = RouterManager.shared
-    
-    var closeFunc: (()->Void)?
     
     @State private var selectServerIndex:Int = 0
     @State private var loadingText:String = ""
@@ -223,7 +222,7 @@ struct SignInView: View {
                                   
                                   manager.servers[selectServerIndex] = result
                                   
-                                 closeFunc?()
+                                dismiss()
                             }
                         }else{
                             dispatch_sync_safely_main_queue {
@@ -240,40 +239,6 @@ struct SignInView: View {
                     
                 }
             }
-            
-            
-            
-//
-//            if !isCountingDown{
-//                angularButton(title: NSLocalizedString("signGetCode", comment: "获取验证码"),disable: !toolsManager.isValidEmail(emailName)){
-//                    Task{
-//                        if await self.sendCode(self.emailName){
-//                            DispatchQueue.main.async {
-//                                isCountingDown.toggle()
-//                            }
-//                        }
-//                    }
-//
-//
-//                }
-//            }else{
-//                angularButton(title: NSLocalizedString("register", comment: "注册"),disable: codeNumber.count == 0){
-//                    Task{
-//                        if await self.register(email: emailName, code: codeNumber){
-//                            pawManager.shared.dispatch_sync_safely_main_queue {
-//                                var result =   pawManager.shared.servers[selectServerIndex]
-//
-//                                  result.key = emailName
-//
-//                                  pawManager.shared.servers[selectServerIndex] = result
-//
-//                                 closeFunc?()
-//                            }
-//                        }
-//                    }
-//                }
-//            }
-            
             
             
         }
