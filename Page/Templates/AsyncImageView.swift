@@ -8,51 +8,6 @@
 import SwiftUI
 import Photos
 
-struct AsyncImageView: View {
-    let imageUrl: String
-    
-    @State private var image: UIImage?
-    
-    @State var toastText:String = ""
-    @State var isPressed:Bool = false
-    @State var scale:Int = 1
-    
-    var isSave:Bool = false
-    
-  
-    
-    var body: some View {
-        
-        if let image = image {
-            // 如果已经加载了图片，则显示图片
-           
-            Image(uiImage: image)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .clipShape(RoundedRectangle(cornerRadius: 10))
-              
-                
-        } else {
-            // 如果图片尚未加载，则显示加载中的视图
-            ProgressView()
-                .onAppear {
-                    // 在视图显示时异步下载图片
-                    Task {
-                        if let imagePath = await ImageManager.downloadImage(imageUrl) {
-                            DispatchQueue.main.async{
-                                self.image = UIImage(contentsOfFile: imagePath)
-                            }
-                            
-                        }
-                    }
-                }
-        }
-        
-    }
-    
-}
-
-
 
 struct AvatarView: View {
     
@@ -61,6 +16,8 @@ struct AvatarView: View {
     var icon:String?
     
     var mode:String?
+    
+    var imageMode:ContentMode = .fill
     
     
     @State private var success:Bool = true
@@ -96,7 +53,7 @@ struct AvatarView: View {
             }
             
         }
-        .aspectRatio(contentMode: .fill)
+        .aspectRatio(contentMode: imageMode)
         .onChange(of: icon) { value in
             loadImage(icon: value)
         }
