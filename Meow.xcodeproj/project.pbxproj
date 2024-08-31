@@ -188,6 +188,7 @@
 		19C8C31E2C6CC79600581C8F /* bookManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C8C31D2C6CC79600581C8F /* bookManager.swift */; };
 		19CD2F762C6CE40C000C79ED /* RealmSwift in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 1941D4692C66215A00F4C6EC /* RealmSwift */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		19EB27532C81F30A00956EAC /* HapticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19EB27522C81F30A00956EAC /* HapticsManager.swift */; };
+		19EB275B2C8364D800956EAC /* toolbar+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19EB275A2C8364D800956EAC /* toolbar+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -374,6 +375,7 @@
 		19C8C31D2C6CC79600581C8F /* bookManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bookManager.swift; sourceTree = "<group>"; };
 		19CD2F742C6CE101000C79ED /* NotificationContentExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NotificationContentExtension.entitlements; sourceTree = "<group>"; };
 		19EB27522C81F30A00956EAC /* HapticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticsManager.swift; sourceTree = "<group>"; };
+		19EB275A2C8364D800956EAC /* toolbar+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "toolbar+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -597,6 +599,7 @@
 				1924F7862C73749F007F43CD /* Provider+.swift */,
 				190B89222C7CE5CC0050099B /* button+.swift */,
 				19B473B32C802B850063EAB5 /* image+.swift */,
+				19EB275A2C8364D800956EAC /* toolbar+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -965,6 +968,7 @@
 				1966553F2C6680AF00035E67 /* String+.swift in Sources */,
 				198037352C70F6A400F9DBDD /* Object+.swift in Sources */,
 				1966553D2C667CE200035E67 /* MessageView.swift in Sources */,
+				19EB275B2C8364D800956EAC /* toolbar+.swift in Sources */,
 				19C8C31C2C6CC48800581C8F /* ContactsView.swift in Sources */,
 				196655512C67270800035E67 /* Color+.swift in Sources */,
 				196654FF2C66664F00035E67 /* View+.swift in Sources */,

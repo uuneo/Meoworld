@@ -103,9 +103,7 @@ struct ContentView: View {
         .toast(info: $toastText)
         .onAppear{
             if firstStart {
-                for item in Message.messages{
-                    let _ = RealmManager.shared.addObject(item)
-                }
+                RealmManager.shared.write(messages: Message.messages)
                 self.firstStart = false
             }
         }
@@ -126,7 +124,8 @@ struct ContentView: View {
                     .destructive(
                         Text(NSLocalizedString("deleteTitle", comment: "删除")),
                         action: {
-                            RealmManager.shared.allDel( activeName == "alldelnotread" ? 1 : 0)
+                            
+                            RealmManager.shared.delete(read: activeName == "alldelnotread")
                             
                             self.toastText = NSLocalizedString("controlSuccess", comment:"操作成功")
                            
@@ -197,7 +196,8 @@ extension ContentView{
                 RouterManager.shared.page = .message
                 switch name{
                 case "allread":
-                    RealmManager.shared.allRead()
+                    RealmManager.shared.readMessage()
+                    
                     self.toastText = NSLocalizedString("controlSuccess", comment:"操作成功")
                 case "alldelread","alldelnotread":
                     self.activeName = name
@@ -219,7 +219,7 @@ extension ContentView{
         }
         
         if ToolsManager.shared.badgeMode == .auto{
-            ToolsManager.shared.changeBadge(badge: RealmManager.shared.getUnreadCount() ?? -1)
+            ToolsManager.shared.changeBadge(badge: RealmManager.shared.NReadCount())
         }else{
             ToolsManager.shared.changeBadge(badge: -1)
         }

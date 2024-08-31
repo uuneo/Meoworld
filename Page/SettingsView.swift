@@ -52,7 +52,7 @@ struct SettingsView: View {
         
                         Button {
                             
-                            if RealmManager.shared.getObject()?.count ?? 0 > 0{
+                            if messages.count > 0{
                                 self.showLoading = true
                                 self.exportFiles()
                                
@@ -187,9 +187,7 @@ struct SettingsView: View {
                     }
                     .onChange(of: toolsManager.badgeMode) {value in
                         if value == .auto{
-                            if let badge = RealmManager.shared.getUnreadCount(){
-                                ToolsManager.shared.changeBadge(badge:badge )
-                            }
+                            ToolsManager.shared.changeBadge(badge: RealmManager.shared.NReadCount())
                         }else{
                             ToolsManager.shared.changeBadge(badge: -1)
                         }
@@ -324,101 +322,14 @@ struct SettingsView: View {
         .loading(showLoading)
         .toast(info: $toastText)
         .background(hexColor("#f5f5f5"))
+        .tipsToolbar(wifi: Monitors.shared.isConnected, notification: Monitors.shared.isAuthorized, callback: {
+            manager.openSetting()
+        })
         .toolbar {
-            
-            Group{
-                
-                if !Monitors.shared.isConnected && Monitors.shared.isAuthorized{
-                    ToolbarItem (placement: .topBarLeading){
-                        Button {
-                            manager.openSetting()
-                        } label: {
-                            Image(systemName: "wifi.exclamationmark")
-                                .foregroundStyle(.red)
-                                .opacity(errorAnimate1 ? 1 : 0.1)
-                                .onAppear{
-                                    withAnimation(Animation.bouncy(duration: 0.3).repeatForever()) {
-                                        self.errorAnimate1 = true
-                                    }
-                                }
-                                .onDisappear{
-                                    self.errorAnimate1 = false
-                                }
-                            
-                        }
-                        
-                    }
-                }
-                
-                if !Monitors.shared.isAuthorized && Monitors.shared.isConnected {
-                    
-                    ToolbarItem (placement: .topBarLeading){
-                        Button {
-                            manager.openSetting()
-                        } label: {
-                            Image(systemName: "bell.slash")
-                                .foregroundStyle(.red)
-                                .opacity(errorAnimate2 ? 0.1 : 1)
-                                .onAppear{
-                                    withAnimation(Animation.bouncy(duration: 0.3).repeatForever()) {
-                                        self.errorAnimate2 = true
-                                    }
-                                }
-                                .onDisappear{
-                                    self.errorAnimate2 = false
-                                }
-                            
-                        }
-                        
-                    }
-                    
-                    
-                }
-                
-                if !Monitors.shared.isAuthorized && !Monitors.shared.isConnected  {
-                    
-                    ToolbarItem (placement: .topBarLeading){
-                        Button {
-                            manager.openSetting()
-                        } label: {
-                            
-                            ZStack{
-                                
-                                Image(systemName: "bell.slash")
-                                    .foregroundStyle(.red)
-                                    .opacity(errorAnimate3 ? 0 : 1)
-                                
-                                Image(systemName: "wifi.exclamationmark")
-                                    .foregroundStyle(.red)
-                                    .opacity(errorAnimate3 ? 1 : 0)
-                                
-                            }
-                            .onAppear{
-                                withAnimation(Animation.bouncy(duration: 0.3).repeatForever()) {
-                                    self.errorAnimate3 = true
-                                }
-                            }
-                            .onDisappear{
-                                self.errorAnimate3 = false
-                            }
-                            
-                            
-                            
-                        }
-                        
-                    }
-                    
-                    
-                }
-            }
- 
-            
-            
             
             ToolbarItem {
                 
                 Button {
-                    
                     RouterManager.shared.showServerListView.toggle()
                 } label: {
                     Image(systemName: "externaldrive.badge.wifi")

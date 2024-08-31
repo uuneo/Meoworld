@@ -6,13 +6,13 @@
 //
 
 import SwiftUI
-import RealmSwift
 
 struct MessageDetailView: View {
     var messages:Results<Message>
     
     @Environment(\.dismiss) private var dismiss
     @Environment(\.presentationMode) var presentationMode
+    
     @State private var toastText:String = ""
     @State private var pageNumber:Int = 1
     var showMsgCount:Int{
@@ -27,13 +27,10 @@ struct MessageDetailView: View {
                     .listSectionSeparator(.hidden)
                         .swipeActions(edge: .leading) {
                             Button {
-                                let _ = RealmManager.shared.updateObject(message) { item2 in
-                                    item2.read = !item2.read
-                                    
-                                    
-                                    self.toastText = NSLocalizedString("messageModeChanged", comment: "")
-                                  
-                                }
+                               
+                                RealmManager.shared.readMessage(id: message.id)
+                                self.toastText = NSLocalizedString("messageModeChanged", comment: "")
+                                
                             } label: {
                                 Label(message.read ? NSLocalizedString("markNotRead",comment: "") :  NSLocalizedString("markRead",comment: ""), systemImage: message.read ? "envelope.open": "envelope")
                             }.tint(.blue)
@@ -46,7 +43,7 @@ struct MessageDetailView: View {
                     
             }.onDelete { IndexSet in
                 for k in IndexSet{
-                   let _ =  RealmManager.shared.deleteObject(messages[k])
+                    RealmManager.shared.delete(id: messages[k].id)
                 }
             }
                 
@@ -97,6 +94,6 @@ struct MessageDetailView: View {
     }
 }
 
-#Preview {
-    MessageDetailView(messages: RealmManager.shared.getObject()!)
-}
+//#Preview {
+//    MessageDetailView(messages: )
+//}

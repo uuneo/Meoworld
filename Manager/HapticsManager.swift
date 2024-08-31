@@ -7,6 +7,7 @@
 
 import Foundation
 import CoreHaptics
+import UIKit
 
 
 class HapticsManager{
@@ -69,5 +70,26 @@ class HapticsManager{
         }
     }
     
+    
+    // 触发震动反馈
+    static func triggerHapticFeedback(style: UIImpactFeedbackGenerator.FeedbackStyle) {
+        let generator = UIImpactFeedbackGenerator(style: style)
+        generator.prepare()
+        generator.impactOccurred()
+    }
+    
+    // 触发选择震动反馈
+    static func triggerSelectionFeedback() {
+        let generator = UISelectionFeedbackGenerator()
+        generator.prepare()
+        generator.selectionChanged()
+    }
+    
+    // 触发通知震动反馈
+    static func triggerNotificationFeedback(type: UINotificationFeedbackGenerator.FeedbackType) {
+        let generator = UINotificationFeedbackGenerator()
+        generator.prepare()
+        generator.notificationOccurred(type)
+    }
     
 }
