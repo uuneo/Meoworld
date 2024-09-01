@@ -189,6 +189,8 @@
 		19CD2F762C6CE40C000C79ED /* RealmSwift in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 1941D4692C66215A00F4C6EC /* RealmSwift */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		19EB27532C81F30A00956EAC /* HapticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19EB27522C81F30A00956EAC /* HapticsManager.swift */; };
 		19EB275B2C8364D800956EAC /* toolbar+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19EB275A2C8364D800956EAC /* toolbar+.swift */; };
+		19EB27732C843EEF00956EAC /* VideoHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19EB27722C843EEF00956EAC /* VideoHandler.swift */; };
+		19EB27742C84C21C00956EAC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1941D38C2C646B1500F4C6EC /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -376,6 +378,7 @@
 		19CD2F742C6CE101000C79ED /* NotificationContentExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NotificationContentExtension.entitlements; sourceTree = "<group>"; };
 		19EB27522C81F30A00956EAC /* HapticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticsManager.swift; sourceTree = "<group>"; };
 		19EB275A2C8364D800956EAC /* toolbar+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "toolbar+.swift"; sourceTree = "<group>"; };
+		19EB27722C843EEF00956EAC /* VideoHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -578,9 +581,10 @@
 				1941D3D92C64DB6E00F4C6EC /* ArchiveHandler.swift */,
 				1941D3DB2C64DBAF00F4C6EC /* IconHandler.swift */,
 				1941D3DD2C64DC0900F4C6EC /* ImageHandler.swift */,
-				1941D3DF2C64DC3B00F4C6EC /* CallHandler.swift */,
 				1966557D2C690FCF00035E67 /* ActionHandler.swift */,
 				1992DCCC2C6F8606004A5259 /* SoundHandler.swift */,
+				19EB27722C843EEF00956EAC /* VideoHandler.swift */,
+				1941D3DF2C64DC3B00F4C6EC /* CallHandler.swift */,
 			);
 			path = Handler;
 			sourceTree = "<group>";
@@ -871,6 +875,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				19EB27742C84C21C00956EAC /* Assets.xcassets in Resources */,
 				1941D43A2C64F34E00F4C6EC /* sherwoodforest.caf in Resources */,
 				1941D4392C64F34E00F4C6EC /* anticipate.caf in Resources */,
 				1941D4272C64F34E00F4C6EC /* minuet.caf in Resources */,
@@ -1010,6 +1015,7 @@
 				1941D3A72C64D82C00F4C6EC /* NotificationService.swift in Sources */,
 				1941D3D02C64D9EB00F4C6EC /* MainHandler.swift in Sources */,
 				1941D3F92C64E7C700F4C6EC /* MessageModel.swift in Sources */,
+				19EB27732C843EEF00956EAC /* VideoHandler.swift in Sources */,
 				1941D3FC2C64F07500F4C6EC /* CryptoFields.swift in Sources */,
 				1941D3F02C64E3AB00F4C6EC /* Error+.swift in Sources */,
 				1941D3DE2C64DC0900F4C6EC /* ImageHandler.swift in Sources */,

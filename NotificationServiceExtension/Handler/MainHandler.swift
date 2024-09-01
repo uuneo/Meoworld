@@ -17,6 +17,7 @@ enum NotificationContentHandlerItem {
     case setIcon
     case setImage
     case action
+    case video
     case call
     
     
@@ -41,6 +42,8 @@ enum NotificationContentHandlerItem {
             return ActionHandler()
         case .sound:
             return SoundHandler()
+        case .video:
+            return VideoHandler()
     
         }
     }

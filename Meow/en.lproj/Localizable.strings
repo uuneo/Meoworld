@@ -86,67 +86,71 @@ changeServer = "Switch server";
 useExample = "Usage example";
 
 
-pushExampleHeader1 = "Example 1";
-pushExampleFooter1 = "Click the button in the upper right corner to copy the test URL and preview the push effect\nSafari may have cache, please refresh the page if you don't receive the push";
-pushExampleTitle1 = "Push Content";
-pushExampleParams1 = "Push Content";
+pushExampleHeader0 = "Example 1";
+pushExampleFooter0 = "Click the button in the top right corner to copy the test URL and preview the push notification.\nSafari has a cache, so please refresh the page if you don't receive the push notification.";
+pushExampleTitle0 = "Push Content";
+pushExampleParams0 = "Push Content";
 
-pushExampleHeader2 = "Example 2";
-pushExampleFooter2 = "The font size of the push title is slightly larger than the push content";
-pushExampleTitle2 =  "Title + Content";
-pushExampleParams2 = "Title/Content";
+pushExampleHeader1 = "Example 2";
+pushExampleFooter1 = "The font size of the push title is slightly larger than the push content.";
+pushExampleTitle1 =  "Title + Content";
+pushExampleParams1 = "Title/Content";
 
-pushExampleHeader3 = "Click the headphone icon in the upper right corner to view all ringtones";
-pushExampleFooter3 ="Different ringtones can be set for the push";
-pushExampleTitle3 =  "Push Ringtones";
-pushExampleParams3 = "Push Content?sound=minuet";
+pushExampleHeader2 = "Click the headphones icon in the top right to view all ringtones";
+pushExampleFooter2 = "You can set different ringtones for the push notification.";
+pushExampleTitle2 =  "Push Sound";
+pushExampleParams2 = "Push Content?sound=minuet";
 
-pushExampleHeader4 = "Requires iOS 15 or later";
-pushExampleFooter4 = "Customize icon with https://image-url";
-pushExampleTitle4 = "Custom Icon";
-pushExampleParams4 = "Push Content?icon=warn";
+pushExampleHeader3 = "Requires iOS 15 or above";
+pushExampleFooter3 = "You can customize the icon with icon=https://image-url";
+pushExampleTitle3 = "Custom Icon";
+pushExampleParams3 = "Push Content?icon=warn";
 
-pushExampleHeader5 = "";
-pushExampleFooter5 = "To use this parameter, the badge mode in Settings needs to be set to custom";
-pushExampleTitle5 =  "Custom Badge";
-pushExampleParams5 = "Custom badge?badge=1";
+pushExampleHeader4 = "Automatically cached, viewable both inside and outside the app";
+pushExampleFooter4 = "Includes an image";
+pushExampleTitle4 = "Includes Image";
+pushExampleParams4 = "?title=title&body=body&image=https://day.app/assets/images/avatar.jpg";
 
+pushExampleHeader5 = "Only viewable in message notification, not automatically cached";
+pushExampleFooter5 = "Includes a video, auto-play on click";
+pushExampleTitle5 = "Includes Video";
+pushExampleParams5 = "?title=title&body=body&video=https://sf1-cdn-tos.huoshanstatic.com/obj/media-fe/xgplayer_doc_video/mp4/xgplayer-demo-360p.mp4";
 
-pushExampleHeader6 = "Auto Save";
-pushExampleFooter6 = "Messages are saved by default, unless isArchive=0 is included, messages won't appear in the foreground";
-pushExampleTitle6 = "Do Not Save Message";
-pushExampleParams6 = "Push Content?isArchive=0";
+pushExampleHeader6 = "";
+pushExampleFooter6 = "To use this parameter, the badge mode in settings needs to be set to custom";
+pushExampleTitle6 =  "Custom Badge";
+pushExampleParams6 = "Custom Badge?badge=1";
 
-pushExampleHeader7 = "URL Scheme or Web URL";
-pushExampleFooter7 = "Click to open the app";
-pushExampleTitle7 = "Open Third-Party App or Website";
-pushExampleParams7 = "Push Content?icon=weixin&url=weixin://";
+pushExampleHeader7 = "Auto Save";
+pushExampleFooter7 = "Messages are saved by default, unless they carry isArchive=0, in which case they won't appear in the foreground";
+pushExampleTitle7 = "Do Not Save Message";
+pushExampleParams7 = "Push Content?isArchive=0";
 
-pushExampleHeader8 = "Default group name: Information";
-pushExampleFooter8 = "Push notifications will be grouped according to the group parameter and displayed in the Notification Center and within the app";
-pushExampleTitle8 = "Push Notification Grouping";
-pushExampleParams8 = "Push notification grouping?group=Test";
+pushExampleHeader8 = "URLScheme or Website";
+pushExampleFooter8 = "Click to open the app";
+pushExampleTitle8 = "Open Third-party App or Website";
+pushExampleParams8 = "Push Content?icon=weixin&url=weixin://";
 
-pushExampleHeader9 = "Continuous Ringing";
-pushExampleFooter9 = "The notification sound will play continuously for 30 seconds. If multiple notifications are received, they will ring sequentially.";
-pushExampleTitle9 = "Continuous Ringing";
-pushExampleParams9 = "Push content?call=1";
+pushExampleHeader9 = "Default Group Name: Information";
+pushExampleFooter9 = "The push notification will be grouped and displayed in the notification center and within the app based on the group parameter.";
+pushExampleTitle9 = "Push Notification Grouping";
+pushExampleParams9 = "Push Notification Grouping?group=test";
 
-pushExampleHeader10 = "You can set the interruption level for notifications";
-pushExampleFooter10 = "Optional parameter values:\nactive: Default value, the system will immediately wake the screen to display the notification.\ntimeSensitive: Time-sensitive notifications, which can be displayed even in Focus mode.\npassive: Adds to the list only, without waking the screen for an alert";
-pushExampleTitle10 =  "Time-sensitive Notification";
-pushExampleParams10 = "Time-sensitive notification?level=timeSensitive";
+pushExampleHeader10 = "Continuous Ringing";
+pushExampleFooter10 = "The notification sound will play continuously for 30 seconds. If multiple notifications are received, they will ring sequentially.";
+pushExampleTitle10 =  "Continuous Ringing";
+pushExampleParams10 = "Continuous Ringing?call=1";
 
-pushExampleHeader11 = "Needs to be configured in Settings > Algorithm Settings";
-pushExampleFooter11 = "Encrypt and decrypt push content when sending and receiving";
-pushExampleTitle11 = "Push Encryption";
-pushExampleParams11 = "?ciphertext=Encrypted data";
+pushExampleHeader11 = "You can set the interruption level for notifications";
+pushExampleFooter11 = "Optional parameter values:\nactive: Default value, the system will immediately light up the screen to show the notification.\ntimeSensitive: Time-sensitive notification, can be displayed during Focus mode.\npassive: Only added to the list, will not light up the screen.";
+pushExampleTitle11 =  "Time-Sensitive Notification";
+pushExampleParams11 = "Time-Sensitive Notification?level=timeSensitive";
 
+pushExampleHeader12 = "Requires configuration in Settings > Algorithm Settings";
+pushExampleFooter12 = "Encrypts and decrypts push content during sending and receiving.";
+pushExampleTitle12 = "Push Encryption";
+pushExampleParams12 = "?ciphertext=Encrypted Data";
 
-pushExampleHeader12 = "Parameters can be used individually or in combination";
-pushExampleFooter12 = "Parameter priority: URL > GET > POST\n If url parameter is not specified, use the API: http://server-address/push";
-pushExampleTitle12 = "Complete Parameters";
-pushExampleParams12 = "?title=title&body=body&icon=https://day.app/assets/images/avatar.jpg&image=https://day.app/assets/images/avatar.jpg&url=weixin://&sound=alarm&group=Group&copy= needs to be copied.&autocopy=1&isArchive=1&badge=99&call=1";
 
 
 updateSuccess = "Update Completed";
