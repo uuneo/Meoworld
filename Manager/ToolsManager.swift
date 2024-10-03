@@ -7,7 +7,6 @@
 
 import Foundation
 import SwiftUI
-import CryptoSwift
 import SwiftyJSON
 import Combine
 import SwiftSMTP
