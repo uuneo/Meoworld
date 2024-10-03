@@ -15,7 +15,7 @@ import SwiftSMTP
 class ToolsManager: ObservableObject {
     static let shared = ToolsManager()
     
-    @AppStorage(BaseConfig.CryptoSettingFields,store: defaultStore) var fields:CryptoSettingFields = CryptoSettingFields.data
+    @AppStorage(BaseConfig.CryptoSettingFields, store: defaultStore) var fields:AESData = AESData.data
     
     @AppStorage(BaseConfig.archiveName,store: defaultStore) var archive:Bool = true
     
@@ -27,19 +27,23 @@ class ToolsManager: ObservableObject {
     
     // MARK: 解密
     func decrypt(ciphertext: String, iv: String? = nil) throws -> [AnyHashable: Any] {
+		
+		var fields = self.fields
         
         if let iv = iv {
             // Support using specified IV parameter for decryption
             fields.iv = iv
         }
-        
-        let aes = try AESCryptoModel(cryptoFields: fields)
-        
-        let json = try aes.decrypt(ciphertext: ciphertext)
-        
-        guard let data = json.data(using: .utf8), let map = JSON(data).dictionaryObject else {
-            throw "JSON parsing failed"
-        }
+		
+		
+		let aes = AESManager(fields)
+		guard let textData = Data(base64Encoded: ciphertext),
+			  let json = aes.decrypt(textData),
+			  let data = json.data(using: .utf8),
+			  let map = JSON(data).dictionaryObject
+		else {
+			throw "JSON parsing failed"
+		}
         
         var result: [AnyHashable: Any] = [:]
         for (key, val) in map {

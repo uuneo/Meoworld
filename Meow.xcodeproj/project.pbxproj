@@ -42,11 +42,9 @@
 		1941D3E32C64DC8E00F4C6EC /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 1941D3E22C64DC8E00F4C6EC /* Kingfisher */; };
 		1941D3E52C64DF3900F4C6EC /* BaseConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1941D3982C64D4AE00F4C6EC /* BaseConfig.swift */; };
 		1941D3E72C64DFF300F4C6EC /* ToolsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1941D3E62C64DFF300F4C6EC /* ToolsManager.swift */; };
-		1941D3EA2C64E29800F4C6EC /* CryptoSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1941D3E92C64E29800F4C6EC /* CryptoSwift */; };
 		1941D3ED2C64E2EC00F4C6EC /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 1941D3EC2C64E2EC00F4C6EC /* SwiftyJSON */; };
 		1941D3F02C64E3AB00F4C6EC /* Error+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1941D3EF2C64E3AB00F4C6EC /* Error+.swift */; };
 		1941D3F92C64E7C700F4C6EC /* MessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1941D3F82C64E7C700F4C6EC /* MessageModel.swift */; };
-		1941D3FC2C64F07500F4C6EC /* CryptoFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1941D3FB2C64F07500F4C6EC /* CryptoFields.swift */; };
 		1941D41E2C64F34E00F4C6EC /* healthnotification.caf in Resources */ = {isa = PBXBuildFile; fileRef = 1941D3FE2C64F34D00F4C6EC /* healthnotification.caf */; };
 		1941D41F2C64F34E00F4C6EC /* tiptoes.caf in Resources */ = {isa = PBXBuildFile; fileRef = 1941D3FF2C64F34D00F4C6EC /* tiptoes.caf */; };
 		1941D4202C64F34E00F4C6EC /* glass.caf in Resources */ = {isa = PBXBuildFile; fileRef = 1941D4002C64F34D00F4C6EC /* glass.caf */; };
@@ -79,7 +77,6 @@
 		1941D43B2C64F34E00F4C6EC /* choo.caf in Resources */ = {isa = PBXBuildFile; fileRef = 1941D41B2C64F34E00F4C6EC /* choo.caf */; };
 		1941D43C2C64F34E00F4C6EC /* newsflash.caf in Resources */ = {isa = PBXBuildFile; fileRef = 1941D41C2C64F34E00F4C6EC /* newsflash.caf */; };
 		1941D43D2C64F34E00F4C6EC /* shake.caf in Resources */ = {isa = PBXBuildFile; fileRef = 1941D41D2C64F34E00F4C6EC /* shake.caf */; };
-		1941D4402C64F54100F4C6EC /* CryptoSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1941D43F2C64F54100F4C6EC /* CryptoSwift */; };
 		1941D4422C64F95500F4C6EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1941D4412C64F95500F4C6EC /* AppDelegate.swift */; };
 		1941D4432C64F9DF00F4C6EC /* MessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1941D3F82C64E7C700F4C6EC /* MessageModel.swift */; };
 		1941D46A2C66215A00F4C6EC /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1941D4692C66215A00F4C6EC /* RealmSwift */; };
@@ -135,7 +132,6 @@
 		1966552C2C6678AA00035E67 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1966550A2C666B2600035E67 /* Enums.swift */; };
 		1966552D2C6678BA00035E67 /* ToolsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1941D3E62C64DFF300F4C6EC /* ToolsManager.swift */; };
 		196655312C66791000035E67 /* AsyncImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196655302C66791000035E67 /* AsyncImageView.swift */; };
-		196655322C6679A100035E67 /* CryptoFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1941D3FB2C64F07500F4C6EC /* CryptoFields.swift */; };
 		196655332C6679BE00035E67 /* Error+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1941D3EF2C64E3AB00F4C6EC /* Error+.swift */; };
 		196655352C667A1B00035E67 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196655342C667A1B00035E67 /* ImageManager.swift */; };
 		196655372C667B1000035E67 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196655362C667B0F00035E67 /* RealmManager.swift */; };
@@ -191,6 +187,8 @@
 		19EB275B2C8364D800956EAC /* toolbar+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19EB275A2C8364D800956EAC /* toolbar+.swift */; };
 		19EB27732C843EEF00956EAC /* VideoHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19EB27722C843EEF00956EAC /* VideoHandler.swift */; };
 		19EB27742C84C21C00956EAC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1941D38C2C646B1500F4C6EC /* Assets.xcassets */; };
+		19F92EB42CAEBBC300BD8D46 /* AESManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F92EB32CAEBBBB00BD8D46 /* AESManager.swift */; };
+		19F92EB82CAEEF9D00BD8D46 /* AESManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F92EB32CAEBBBB00BD8D46 /* AESManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -286,7 +284,6 @@
 		1941D3EF2C64E3AB00F4C6EC /* Error+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+.swift"; sourceTree = "<group>"; };
 		1941D3F82C64E7C700F4C6EC /* MessageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageModel.swift; sourceTree = "<group>"; };
 		1941D3FA2C64EE1200F4C6EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		1941D3FB2C64F07500F4C6EC /* CryptoFields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoFields.swift; sourceTree = "<group>"; };
 		1941D3FE2C64F34D00F4C6EC /* healthnotification.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = healthnotification.caf; sourceTree = "<group>"; };
 		1941D3FF2C64F34D00F4C6EC /* tiptoes.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = tiptoes.caf; sourceTree = "<group>"; };
 		1941D4002C64F34D00F4C6EC /* glass.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = glass.caf; sourceTree = "<group>"; };
@@ -379,6 +376,7 @@
 		19EB27522C81F30A00956EAC /* HapticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticsManager.swift; sourceTree = "<group>"; };
 		19EB275A2C8364D800956EAC /* toolbar+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "toolbar+.swift"; sourceTree = "<group>"; };
 		19EB27722C843EEF00956EAC /* VideoHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoHandler.swift; sourceTree = "<group>"; };
+		19F92EB32CAEBBBB00BD8D46 /* AESManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AESManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -393,7 +391,6 @@
 				196655562C67289E00035E67 /* SwiftSMTP in Frameworks */,
 				196655452C66810D00035E67 /* SwiftyJSON in Frameworks */,
 				1966556D2C67397000035E67 /* QRScanner in Frameworks */,
-				1941D3EA2C64E29800F4C6EC /* CryptoSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -402,7 +399,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1941D46C2C66216E00F4C6EC /* RealmSwift in Frameworks */,
-				1941D4402C64F54100F4C6EC /* CryptoSwift in Frameworks */,
 				1966555E2C672F1E00035E67 /* SwiftSMTP in Frameworks */,
 				1941D3ED2C64E2EC00F4C6EC /* SwiftyJSON in Frameworks */,
 				1941D3E32C64DC8E00F4C6EC /* Kingfisher in Frameworks */,
@@ -499,7 +495,6 @@
 			isa = PBXGroup;
 			children = (
 				1941D3982C64D4AE00F4C6EC /* BaseConfig.swift */,
-				1941D3FB2C64F07500F4C6EC /* CryptoFields.swift */,
 				196654E72C6634D200035E67 /* ToolBox.swift */,
 				1966550A2C666B2600035E67 /* Enums.swift */,
 				19B473C02C80CF610063EAB5 /* RealmDefaultConfiguration.swift */,
@@ -522,6 +517,7 @@
 		1941D39D2C64D65D00F4C6EC /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				19F92EB32CAEBBBB00BD8D46 /* AESManager.swift */,
 				1941D39E2C64D67E00F4C6EC /* MainManager.swift */,
 				1941D3E62C64DFF300F4C6EC /* ToolsManager.swift */,
 				196654E92C66578C00035E67 /* Monitors.swift */,
@@ -714,7 +710,6 @@
 			);
 			name = Meow;
 			packageProductDependencies = (
-				1941D3E92C64E29800F4C6EC /* CryptoSwift */,
 				1941D4692C66215A00F4C6EC /* RealmSwift */,
 				196655422C6680FC00035E67 /* Kingfisher */,
 				196655442C66810D00035E67 /* SwiftyJSON */,
@@ -744,7 +739,6 @@
 			packageProductDependencies = (
 				1941D3E22C64DC8E00F4C6EC /* Kingfisher */,
 				1941D3EC2C64E2EC00F4C6EC /* SwiftyJSON */,
-				1941D43F2C64F54100F4C6EC /* CryptoSwift */,
 				1941D46B2C66216E00F4C6EC /* RealmSwift */,
 				1966555D2C672F1E00035E67 /* SwiftSMTP */,
 			);
@@ -805,7 +799,6 @@
 			mainGroup = 1941D37C2C646B1400F4C6EC;
 			packageReferences = (
 				1941D3E12C64DC8E00F4C6EC /* XCRemoteSwiftPackageReference "Kingfisher" */,
-				1941D3E82C64E29800F4C6EC /* XCRemoteSwiftPackageReference "CryptoSwift" */,
 				1941D3EB2C64E2EC00F4C6EC /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 				1941D4682C66215A00F4C6EC /* XCRemoteSwiftPackageReference "realm-swift" */,
 				196655542C67289E00035E67 /* XCRemoteSwiftPackageReference "Swift-SMTP" */,
@@ -930,7 +923,6 @@
 			files = (
 				190B88DE2C7B49090050099B /* HelpPageView.swift in Sources */,
 				196655332C6679BE00035E67 /* Error+.swift in Sources */,
-				196655322C6679A100035E67 /* CryptoFields.swift in Sources */,
 				1966554D2C66FC3A00035E67 /* ResponseModal.swift in Sources */,
 				198037332C70C18000F9DBDD /* ExportManager.swift in Sources */,
 				196655682C67380A00035E67 /* AngularButton.swift in Sources */,
@@ -943,6 +935,7 @@
 				196655662C67368F00035E67 /* SignInView.swift in Sources */,
 				1966554B2C66FAB400035E67 /* ServersView.swift in Sources */,
 				196655392C667C6100035E67 /* Date+.swift in Sources */,
+				19F92EB42CAEBBC300BD8D46 /* AESManager.swift in Sources */,
 				196655532C67279B00035E67 /* EmailPageView.swift in Sources */,
 				1966550B2C666B2600035E67 /* Enums.swift in Sources */,
 				1966555C2C672BEE00035E67 /* ShareSheet.swift in Sources */,
@@ -997,6 +990,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				19F92EB82CAEEF9D00BD8D46 /* AESManager.swift in Sources */,
 				19B473BC2C80CD060063EAB5 /* image+.swift in Sources */,
 				19B473BD2C80CD060063EAB5 /* ImageManager.swift in Sources */,
 				1966557A2C67C26300035E67 /* Localizable.strings in Sources */,
@@ -1016,7 +1010,6 @@
 				1941D3D02C64D9EB00F4C6EC /* MainHandler.swift in Sources */,
 				1941D3F92C64E7C700F4C6EC /* MessageModel.swift in Sources */,
 				19EB27732C843EEF00956EAC /* VideoHandler.swift in Sources */,
-				1941D3FC2C64F07500F4C6EC /* CryptoFields.swift in Sources */,
 				1941D3F02C64E3AB00F4C6EC /* Error+.swift in Sources */,
 				1941D3DE2C64DC0900F4C6EC /* ImageHandler.swift in Sources */,
 				1941D3E02C64DC3B00F4C6EC /* CallHandler.swift in Sources */,
@@ -1456,14 +1449,6 @@
 				minimumVersion = 7.12.0;
 			};
 		};
-		1941D3E82C64E29800F4C6EC /* XCRemoteSwiftPackageReference "CryptoSwift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/krzyzanowskim/CryptoSwift.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.8.3;
-			};
-		};
 		1941D3EB2C64E2EC00F4C6EC /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
@@ -1514,20 +1499,10 @@
 			package = 1941D3E12C64DC8E00F4C6EC /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
 		};
-		1941D3E92C64E29800F4C6EC /* CryptoSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 1941D3E82C64E29800F4C6EC /* XCRemoteSwiftPackageReference "CryptoSwift" */;
-			productName = CryptoSwift;
-		};
 		1941D3EC2C64E2EC00F4C6EC /* SwiftyJSON */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 1941D3EB2C64E2EC00F4C6EC /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
 			productName = SwiftyJSON;
-		};
-		1941D43F2C64F54100F4C6EC /* CryptoSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 1941D3E82C64E29800F4C6EC /* XCRemoteSwiftPackageReference "CryptoSwift" */;
-			productName = CryptoSwift;
 		};
 		1941D4692C66215A00F4C6EC /* RealmSwift */ = {
 			isa = XCSwiftPackageProductDependency;

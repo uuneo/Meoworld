@@ -19,7 +19,6 @@ class bookManager:ObservableObject{
         switch status {
         case .notDetermined:
             contact.requestAccess(for: .contacts){state,error in
-                
                 print(state)
             }
         case .restricted:
@@ -28,7 +27,7 @@ class bookManager:ObservableObject{
             print("用户已经拒绝")
         case .authorized:
             print("已经授权")
-        @unknown default:
+        default:
             print("其他情况")
         }
         

@@ -32,6 +32,7 @@ enum appIcon:String,CaseIterable{
     case def = "AppIcon"
     case zero = "AppIcon0"
     case one = "AppIcon1"
+    case two = "AppIcon2"
    
     
     static let arr = [appIcon.def,appIcon.zero,appIcon.one]
@@ -44,6 +45,8 @@ enum appIcon:String,CaseIterable{
             logoImage.zero.rawValue
         case .one:
             logoImage.one.rawValue
+		case .two:
+			logoImage.two.rawValue
       
         }
     }
@@ -54,6 +57,7 @@ enum logoImage:String,CaseIterable{
     case def = "logo"
     case zero = "logo0"
     case one = "logo1"
+    case two = "logo2"
     static let arr = [logoImage.def,logoImage.zero,logoImage.one]
     
 }

@@ -8,7 +8,7 @@
 import Foundation
 
 
-struct toEmailConfig :Codable{
+struct toEmailConfig: Codable{
     var id:UUID = UUID()
     var mail:String
     enum CodingKeys: CodingKey {

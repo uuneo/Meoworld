@@ -321,7 +321,7 @@ struct SettingsView: View {
         }
         .loading(showLoading)
         .toast(info: $toastText)
-        .background(hexColor("#f5f5f5"))
+		.background(Color(hex: "#f5f5f5"))
         .tipsToolbar(wifi: Monitors.shared.isConnected, notification: Monitors.shared.isAuthorized, callback: {
             manager.openSetting()
         })
@@ -353,9 +353,10 @@ struct SettingsView: View {
             DispatchQueue.global().async {
                 Task{
                     let color = await MainManager.shared.healthAllColor()
-                    dispatch_sync_safely_main_queue {
-                        self.serverColor = color
-                    }
+					DispatchQueue.main.async{
+						self.serverColor = color
+					}
+					
                 }
             }
         }
