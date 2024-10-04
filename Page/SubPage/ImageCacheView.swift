@@ -26,6 +26,7 @@ struct AlertData:Identifiable {
 
 
 
+
 struct ImageCacheView: View {
     @Environment(\.dismiss) var dismiss
     @State var images:[URL] = []
@@ -37,11 +38,13 @@ struct ImageCacheView: View {
     @FocusState private var nameFieldIsFocused
     
     // 两列布局
-    let columns = [
-        GridItem(.flexible()),
-        GridItem(.flexible()),
-        GridItem(.flexible())
-    ]
+	var columns:[GridItem]{
+		if ISPAD{
+			Array(repeating: GridItem(spacing: 2), count: 6)
+		}else{
+			Array(repeating: GridItem(spacing: 2), count: 3)
+		}
+	}
     @State private var alart:AlertData?
 
     var body: some View {
@@ -103,6 +106,7 @@ struct ImageCacheView: View {
                     ForEach(images, id: \.self){value in
                         KFImageView(value: value,column: CGFloat(columns.count), selectImageArr: $selectImageArr, isSelect: $isSelect)
                             .clipShape(RoundedRectangle(cornerRadius: 10))
+
                             
                     }
                 }
@@ -302,17 +306,20 @@ struct KFImageView: View {
     @Binding var isSelect:Bool
     
     var imageSize:CGSize{
-        let width = UIScreen.main.bounds.width / column - 10;
-        return CGSize(width: width, height: width)
+		
+		let width = UIScreen.main.bounds.width / column - 10;
+		
+		return CGSize(width: width, height: width)
+      
+       
     }
     
     var body: some View {
-        KFImage(value)
-            .resizable()
-            // .aspectRatio(contentMode: .fill)
+		KFImage(value)
             .aspectRatio(contentMode: .fill)
             .frame(width: imageSize.width,height: imageSize.height)
             .clipped()
+			.draggable(Image(uiImage: UIImage(contentsOfFile: value.path())!))
             .overlay {
                 if isSelect && selectImageArr.contains(value){
                     ZStack{

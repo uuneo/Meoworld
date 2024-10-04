@@ -33,7 +33,6 @@ struct AvatarView: View {
             if let icon = icon, isValidURL(icon), success{
                 if let image = image {
                     // 如果已经加载了图片，则显示图片
-                    
                     Image(uiImage: image)
                         .resizable()
                     
@@ -44,10 +43,10 @@ struct AvatarView: View {
                 }
             }else{
                 if mode == "1"{
-                    Image(appIcon.zero.toLogoImage)
+                    Image(appIcon.zero.logo)
                         .resizable()
                 }else{
-                    Image(setting_active_app_icon.toLogoImage)
+                    Image(setting_active_app_icon.logo)
                         .resizable()
                 }
             }

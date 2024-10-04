@@ -100,13 +100,34 @@ struct MessagesView: View {
             
             
             ToolbarItem{
-                Button{
-                    self.showAction = true
-                }label: {
-                    Image("baseline_delete_outline_black_24pt")
-                    
-                }  .foregroundStyle(.lightDark)
-                
+				
+				if ISPAD{
+					Menu {
+						ForEach(mesAction.allCases, id: \.self){ item in
+							Button{
+								deleteMessage(item)
+							}label:{
+								Label(NSLocalizedString(item.rawValue,comment: ""), systemImage: (item == .cancel ? "arrow.uturn.right.circle" : item == .markRead ? "text.badge.checkmark" : "xmark.bin.circle"))
+							}
+						}
+					} label: {
+						Image("baseline_delete_outline_black_24pt")
+							.foregroundStyle(.lightDark)
+					}
+						
+						
+				}else{
+					
+					Button{
+						self.showAction = true
+					}label: {
+						Image("baseline_delete_outline_black_24pt")
+						
+					}  .foregroundStyle(.lightDark)
+					
+					
+				}
+					
             }
         }
         .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .automatic)){
@@ -116,36 +137,32 @@ struct MessagesView: View {
             DelAction
         }
         .toast(info: $toastText)
-        .onChange(of: searchText) { value in
-            self.pageNumber = 1
-        }
+		.onChange(of: searchText) { value in
+			self.pageNumber = 1
+		}
         
         
     }
     
     private var DelAction:ActionSheet{
-        ActionSheet(title: Text(NSLocalizedString("deleteTimeMessage",comment: "")),buttons: [
-            .destructive(Text(NSLocalizedString("allTime",comment: "")), action: {
-                deleteMessage(.allTime)
-            }),
-            .destructive(Text(NSLocalizedString("monthAgo",comment: "")), action: {
-                deleteMessage( .lastMonth)
-            }),
-            .destructive(Text(NSLocalizedString("weekAgo",comment: "")), action: {
-                deleteMessage( .lastWeek)
-            }),
-            .destructive(Text(NSLocalizedString("dayAgo",comment: "")), action: {
-                deleteMessage( .lastDay)
-            }),
-            .destructive(Text(NSLocalizedString("hourAgo",comment: "")), action: {
-                deleteMessage( .lastHour)
-            }),
-            .default(Text(NSLocalizedString("allMarkRead",comment: "")), action: {
-                deleteMessage( .markRead)
-            }),
-            .cancel()
-            
-        ])
+		
+		let menuButtons = mesAction.allCases.map({ item in
+			
+			if item == .cancel{
+				return Alert.Button.cancel()
+			} else if item  == .markRead{
+				return Alert.Button.default(Text(NSLocalizedString(item.rawValue,comment: "")), action: {
+					deleteMessage( item)
+				})
+			}else{
+				return Alert.Button.destructive(Text(NSLocalizedString(item.rawValue,comment: "")), action: {
+					deleteMessage(item)
+				})
+			}
+			
+		})
+		
+		return ActionSheet(title: Text(NSLocalizedString("deleteTimeMessage",comment: "")),buttons: menuButtons)
     }
     
     
@@ -206,6 +223,8 @@ struct MessagesView: View {
             RealmManager.shared.readMessage()
             self.toastText =  NSLocalizedString("allMarkRead",comment: "")
             return
+		case .cancel:
+			return
         case .lastHour:
             date = Date().someHourBefore(1)
         case .lastDay:
@@ -214,6 +233,7 @@ struct MessagesView: View {
             date = Date().someDayBefore(7)
         case .lastMonth:
             date = Date().someDayBefore(30)
+		
         }
         
         

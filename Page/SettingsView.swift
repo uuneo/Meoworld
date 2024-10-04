@@ -9,6 +9,8 @@ import SwiftUI
 import RealmSwift
 import Combine
 
+let ISPAD = UIDevice.current.userInterfaceIdiom == .pad
+
 struct SettingsView: View {
     @ObservedResults(Message.self) var messages
     
@@ -45,39 +47,24 @@ struct SettingsView: View {
         VStack{
             List{
                 
+				if ISPAD{
+					NavigationLink{
+						MessagesView()
+							 .navigationTitle(NSLocalizedString("bottomBarMsg",comment: ""))
+					}label: {
+						Label(NSLocalizedString("bottomBarMsg",comment: ""), systemImage: "app.badge")
+					}
+					
+				}
                 
                 
                 Section(header:Text(NSLocalizedString("exportHeader",comment: ""))) {
                     HStack{
-        
-                        Button {
-                            
-                            if messages.count > 0{
-                                self.showLoading = true
-                                self.exportFiles()
-                               
-                            }else{
-                                self.toastText = NSLocalizedString("nothingMessage", comment: "")
-                                self.showLoading = false
-                            }
-                            
-                            
-                        } label: {
-                            
-                            Label {
-                                Text(NSLocalizedString("exportTitle",comment: ""))
-                            } icon: {
-                                Image(systemName: "square.and.arrow.up")
-                                    .scaleEffect(0.9)
-                            }
-                            
-                            
-                            
-                            
-                            
-                            
-                        }
-                        
+						
+						ShareLink(item:Messages.all(),preview: SharePreview( "MessageList", image: Image("json_png"), icon: "square.and.arrow.up")) {
+							Label(NSLocalizedString("exportTitle",comment: ""), systemImage: "square.and.arrow.up.circle")
+						}
+							  
                         Spacer()
                         Text(String(format: NSLocalizedString("someMessageCount",comment: ""), messages.count) )
                     }
@@ -159,7 +146,7 @@ struct SettingsView: View {
                                 Text(NSLocalizedString("AppIconTitle",comment: "程序图标"))
                                     .foregroundStyle(.lightDark)
                             } icon: {
-                                Image(setting_active_app_icon.toLogoImage)
+								Image(setting_active_app_icon.logo)
                                     .resizable()
                                     .scaledToFit()
                                     .frame(width: 25)
@@ -394,54 +381,54 @@ extension SettingsView{
 
 extension SettingsView{
     
-    func exportFiles(){
-        
-        DispatchQueue.global().async {
-            do{
-                
-                let realm = try Realm()
-                
-                let messages = realm.objects(Message.self).sorted(byKeyPath: "createDate", ascending: false)
-                let jsonData = try JSONEncoder().encode(messages)
-                
-                let fileManager = FileManager.default
-                let tempDirectoryURL = fileManager.temporaryDirectory
-                let fileName = "meow_messages_\(Date().formatString(format: "yyyy_MM_dd_HH_mm_ss")).json"
-                let linkURL = tempDirectoryURL.appendingPathComponent(fileName)
-                
-                // 清空temp文件夹
-                try fileManager
-                    .contentsOfDirectory(at: tempDirectoryURL, includingPropertiesForKeys: nil, options: .skipsSubdirectoryDescendants)
-                    .forEach { file in
-                        try? fileManager.removeItem(atPath: file.path)
-                    }
-                
-                
-                try jsonData.write(to: linkURL)
-                DispatchQueue.main.async {
-                    self.jsonFileUrl = linkURL
-                    self.toastText = NSLocalizedString("exportSuccess", comment: "")
-                    self.showLoading = false
-                    self.isShareSheetPresented.toggle()
-                }
-                
-                
-             
-                
-                
-                
-                
-            } catch {
-    #if DEBUG
-                print("errors: \(error.localizedDescription)")
-    #endif
-                
-            }
-        }
-        
-       
-    }
-    
+//    func exportFiles(){
+//        
+//        DispatchQueue.global().async {
+//            do{
+//                
+//                let realm = try Realm()
+//                
+//                let messages = realm.objects(Message.self).sorted(byKeyPath: "createDate", ascending: false)
+//                let jsonData = try JSONEncoder().encode(messages)
+//                
+//                let fileManager = FileManager.default
+//                let tempDirectoryURL = fileManager.temporaryDirectory
+//                let fileName = "meow_messages_\(Date().formatString(format: "yyyy_MM_dd_HH_mm_ss")).json"
+//                let linkURL = tempDirectoryURL.appendingPathComponent(fileName)
+//                
+//                // 清空temp文件夹
+//                try fileManager
+//                    .contentsOfDirectory(at: tempDirectoryURL, includingPropertiesForKeys: nil, options: .skipsSubdirectoryDescendants)
+//                    .forEach { file in
+//                        try? fileManager.removeItem(atPath: file.path)
+//                    }
+//                
+//                
+//                try jsonData.write(to: linkURL)
+//                DispatchQueue.main.async {
+//                    self.jsonFileUrl = linkURL
+//                    self.toastText = NSLocalizedString("exportSuccess", comment: "")
+//                    self.showLoading = false
+//                    self.isShareSheetPresented.toggle()
+//                }
+//                
+//                
+//             
+//                
+//                
+//                
+//                
+//            } catch {
+//    #if DEBUG
+//                print("errors: \(error.localizedDescription)")
+//    #endif
+//                
+//            }
+//        }
+//        
+//       
+//    }
+//    
     func getDocumentsDirectory() -> URL {
         return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
     }

@@ -13,7 +13,7 @@ class IconHandler: NotificationContentHandler{
         if #available(iOSApplicationExtension 15.0, *) {
             let userInfo = bestAttemptContent.userInfo
             
-            var avatar = INImage(named: appIcon.zero.toLogoImage)
+            var avatar = INImage(named: appIcon.zero.logo)
             
 
             if let imageUrl = userInfo["icon"] as? String,

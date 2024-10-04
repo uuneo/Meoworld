@@ -28,38 +28,24 @@ enum TabPage :String{
 
 
 
-enum appIcon:String,CaseIterable{
+enum appIcon:String, CaseIterable,Equatable{
     case def = "AppIcon"
     case zero = "AppIcon0"
     case one = "AppIcon1"
     case two = "AppIcon2"
-   
     
-    static let arr = [appIcon.def,appIcon.zero,appIcon.one]
-    
-    var toLogoImage: String{
+    var logo: String{
         switch self {
         case .def:
-            logoImage.def.rawValue
+			"logo"
         case .zero:
-            logoImage.zero.rawValue
+			"logo0"
         case .one:
-            logoImage.one.rawValue
+			"logo1"
 		case .two:
-			logoImage.two.rawValue
-      
+			"logo2"
         }
     }
-}
-
-
-enum logoImage:String,CaseIterable{
-    case def = "logo"
-    case zero = "logo0"
-    case one = "logo1"
-    case two = "logo2"
-    static let arr = [logoImage.def,logoImage.zero,logoImage.one]
-    
 }
 
 
@@ -102,13 +88,18 @@ enum MessageGroup:String{
     case group = "分组"
     case all = "全部"
 }
-enum mesAction: String{
-    case markRead = "全部标为已读"
-    case lastHour = "一小时前"
-    case lastDay = "一天前"
-    case lastWeek = "一周前"
-    case lastMonth = "一月前"
-    case allTime = "所有时间"
+
+
+
+
+enum mesAction: String, CaseIterable, Equatable{
+    case markRead = "allMarkRead"
+    case lastHour = "hourAgo"
+    case lastDay = "dayAgo"
+    case lastWeek = "weekAgo"
+    case lastMonth = "monthAgo"
+    case allTime = "allTime"
+	case cancel = "cancel"
 }
 
 enum requestHeader :String {

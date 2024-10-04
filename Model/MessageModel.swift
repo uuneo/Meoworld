@@ -7,9 +7,11 @@
 
 import Foundation
 import RealmSwift
+import CoreTransferable
+import CryptoKit
 
 
-final class Message: Object , ObjectKeyIdentifiable{
+final class Message: Object , ObjectKeyIdentifiable, Codable {
     @Persisted var id:String = UUID().uuidString
     @Persisted var title:String?
     @Persisted var body:String?
@@ -29,27 +31,22 @@ final class Message: Object , ObjectKeyIdentifiable{
     override class func indexedProperties() -> [String] {
         return ["group", "createDate", "from"]
     }
-}
+	
+	func encode(to encoder: any Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+		try container.encode(self._id, forKey: .id)
+		try container.encode(self._title, forKey: .title)
+		try container.encode(self._body, forKey: .body)
+		try container.encode(self._icon, forKey: .icon)
+		try container.encode(self._group, forKey: .group)
+		try container.encode(self._url, forKey: .url)
+		try container.encode(self._from, forKey: .from)
+		try container.encode(self._mode, forKey: .mode)
+		try container.encode(self._createDate, forKey: .createDate)
+		try container.encode(self._read, forKey: .read)
+	}
+	
 
-
-extension Message:Codable{
-    enum CodingKeys: String, CodingKey{
-        case id, title, body, icon, group, url, mode ,createDate, read, from
-    }
-    
-    func encode(to encoder: any Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encodeIfPresent(title, forKey: .title)
-        try container.encodeIfPresent(body, forKey: .body)
-        try container.encodeIfPresent(icon, forKey: .icon)
-        try container.encodeIfPresent(group, forKey: .group)
-        try container.encodeIfPresent(url, forKey: .url)
-        try container.encodeIfPresent(mode, forKey: .mode)
-        try container.encodeIfPresent(createDate, forKey: .createDate)
-        try container.encodeIfPresent(read, forKey: .read)
-        try container.encodeIfPresent(from, forKey: .from)
-       
-    }
 }
 
 

@@ -17,7 +17,7 @@ struct ContentView: View {
     @StateObject private var router = RouterManager.shared
     @AppStorage("first_start",store: defaultStore) var firstStart:Bool = true
     
-    
+	@State private var noShow:NavigationSplitViewVisibility = .detailOnly
     
     @ObservedResults(Message.self) var messages
     
@@ -31,35 +31,16 @@ struct ContentView: View {
     }
     
     var body: some View {
-        TabView(selection: $router.page) {
-            
-            // MARK: 信息页面
-            NavigationStack{
-               MessagesView()
-                    .navigationTitle(NSLocalizedString("bottomBarMsg",comment: ""))
-            }
-            .tag(TabPage.message)
-            .badge(readCount)
-            .tabItem {
-                Label(NSLocalizedString("bottomBarMsg",comment: ""), systemImage: "ellipsis.message")
-                    
-                    
-            }
-            
-            // MARK: 设置页面
-            NavigationStack{
-                SettingsView()
-                    .navigationTitle(NSLocalizedString("bottomBarSettings",comment: ""))
-            }
-           
-            .tabItem {
-                Label(NSLocalizedString("bottomBarSettings",comment: ""), systemImage: "gearshape")
-                    
-            }
-            .tag(TabPage.setting)
-            
-            
-        }
+		
+	
+		
+		Group{
+			if ISPAD{
+				IpadHomeView()
+			}else{
+				IphoneHomeView()
+			}
+		}
         .sheet(isPresented: router.sheetPageShow){
             switch RouterManager.shared.sheetPage {
             case .servers:
@@ -176,6 +157,54 @@ struct ContentView: View {
         }
       
     }
+	
+	
+	@ViewBuilder
+	func IphoneHomeView()-> some View{
+		TabView(selection: $router.page) {
+			
+			// MARK: 信息页面
+			NavigationStack{
+			   MessagesView()
+					.navigationTitle(NSLocalizedString("bottomBarMsg",comment: ""))
+			}
+			.tag(TabPage.message)
+			.badge(readCount)
+			.tabItem {
+				Label(NSLocalizedString("bottomBarMsg",comment: ""), systemImage: "ellipsis.message")
+					
+					
+			}
+			
+			// MARK: 设置页面
+			NavigationStack{
+				SettingsView()
+					.navigationTitle(NSLocalizedString("bottomBarSettings",comment: ""))
+			}
+		   
+			.tabItem {
+				Label(NSLocalizedString("bottomBarSettings",comment: ""), systemImage: "gearshape")
+					
+			}
+			.tag(TabPage.setting)
+			
+			
+		}
+	}
+	
+	@ViewBuilder
+	func IpadHomeView() -> some View{
+		NavigationSplitView(columnVisibility: $noShow) {
+			SettingsView()
+				.navigationTitle(NSLocalizedString("bottomBarSettings",comment: ""))
+		} detail: {
+			NavigationStack{
+				MessagesView()
+					 .navigationTitle(NSLocalizedString("bottomBarMsg",comment: ""))
+			}
+		}
+
+	}
 }
 
 extension ContentView{

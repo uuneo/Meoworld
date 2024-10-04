@@ -11,29 +11,28 @@ struct AppIconView: View {
     @Environment(\.dismiss) var dismiss
     @AppStorage(BaseConfig.activeAppIcon) var setting_active_app_icon:appIcon = .def
     @State var toastText = ""
-    let columns: [GridItem] = Array(repeating: .init(.flexible()), count: 3)
+    let columns: [GridItem] = Array(repeating: .init(), count: 3)
     var body: some View {
         List{
             LazyVGrid(columns: columns){
-                ForEach(Array(logoImage.arr.enumerated()), id: \.offset){index,item in
-                  
+				ForEach(appIcon.allCases, id: \.self){ item in
                     ZStack{
-                        Image(item.rawValue)
+                        Image(item.logo)
                             .resizable()
                             .clipShape(RoundedRectangle(cornerRadius: 20, style: .circular))
                             .frame(width: 60,height:60)
-                            .tag(appIcon.arr[index])
+                            .tag(item)
                         Image(systemName: "checkmark.seal.fill")
                             .font(.system(.largeTitle))
-                            .scaleEffect(appIcon.arr[index] == setting_active_app_icon ? 1 : 0.1)
-                            .opacity(appIcon.arr[index] == setting_active_app_icon ? 1 : 0)
+                            .scaleEffect(item == setting_active_app_icon ? 1 : 0.1)
+                            .opacity(item == setting_active_app_icon ? 1 : 0)
                             .foregroundStyle(.green)
                         
                     }.animation(.spring, value: setting_active_app_icon)
                         .padding()
                             .listRowBackground(Color.clear)
                             .onTapGesture {
-                                setting_active_app_icon = appIcon.arr[index]
+                                setting_active_app_icon = item
                                 let manager = UIApplication.shared
                                 
                                 var iconName:String? = manager.alternateIconName ?? appIcon.def.rawValue
@@ -53,7 +52,7 @@ struct AppIconView: View {
                                             try await manager.setAlternateIconName(iconName)
                                         }catch{
 #if DEBUG
-                                            print(error)
+											print(error.localizedDescription)
 #endif
                                             
                                         }

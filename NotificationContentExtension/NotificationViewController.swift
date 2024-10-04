@@ -163,8 +163,8 @@ extension NotificationViewController{
                     let videoAspectRatio = videoSize.width / videoSize.height
                     
                     // 根据视频的宽高比计算新的高度
-                    let newHeight = self.view.bounds.width / videoAspectRatio
-                    let playerLayerFrame = CGRect(x: 0, y: 0, width: self.view.bounds.width, height: newHeight)
+					let newHeight = await self.view.bounds.width / videoAspectRatio
+					let playerLayerFrame = await CGRect(x: 0, y: 0, width: self.view.bounds.width, height: newHeight)
                     
                     // 在主线程上更新 playerLayer 并确保它居中
                     DispatchQueue.main.async { [weak self] in

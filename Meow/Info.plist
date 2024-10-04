@@ -2,14 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>Save the picture to the album</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Apps need access to your location to provide better services</string>
-	<key>NSCameraUsageDescription</key>
-	<string>The app needs to use your camera in order to take photos.</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>We need access to your photo album！</string>
 	<key>BGTaskSchedulerPermittedIdentifiers</key>
 	<array>
 		<string>me.uuneo.Meoworld</string>
@@ -19,6 +11,8 @@
 		<dict>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
+			<key>CFBundleURLIconFile</key>
+			<string>AppIcon</string>
 			<key>CFBundleURLName</key>
 			<string>me.uuneo.Meoworld</string>
 			<key>CFBundleURLSchemes</key>
@@ -43,6 +37,30 @@
 		<string>fetch</string>
 		<string>processing</string>
 		<string>remote-notification</string>
+	</array>
+	<key>UTExportedTypeDeclarations</key>
+	<array>
+		<dict>
+			<key>UTTypeConformsTo</key>
+			<array>
+				<string>pulic.json</string>
+			</array>
+			<key>UTTypeDescription</key>
+			<string>Meowrld</string>
+			<key>UTTypeIconFiles</key>
+			<array>
+				<string>AppIcon</string>
+			</array>
+			<key>UTTypeIdentifier</key>
+			<string>me.uuneo.Meoworld.meow</string>
+			<key>UTTypeTagSpecification</key>
+			<dict>
+				<key>public.filename-extension</key>
+				<array>
+					<string>meow</string>
+				</array>
+			</dict>
+		</dict>
 	</array>
 </dict>
 </plist>
