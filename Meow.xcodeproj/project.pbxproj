@@ -187,6 +187,11 @@
 		19EB27742C84C21C00956EAC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1941D38C2C646B1500F4C6EC /* Assets.xcassets */; };
 		19F92EB42CAEBBC300BD8D46 /* AESManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F92EB32CAEBBBB00BD8D46 /* AESManager.swift */; };
 		19F92EB82CAEEF9D00BD8D46 /* AESManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F92EB32CAEBBBB00BD8D46 /* AESManager.swift */; };
+		19F92EBC2CAFE8D500BD8D46 /* PinchZoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F92EBB2CAFE8CD00BD8D46 /* PinchZoom.swift */; };
+		19F92EBF2CAFE9CB00BD8D46 /* KFImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F92EBE2CAFE9CA00BD8D46 /* KFImageView.swift */; };
+		19F92EC12CAFEA1700BD8D46 /* NewImageCacheView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F92EC02CAFEA0E00BD8D46 /* NewImageCacheView.swift */; };
+		19F92EC32CAFEA6500BD8D46 /* MainImageCacheView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F92EC22CAFEA4900BD8D46 /* MainImageCacheView.swift */; };
+		19F92EC52CAFEBA200BD8D46 /* ImageCacheOtherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F92EC42CAFEB9200BD8D46 /* ImageCacheOtherView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -373,6 +378,11 @@
 		19EB275A2C8364D800956EAC /* toolbar+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "toolbar+.swift"; sourceTree = "<group>"; };
 		19EB27722C843EEF00956EAC /* VideoHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoHandler.swift; sourceTree = "<group>"; };
 		19F92EB32CAEBBBB00BD8D46 /* AESManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AESManager.swift; sourceTree = "<group>"; };
+		19F92EBB2CAFE8CD00BD8D46 /* PinchZoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinchZoom.swift; sourceTree = "<group>"; };
+		19F92EBE2CAFE9CA00BD8D46 /* KFImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KFImageView.swift; sourceTree = "<group>"; };
+		19F92EC02CAFEA0E00BD8D46 /* NewImageCacheView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewImageCacheView.swift; sourceTree = "<group>"; };
+		19F92EC22CAFEA4900BD8D46 /* MainImageCacheView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainImageCacheView.swift; sourceTree = "<group>"; };
+		19F92EC42CAFEB9200BD8D46 /* ImageCacheOtherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheOtherView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -640,6 +650,7 @@
 		196654EB2C66625100035E67 /* Page */ = {
 			isa = PBXGroup;
 			children = (
+				19F92EBD2CAFE9AB00BD8D46 /* HistoryPhotoView */,
 				190B88DC2C7B48C90050099B /* StartPage */,
 				196654F52C66634500035E67 /* Templates */,
 				196654F42C66631E00035E67 /* SubPage */,
@@ -652,7 +663,6 @@
 		196654F42C66631E00035E67 /* SubPage */ = {
 			isa = PBXGroup;
 			children = (
-				1947A1442C7F60E300DCCCD3 /* ImageCacheView.swift */,
 				196654F62C6663FD00035E67 /* RingtongView.swift */,
 				196654FC2C6665E200035E67 /* ToastView.swift */,
 				196654EE2C6662F800035E67 /* ExampleView.swift */,
@@ -673,6 +683,7 @@
 		196654F52C66634500035E67 /* Templates */ = {
 			isa = PBXGroup;
 			children = (
+				19F92EBB2CAFE8CD00BD8D46 /* PinchZoom.swift */,
 				196655302C66791000035E67 /* AsyncImageView.swift */,
 				196655462C66F97100035E67 /* SFSafariView.swift */,
 				196655482C66FA3400035E67 /* AppIconView.swift */,
@@ -681,6 +692,18 @@
 				196655672C67380A00035E67 /* AngularButton.swift */,
 			);
 			path = Templates;
+			sourceTree = "<group>";
+		};
+		19F92EBD2CAFE9AB00BD8D46 /* HistoryPhotoView */ = {
+			isa = PBXGroup;
+			children = (
+				19F92EC42CAFEB9200BD8D46 /* ImageCacheOtherView.swift */,
+				19F92EC22CAFEA4900BD8D46 /* MainImageCacheView.swift */,
+				19F92EC02CAFEA0E00BD8D46 /* NewImageCacheView.swift */,
+				1947A1442C7F60E300DCCCD3 /* ImageCacheView.swift */,
+				19F92EBE2CAFE9CA00BD8D46 /* KFImageView.swift */,
+			);
+			path = HistoryPhotoView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -925,6 +948,7 @@
 				196655052C66689000035E67 /* RingtoneItemView.swift in Sources */,
 				1941D4432C64F9DF00F4C6EC /* MessageModel.swift in Sources */,
 				1966555A2C672A3100035E67 /* CryptoConfigView.swift in Sources */,
+				19F92EC32CAFEA6500BD8D46 /* MainImageCacheView.swift in Sources */,
 				1941D38B2C646B1400F4C6EC /* ContentView.swift in Sources */,
 				196655662C67368F00035E67 /* SignInView.swift in Sources */,
 				1966554B2C66FAB400035E67 /* ServersView.swift in Sources */,
@@ -934,7 +958,9 @@
 				1966550B2C666B2600035E67 /* Enums.swift in Sources */,
 				1966555C2C672BEE00035E67 /* ShareSheet.swift in Sources */,
 				1941D3992C64D4AE00F4C6EC /* BaseConfig.swift in Sources */,
+				19F92EBF2CAFE9CB00BD8D46 /* KFImageView.swift in Sources */,
 				196654FD2C6665E200035E67 /* ToastView.swift in Sources */,
+				19F92EC12CAFEA1700BD8D46 /* NewImageCacheView.swift in Sources */,
 				1941D39F2C64D67E00F4C6EC /* MainManager.swift in Sources */,
 				196654E82C6634D200035E67 /* ToolBox.swift in Sources */,
 				1966553B2C667C9500035E67 /* MessageDetailView.swift in Sources */,
@@ -967,6 +993,8 @@
 				190B88D32C7A09140050099B /* FontAnimation+.swift in Sources */,
 				1941D3892C646B1400F4C6EC /* MeowApp.swift in Sources */,
 				190B88E22C7B49660050099B /* StartPageHelpView.swift in Sources */,
+				19F92EBC2CAFE8D500BD8D46 /* PinchZoom.swift in Sources */,
+				19F92EC52CAFEBA200BD8D46 /* ImageCacheOtherView.swift in Sources */,
 				196655472C66F97100035E67 /* SFSafariView.swift in Sources */,
 				19B473B42C802B850063EAB5 /* image+.swift in Sources */,
 				19EB27532C81F30A00956EAC /* HapticsManager.swift in Sources */,

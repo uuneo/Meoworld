@@ -93,7 +93,6 @@ struct SettingsView: View {
                             }
                             
                             
-                            
                             Spacer()
                             Text(maskString(manager.deviceToken))
                                 .foregroundStyle(.gray)
@@ -118,7 +117,7 @@ struct SettingsView: View {
                 Section {
                     
                     NavigationLink {
-                        ImageCacheView()
+						MainImageCacheView()
                             .toolbar(.hidden, for: .tabBar)
                             .navigationTitle(NSLocalizedString("historyImage", comment: "历史图片"))
         
