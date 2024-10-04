@@ -201,6 +201,7 @@ struct ContentView: View {
 			NavigationStack{
 				MessagesView()
 					 .navigationTitle(NSLocalizedString("bottomBarMsg",comment: ""))
+					
 			}
 		}
 
