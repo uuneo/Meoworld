@@ -105,17 +105,17 @@ class NotificationViewController: UIViewController, UNNotificationContentExtensi
                let image = UIImage(contentsOfFile: imageFileUrl) {
                 
                 let size = self.sizecalculation(size: image.size)
-                
-                DispatchQueue.main.async { [weak self] in
-                    guard let self = self else { return }
-                    
-                    self.loadingView.stopAnimating()
-                    self.imageView.image = image
-                    self.preferredContentSize = size
-                    self.imageView.frame = CGRect(x: 0, y: 0, width: size.width, height: size.height)
-                }
-            } else {
-                DispatchQueue.main.async { [weak self] in
+				
+				await MainActor.run { [weak self] in
+					guard let self = self else { return }
+					
+					self.loadingView.stopAnimating()
+					self.imageView.image = image
+					self.preferredContentSize = size
+					self.imageView.frame = CGRect(x: 0, y: 0, width: size.width, height: size.height)
+				}
+			} else {
+				await MainActor.run { [weak self] in
                     guard let self = self else { return }
                     
                     self.preferredContentSize = .zero
@@ -167,32 +167,31 @@ extension NotificationViewController{
 					let playerLayerFrame = await CGRect(x: 0, y: 0, width: self.view.bounds.width, height: newHeight)
                     
                     // 在主线程上更新 playerLayer 并确保它居中
-                    DispatchQueue.main.async { [weak self] in
-                        guard let self = self else { return }
-                    
-                        
-                        self.preferredContentSize = CGSize(width: self.view.bounds.width, height: newHeight)
-                        self.videoPlayerView.frame = playerLayerFrame
-                        playerLayer.frame = self.videoPlayerView.bounds // playerLayer 跟随 videoPlayerView 的 bounds
-                        
-                        
-                        // 视频加载完成后隐藏加载视图
-                        self.loadingView?.stopAnimating()
-                        
-                        self.videoPlayerView.layer.addSublayer(playerLayer)
-                        
-                        player.play()
-                        
-                        // 添加观察者监听播放完成事件
-                        NotificationCenter.default.addObserver(self, selector: #selector(self.playerDidFinishPlaying), name: .AVPlayerItemDidPlayToEndTime, object: player.currentItem)
-                        
-                        // 添加播放/暂停按钮
-                        self.setupPlayPauseButton()
-                    }
+					await MainActor.run { [weak self] in
+						guard let self = self else { return }
+						self.preferredContentSize = CGSize(width: self.view.bounds.width, height: newHeight)
+						self.videoPlayerView.frame = playerLayerFrame
+						playerLayer.frame = self.videoPlayerView.bounds // playerLayer 跟随 videoPlayerView 的 bounds
+						
+						
+						// 视频加载完成后隐藏加载视图
+						self.loadingView?.stopAnimating()
+						
+						self.videoPlayerView.layer.addSublayer(playerLayer)
+						
+						player.play()
+						
+						// 添加观察者监听播放完成事件
+						NotificationCenter.default.addObserver(self, selector: #selector(self.playerDidFinishPlaying), name: .AVPlayerItemDidPlayToEndTime, object: player.currentItem)
+						
+						// 添加播放/暂停按钮
+						self.setupPlayPauseButton()
+					}
+                   
                 } catch {
                     print("加载视频自然尺寸时出错: \(error)")
                     // 如果加载失败，停止加载指示器
-                    DispatchQueue.main.async {
+					await MainActor.run {
                         self.loadingView?.stopAnimating()
                     }
                 }

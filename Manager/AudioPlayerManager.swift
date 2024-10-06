@@ -326,14 +326,13 @@ final class AvManager: ObservableObject{
 				if let titleMetadata = metaData.first(where: {$0.commonKey == .commonKeyTitle}),
 				   let data = try await titleMetadata.load(.stringValue)
 				{
-					
-					
-					DispatchQueue.main.async {
+					await MainActor.run {
 						self.songTitle =  data
 					}
 					
+					
 				}else{
-					DispatchQueue.main.async {
+					await MainActor.run {
 						self.songTitle =  self.currentlyPlayingURL?.deletingPathExtension().lastPathComponent ?? "Unknown Title"
 						
 					}
@@ -344,12 +343,12 @@ final class AvManager: ObservableObject{
 				   let data = try await artistMetadata.load(.stringValue)
 				{
 					
-					DispatchQueue.main.async{
+					await MainActor.run {
 						self.artistName = data
 					}
 					
 				}else{
-					DispatchQueue.main.async {
+					await MainActor.run {
 						self.artistName =  "Unknown Artist"
 					}
 				}
@@ -360,12 +359,12 @@ final class AvManager: ObservableObject{
 				   let data = try await artworkMetadata.load(.value) as? Data,
 				   let artworkImage = UIImage(data: data)
 				{
-					DispatchQueue.main.async {
+					await MainActor.run {
 						self.albumArtwork = artworkImage
 					}
 				}else{
 					if let data = UIImage(named: "music"){
-						DispatchQueue.main.async {
+						await MainActor.run {
 							self.albumArtwork = data
 						}
 					}
@@ -467,7 +466,7 @@ final class AvManager: ObservableObject{
 			Task{
 				do{
 					let temTime = try await  currentItem.asset.load(.duration)
-					DispatchQueue.main.async{
+					await MainActor.run {
 						self.totalTime = CMTimeGetSeconds(temTime)
 					}
 				}catch{

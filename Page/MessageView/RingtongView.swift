@@ -104,7 +104,8 @@ struct RingtongView: View {
             }
 
            
-        }.toast(info: $toastText)
+        }
+		.alert(info: $toastText)
     }
 }
 

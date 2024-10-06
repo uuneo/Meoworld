@@ -78,13 +78,13 @@ extension ToolsManager{
         let components = url.host?.components(separatedBy: ".")
         return components?.count ?? 0 >= 2
     }
-    
-    static func isValidEmail(_ email: String) -> Bool {
-        let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
-        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegex)
-        return emailTest.evaluate(with: email)
-    }
-    
+//    
+//    static func isValidEmail(_ email: String) -> Bool {
+//        let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+//        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegex)
+//        return emailTest.evaluate(with: email)
+//    }
+//    
     
     static func getGroup(_ group:String?)->String{
         return group ?? NSLocalizedString("defaultGroup",comment: "")
@@ -92,18 +92,11 @@ extension ToolsManager{
     
     
     
-     func changeBadge(badge:Int){
-         
-         dispatch_sync_safely_main_queue {
-             if badge == -1{
-                 UNUserNotificationCenter.current().setBadgeCount(0)
-             }
-             
-             if self.badgeMode == .auto{
-                 UNUserNotificationCenter.current().setBadgeCount(badge)
-             }
-         }
-        
+     func changeBadge(badge:Int = -1){
+		 if badge == -1{
+			 UNUserNotificationCenter.current().setBadgeCount(0)
+		 }
+		 UNUserNotificationCenter.current().setBadgeCount(badge)
     }
 }
 
@@ -133,6 +126,17 @@ extension ToolsManager{
         }
         
     }
+	
+	static func asyncTaskAfter( duration:Double = 0,completion: @escaping ()-> Void){
+		Task.detached(priority: .background) {
+			try await Task.sleep(nanoseconds: Uint64Seconds(duration))
+			await MainActor.run {
+				completion()
+			}
+		}
+		
+	}
+	
 
 }
 

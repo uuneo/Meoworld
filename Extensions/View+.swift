@@ -30,15 +30,31 @@ struct OutlineModifier: ViewModifier {
 
 
 extension View {
-    func toast(info:Binding<String>, duration:Double = 1.0) -> some View {
-        ZStack {
-            self
-            if info.wrappedValue != ""{
-                ToastView(info: info, duration: duration)
-            }
-        }
-     }
+
+	func alert(info:Binding<String>, duration:Double = 1.5) -> some View {
+		ZStack {
+			self
+				.alert(info.wrappedValue ,isPresented: Binding<Bool>(
+					get: {
+						!info.wrappedValue.isEmpty // 当 info 不为空时显示 alert
+					},
+					set: {_ in
+						info.wrappedValue = ""
+					}
+				)){}
+				.onChange(of: info.wrappedValue) { newValue in
+					if newValue.count > 0{
+						ToolsManager.asyncTaskAfter(duration: duration) {
+							info.wrappedValue = ""
+						}
+						
+					}
+				}
+		}
+	}
 }
+
+
 
 
 

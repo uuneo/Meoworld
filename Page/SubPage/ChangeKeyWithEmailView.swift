@@ -76,7 +76,7 @@ struct ChangeKeyWithEmailView: View {
             
             
         }
-        .toast(info: $toastText)
+        .alert(info: $toastText)
         .onAppear {
             withAnimation(.spring()) {
                 appear = true

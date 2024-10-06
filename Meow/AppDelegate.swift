@@ -9,7 +9,6 @@ import Foundation
 import UIKit
 import PushKit
 import SwiftyJSON
-import CallKit
 
 
 
@@ -24,7 +23,6 @@ class AppDelegate: NSObject, UIApplicationDelegate{
         // Tell Realm to use this new configuration object for the default Realm
         Realm.Configuration.defaultConfiguration = kRealmDefaultConfiguration
         
-        
 #if DEBUG
         let realm = try? Realm()
         debugPrint("message count: \(realm?.objects(Message.self).count ?? 0)")
@@ -35,16 +33,15 @@ class AppDelegate: NSObject, UIApplicationDelegate{
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         let token = deviceToken.map { String(format: "%02.2hhx", $0) }.joined()
         
+		let manager =  MainManager.shared
         // MARK: 将设备令牌发送到服务器
-        if MainManager.shared.deviceToken != token{
-            MainManager.shared.deviceToken = token
+        if manager.deviceToken != token{
+			manager.deviceToken = token
             // MARK: 注册设备
             Task{
-                await MainManager.shared.registerAll()
+                await manager.registerAll()
             }
         }
-        
-        
         
     }
     
@@ -172,8 +169,7 @@ extension AppDelegate :UNUserNotificationCenterDelegate{
         
         notificatonHandler(userInfo: notification.request.content.userInfo)
         
-//        MainManager.triggerNotificationFeedback(type: .warning)
-    
+
         
         HapticsManager.shared.complexSuccess()
         

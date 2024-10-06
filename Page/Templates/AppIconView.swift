@@ -56,7 +56,7 @@ struct AppIconView: View {
 #endif
                                             
                                         }
-                                        DispatchQueue.main.async{
+										await MainActor.run {
                                             dismiss()
                                         }
                                     }
@@ -73,7 +73,7 @@ struct AppIconView: View {
             .listRowBackground(Color.clear)
             .listRowSeparatorTint(Color.clear)
         }
-        .toast(info: $toastText)
+        .alert(info: $toastText)
         .listStyle(GroupedListStyle())
         
         .navigationTitle(NSLocalizedString("AppIconTitle",comment: ""))

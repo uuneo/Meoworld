@@ -135,15 +135,16 @@ extension MainManager{
         }
         
         do {
-            if let deviceInfo:DeviceInfo? = try await NetworkManager.shared.fetch(url: server.url + "/register/" + self.deviceToken + "/" + servers[index].key){
-                
-                dispatch_sync_safely_main_queue {
-                    servers[index].key = deviceInfo?.pawKey ?? ""
+			if let deviceInfo:DeviceInfo? = try await NetworkManager.shared.fetch(url: server.url + "/register/" + self.deviceToken + "/" + servers[index].key){
+				
+				await MainActor.run {
+					servers[index].key = deviceInfo?.pawKey ?? ""
+				}
 #if DEBUG
-                    print("注册设备: \(String(describing: deviceInfo))")
+				print("注册设备: \(String(describing: deviceInfo))")
 #endif
-                }
-            }
+				
+			}
             
             
         }catch{
@@ -186,14 +187,14 @@ extension MainManager{
             if ok {
                 hasTrue = true
                 if let index = servers.firstIndex(where: {$0.id == server.id}){
-                    dispatch_sync_safely_main_queue {
+					await MainActor.run {
                         self.servers[index].status = true
                     }
                 }
             } else {
                 hasFalse = true
                 if let index = servers.firstIndex(where: {$0.id == server.id}){
-                    dispatch_sync_safely_main_queue {
+					await MainActor.run {
                         debugPrint(index)
                         self.servers[index].status = false
                     }

@@ -7,32 +7,30 @@
 
 import SwiftUI
 import RealmSwift
-import Shiny
 
 struct ContentView: View {
-    
-    @Environment(\.scenePhase) var scenePhase
-    @StateObject private var monitor = Monitors()
-    
-    @StateObject private var router = RouterManager.shared
-    @AppStorage("first_start",store: defaultStore) var firstStart:Bool = true
-    
-	@State private var noShow:NavigationSplitViewVisibility = .detailOnly
-    
-    @ObservedResults(Message.self) var messages
-    
-    @State private var toastText:String = ""
-    
-    @State private  var showAlart:Bool = false
-    @State private  var activeName:String = ""
-    
-    var readCount:Int{
-        messages.where({!$0.read}).count
-    }
-    
-    var body: some View {
-		
+	@EnvironmentObject private var realm:RealmManager
+	@EnvironmentObject private var manager:MainManager
+	@Environment(\.scenePhase) var scenePhase
+	@StateObject private var monitor = Monitors()
 	
+	@StateObject private var router = RouterManager.shared
+	@AppStorage("first_start",store: defaultStore) var firstStart:Bool = true
+	
+	@State private var noShow:NavigationSplitViewVisibility = .detailOnly
+	
+	@ObservedResults(Message.self) var messages
+	
+	@State private var toastText:String = ""
+	
+	@State private  var showAlart:Bool = false
+	@State private  var activeName:String = ""
+	
+	var readCount:Int{
+		messages.where({!$0.read}).count
+	}
+	
+	var body: some View {
 		
 		Group{
 			if ISPAD{
@@ -41,122 +39,125 @@ struct ContentView: View {
 				IphoneHomeView()
 			}
 		}
-        .sheet(isPresented: router.sheetPageShow){
-            switch RouterManager.shared.sheetPage {
-            case .servers:
-                ServersView(showClose: true)
-            case .appIcon:
-                NavigationStack{
-                    AppIconView()
-                }.presentationDetents([.medium])
-            case .web:
-                SFSafariView(url: RouterManager.shared.webUrl)
-                    .ignoresSafeArea()
-            default:
-                EmptyView()
-            }
-        }
-        
-        // MARK: full
-        .fullScreenCover(isPresented: router.fullPageShow){
-            switch router.fullPage {
-            case .login:
-                ChangeKeyWithEmailView()
-            case .servers:
-                ServersView(showClose: true)
-            case .music:
-                RingtongView()
-            case .scan:
-                ScanView { code in
-                    let (_,msg) = MainManager.shared.addServer(url: code)
-                    self.toastText = msg
-                }
-            case .web:
-                SFSafariViewWrapper(url: router.webUrl)
-                    .ignoresSafeArea()
-            case .issues:
-                SFSafariViewWrapper(url: router.webUrl)
-                    .ignoresSafeArea()
-            default:
-                EmptyView()
-            }
-        }
-        .toast(info: $toastText)
-        .onAppear{
-            if firstStart {
-                RealmManager.shared.write(messages: Message.messages)
-                self.firstStart = false
-            }
-        }
-        .onChange(of: scenePhase) { newPhase in
-            
-            self.backgroundModeHandler(of: newPhase)
-           
-            
-        }
-        .alert(isPresented: $showAlart) {
-            Alert(title:
-                    Text(NSLocalizedString("changeTipsTitle", comment: "操作不可逆！")),
-                  message:
-                    Text( activeName == "alldelnotread" ?
-                          NSLocalizedString("changeTips1SubTitle", comment: "是否确认删除所有未读消息!") : NSLocalizedString("changeTips2SubTitle", comment: "是否确认删除所有已读消息!")
-                        ),
-                  primaryButton:
-                    .destructive(
-                        Text(NSLocalizedString("deleteTitle", comment: "删除")),
-                        action: {
-                            
-                            RealmManager.shared.delete(read: activeName == "alldelnotread")
-                            
-                            self.toastText = NSLocalizedString("controlSuccess", comment:"操作成功")
-                           
-                        }
-                    ), secondaryButton: .cancel())
-        }
-        .onOpenURL { url in
-            
-            guard let scheme = url.scheme,
-                  let host = url.host(),
-                  let components = URLComponents(url: url, resolvingAgainstBaseURL: false) else{ return }
-            let params = components.getParams()
+		.sheet(isPresented: router.sheetPageShow){
+			switch RouterManager.shared.sheetPage {
+			case .servers:
+				ServersView(showClose: true)
+			case .appIcon:
+				NavigationStack{
+					AppIconView()
+				}.presentationDetents([.medium])
+			case .web:
+				SFSafariView(url: RouterManager.shared.webUrl)
+					.ignoresSafeArea()
+			default:
+				EmptyView()
+			}
+		}
+		
+		// MARK: full
+		.fullScreenCover(isPresented: router.fullPageShow){
+			switch router.fullPage {
+			case .login:
+				ChangeKeyWithEmailView()
+			case .servers:
+				ServersView(showClose: true)
+			case .music:
+				RingtongView()
+			case .scan:
+				ScanView { code in
+					let (_,msg) = manager.addServer(url: code)
+					self.toastText = msg
+				}
+			case .web:
+				SFSafariViewWrapper(url: router.webUrl)
+					.ignoresSafeArea()
+			case .issues:
+				SFSafariViewWrapper(url: router.webUrl)
+					.ignoresSafeArea()
+			default:
+				EmptyView()
+			}
+		}
+		.alert(info: $toastText)
+		.onAppear{
+			if firstStart {
+				realm.write(messages: Message.messages)
+				self.firstStart = false
+			}
+		}
+		.onChange(of: scenePhase) { newPhase in
+			
+			self.backgroundModeHandler(of: newPhase)
+			
+			
+		}
+		.alert(isPresented: $showAlart) {
+			Alert(title:
+					Text(NSLocalizedString("changeTipsTitle", comment: "操作不可逆！")),
+				  message:
+					Text( activeName == "alldelnotread" ?
+						  NSLocalizedString("changeTips1SubTitle", comment: "是否确认删除所有未读消息!") : NSLocalizedString("changeTips2SubTitle", comment: "是否确认删除所有已读消息!")
+						),
+				  primaryButton:
+					.destructive(
+						Text(NSLocalizedString("deleteTitle", comment: "删除")),
+						action: {
+							
+							realm.delete(read: activeName == "alldelnotread")
+							
+							self.toastText = NSLocalizedString("controlSuccess", comment:"操作成功")
+							
+						}
+					), secondaryButton: .cancel())
+		}
+		.onOpenURL { url in
+			
+			guard let scheme = url.scheme,
+				  let host = url.host(),
+				  let components = URLComponents(url: url, resolvingAgainstBaseURL: false) else{ return }
+			
+			let params = components.getParams()
+			let router = RouterManager.shared
 #if DEBUG
-            debugPrint(scheme, host, params)
+			debugPrint(scheme, host, params)
 #endif
-            
-            
-            if host == "login"{
-                if let url = params["url"]{
-                    
-                    RouterManager.shared.scanUrl = url
-                    RouterManager.shared.fullPage = .login
-                    
-                }else{
-                    self.toastText =  NSLocalizedString("paramsError", comment: "参数错误")
-                }
-                
-            }else if host == "add"{
-                if let url = params["url"]{
-                    let (mode1,msg) = MainManager.shared.addServer(url: url)
+			
+			
+			if host == "login"{
+				if let url = params["url"]{
+					
+					router.scanUrl = url
+					router.fullPage = .login
+					
+				}else{
+					self.toastText =  NSLocalizedString("paramsError", comment: "参数错误")
+				}
+				
+			}else if host == "add"{
+				if let url = params["url"]{
+					let (mode1,msg) = manager.addServer(url: url)
 #if DEBUG
-                    debugPrint(mode1)
+					debugPrint(mode1)
 #endif
-                    
-                    self.toastText = msg
-                    if !RouterManager.shared.showServerListView {
-                        RouterManager.shared.fullPage = .none
-                        RouterManager.shared.sheetPage = .none
-                        RouterManager.shared.page = .setting
-                        RouterManager.shared.showServerListView = true
-                    }
-                }else{
-                    
-                    self.toastText = NSLocalizedString("paramsError", comment:"参数错误")
-                }
-            }
-            
-        }
-      
-    }
+					
+					self.toastText = msg
+					
+					if !router.showServerListView {
+						router.fullPage = .none
+						router.sheetPage = .none
+						router.page = .setting
+						router.showServerListView = true
+					}
+				}else{
+					
+					self.toastText = NSLocalizedString("paramsError", comment:"参数错误")
+				}
+			}
+			
+		}
+		
+	}
 	
 	
 	@ViewBuilder
@@ -165,15 +166,15 @@ struct ContentView: View {
 			
 			// MARK: 信息页面
 			NavigationStack{
-			   MessagesView()
+				MessagesView()
 					.navigationTitle(NSLocalizedString("bottomBarMsg",comment: ""))
 			}
 			.tag(TabPage.message)
 			.badge(readCount)
 			.tabItem {
 				Label(NSLocalizedString("bottomBarMsg",comment: ""), systemImage: "ellipsis.message")
-					
-					
+				
+				
 			}
 			
 			// MARK: 设置页面
@@ -181,10 +182,10 @@ struct ContentView: View {
 				SettingsView()
 					.navigationTitle(NSLocalizedString("bottomBarSettings",comment: ""))
 			}
-		   
+			
 			.tabItem {
 				Label(NSLocalizedString("bottomBarSettings",comment: ""), systemImage: "gearshape")
-					
+				
 			}
 			.tag(TabPage.setting)
 			
@@ -200,63 +201,65 @@ struct ContentView: View {
 		} detail: {
 			NavigationStack{
 				MessagesView()
-					 .navigationTitle(NSLocalizedString("bottomBarMsg",comment: ""))
-					
+					.navigationTitle(NSLocalizedString("bottomBarMsg",comment: ""))
+				
 			}
 		}
-
+		
 	}
 }
 
 extension ContentView{
-    func backgroundModeHandler(of value:ScenePhase){
-        
-        switch value{
-        case .active:
+	func backgroundModeHandler(of value:ScenePhase){
+		
+		switch value{
+		case .active:
 #if DEBUG
-            print("app active")
+			print("app active")
 #endif
-            AudioPlayerManager.stopCallNotificationProcessor()
-            
-            if let name = QuickAction.selectAction?.userInfo?["name"] as? String{
-                QuickAction.selectAction = nil
+			AudioPlayerManager.stopCallNotificationProcessor()
+			
+			if let name = QuickAction.selectAction?.userInfo?["name"] as? String{
+				QuickAction.selectAction = nil
 #if DEBUG
-                print(name)
+				print(name)
 #endif
-                RouterManager.shared.page = .message
-                switch name{
-                case "allread":
-                    RealmManager.shared.readMessage()
-                    
-                    self.toastText = NSLocalizedString("controlSuccess", comment:"操作成功")
-                case "alldelread","alldelnotread":
-                    self.activeName = name
-                    self.showAlart.toggle()
-                default:
-                    break
-                }
-            }
-            
-            HapticsManager.shared.restartEngine()
-        case .background:
-            MainManager.shared.addQuickActions()
-            HapticsManager.shared.stopEngine()
-            
-        default:
-
-            break
-            
-        }
-        
-        if ToolsManager.shared.badgeMode == .auto{
-            ToolsManager.shared.changeBadge(badge: RealmManager.shared.NReadCount())
-        }else{
-            ToolsManager.shared.changeBadge(badge: -1)
-        }
-       
-    }
+				RouterManager.shared.page = .message
+				switch name{
+				case "allread":
+					realm.readMessage()
+					
+					self.toastText = NSLocalizedString("controlSuccess", comment:"操作成功")
+				case "alldelread","alldelnotread":
+					self.activeName = name
+					self.showAlart.toggle()
+				default:
+					break
+				}
+			}
+			
+			HapticsManager.shared.restartEngine()
+		case .background:
+			manager.addQuickActions()
+			HapticsManager.shared.stopEngine()
+			
+		default:
+			
+			break
+			
+		}
+		
+		let toolManager = ToolsManager.shared
+		
+		if toolManager.badgeMode == .auto{
+			toolManager.changeBadge(badge: realm.NReadCount())
+		}else{
+			toolManager.changeBadge(badge: -1)
+		}
+		
+	}
 }
 
 #Preview {
-    ContentView()
+	ContentView()
 }

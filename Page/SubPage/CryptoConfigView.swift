@@ -153,7 +153,7 @@ struct CryptoConfigView: View {
 					}
 					
 				}
-			}.toast(info: $toastText)
+			}.alert(info: $toastText)
 		
 	}
 	func verifyKey()-> Bool{
@@ -176,6 +176,8 @@ struct CryptoConfigView: View {
 	
 	
 	func createCopyText(){
+		let mainManager = MainManager.shared
+		
 		
 		if !verifyIv() {
 			manager.fields.iv = AESData.generateRandomString(by32: false)
@@ -223,16 +225,16 @@ struct CryptoConfigView: View {
 	 
 	 print("加密后的数据（Base64编码）：", encrypted_base64)
 	 
-	 deviceKey = '\(MainManager.shared.servers[0].key)'
+	 deviceKey = '\(mainManager.servers[0].key)'
 	 
-	 res = requests.get(f"\(MainManager.shared.servers[0].url)/{deviceKey}/test",
+	 res = requests.get(f"\(mainManager.servers[0].url)/{deviceKey}/test",
 	 params = {"ciphertext": encrypted_base64, "iv": iv})
 	 
 	 print(res.text)
 	 
 	 """
 		
-		MainManager.shared.copy(text: text)
+		mainManager.copy(text: text)
 		
 		self.toastText = NSLocalizedString("copySuccessText", comment:  "复制成功")
 	}

@@ -23,26 +23,24 @@ struct EmailPageView:View {
                 Button{
                     self.removeFailToEmail()
                     self.showLoading = true
-                    DispatchQueue.main.async {
-                        ToolsManager.shared.sendMail(title:   NSLocalizedString("toMailTestTitle", comment: "自动化: Meoworld"), text:NSLocalizedString("toMailTestText", comment:  "{title:\"标题\",...}")){ error in
-                            
-                            if error != nil {
-                                
-                                self.toastText = NSLocalizedString("sendMailFail", comment:  "调用失败")
-                            }else{
-                                
-                                self.toastText = NSLocalizedString("sendMailSuccess", comment:   "调用成功")
-                            }
-                            dispatch_sync_safely_main_queue {
-                               
-                                self.showLoading = false
-                            }
-                            
-                        }
-                    }
-
-                   
-                }label: {
+					Task{
+						await MainActor.run {
+							ToolsManager.shared.sendMail(title:   NSLocalizedString("toMailTestTitle", comment: "自动化: Meoworld"), text:NSLocalizedString("toMailTestText", comment:  "{title:\"标题\",...}")){ error in
+								
+								if error != nil {
+									
+									self.toastText = NSLocalizedString("sendMailFail", comment:  "调用失败")
+								}else{
+									
+									self.toastText = NSLocalizedString("sendMailSuccess", comment:   "调用成功")
+								}
+								self.showLoading = false
+								
+							}
+						}
+					}
+					
+				}label: {
                     if showLoading{
                         ProgressView()
                     }else{
@@ -116,7 +114,7 @@ struct EmailPageView:View {
                     }
                 }
             }
-            .toast(info: $toastText)
+            .alert(info: $toastText)
             .onDisappear{
                 self.removeFailToEmail()
             }
@@ -127,6 +125,6 @@ struct EmailPageView:View {
 
 extension EmailPageView{
     func removeFailToEmail(){
-        toolsManager.email.toEmail.removeAll(where: {!ToolsManager.isValidEmail($0.mail)})
+        toolsManager.email.toEmail.removeAll(where: {!$0.mail.isValidEmail()})
     }
 }

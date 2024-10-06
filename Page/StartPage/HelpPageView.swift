@@ -32,7 +32,7 @@ struct HelpPageView: View {
                Image(page.imageName)
                    .resizable()
                    .aspectRatio(aspect, contentMode: .fit)
-                   .frame(width: imageWidth,height: imageWidth - 120)
+				   .frame(width: min(imageWidth, 500),height: min(imageWidth - 120, 500))
                    .cornerRadius(40)
                    .clipped()
                VStack(alignment: .center, spacing: 5) {

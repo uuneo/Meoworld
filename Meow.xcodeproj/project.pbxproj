@@ -8,12 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		190B88D32C7A09140050099B /* FontAnimation+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190B88D22C7A09140050099B /* FontAnimation+.swift */; };
-		190B88D62C7B43CD0050099B /* Shiny in Frameworks */ = {isa = PBXBuildFile; productRef = 190B88D52C7B43CD0050099B /* Shiny */; };
 		190B88DE2C7B49090050099B /* HelpPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190B88DD2C7B49090050099B /* HelpPageView.swift */; };
 		190B88E22C7B49660050099B /* StartPageHelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190B88E12C7B49660050099B /* StartPageHelpView.swift */; };
 		190B88E42C7B4CC80050099B /* MorkData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190B88E32C7B4CC80050099B /* MorkData.swift */; };
 		190B88EC2C7B62EB0050099B /* ConcentricOnboarding in Frameworks */ = {isa = PBXBuildFile; productRef = 190B88EB2C7B62EB0050099B /* ConcentricOnboarding */; };
 		190B89122C7C6EDC0050099B /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 190B89112C7C6EDC0050099B /* Launch Screen.storyboard */; };
+		192342AE2CB23ED1007FE2F0 /* SearchMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192342AB2CB23E7A007FE2F0 /* SearchMessageView.swift */; };
 		1941D3892C646B1400F4C6EC /* MeowApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1941D3882C646B1400F4C6EC /* MeowApp.swift */; };
 		1941D38B2C646B1400F4C6EC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1941D38A2C646B1400F4C6EC /* ContentView.swift */; };
 		1941D38D2C646B1500F4C6EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1941D38C2C646B1500F4C6EC /* Assets.xcassets */; };
@@ -80,7 +80,11 @@
 		1941D46A2C66215A00F4C6EC /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1941D4692C66215A00F4C6EC /* RealmSwift */; };
 		1941D46C2C66216E00F4C6EC /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1941D46B2C66216E00F4C6EC /* RealmSwift */; };
 		1947A1452C7F60E300DCCCD3 /* ImageCacheView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1947A1442C7F60E300DCCCD3 /* ImageCacheView.swift */; };
-		196654E82C6634D200035E67 /* ToolBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196654E72C6634D200035E67 /* ToolBox.swift */; };
+		19580A3A2CB285BC002B1B58 /* LaunchFirst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19580A392CB2859F002B1B58 /* LaunchFirst.swift */; };
+		19580A3D2CB29F5C002B1B58 /* FullSwipeNavigationStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19580A3C2CB29EBE002B1B58 /* FullSwipeNavigationStack.swift */; };
+		19580A3F2CB2C156002B1B58 /* ParallaxImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19580A3E2CB2C155002B1B58 /* ParallaxImageView.swift */; };
+		19580A412CB2D6F6002B1B58 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 19580A402CB2D6F6002B1B58 /* GoogleService-Info.plist */; };
+		196654E82C6634D200035E67 /* PreferenceKey+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196654E72C6634D200035E67 /* PreferenceKey+.swift */; };
 		196654EA2C66578C00035E67 /* Monitors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196654E92C66578C00035E67 /* Monitors.swift */; };
 		196654EF2C6662F800035E67 /* ExampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196654EE2C6662F800035E67 /* ExampleView.swift */; };
 		196654F12C66630900035E67 /* MessagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196654F02C66630900035E67 /* MessagesView.swift */; };
@@ -88,7 +92,6 @@
 		196654F72C6663FD00035E67 /* RingtongView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196654F62C6663FD00035E67 /* RingtongView.swift */; };
 		196654F92C66648900035E67 /* ServerInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196654F82C66648900035E67 /* ServerInfo.swift */; };
 		196654FB2C66652B00035E67 /* Array+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196654FA2C66652B00035E67 /* Array+.swift */; };
-		196654FD2C6665E200035E67 /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196654FC2C6665E200035E67 /* ToastView.swift */; };
 		196654FF2C66664F00035E67 /* View+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196654FE2C66664F00035E67 /* View+.swift */; };
 		196655012C66674F00035E67 /* PushExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196655002C66674F00035E67 /* PushExample.swift */; };
 		196655032C66681100035E67 /* AudioPlayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196655022C66681100035E67 /* AudioPlayerManager.swift */; };
@@ -153,7 +156,7 @@
 		1966555C2C672BEE00035E67 /* ShareSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1966555B2C672BEE00035E67 /* ShareSheet.swift */; };
 		1966555E2C672F1E00035E67 /* SwiftSMTP in Frameworks */ = {isa = PBXBuildFile; productRef = 1966555D2C672F1E00035E67 /* SwiftSMTP */; };
 		1966555F2C672F4A00035E67 /* EmailModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196655572C6728E600035E67 /* EmailModal.swift */; };
-		196655602C672F9A00035E67 /* ToolBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196654E72C6634D200035E67 /* ToolBox.swift */; };
+		196655602C672F9A00035E67 /* PreferenceKey+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196654E72C6634D200035E67 /* PreferenceKey+.swift */; };
 		196655622C67308600035E67 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196655612C67308600035E67 /* LoadingView.swift */; };
 		196655642C67366100035E67 /* ChangeKeyWithEmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196655632C67366100035E67 /* ChangeKeyWithEmailView.swift */; };
 		196655662C67368F00035E67 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196655652C67368F00035E67 /* SignInView.swift */; };
@@ -166,7 +169,6 @@
 		1966557A2C67C26300035E67 /* Localizable.strings in Sources */ = {isa = PBXBuildFile; fileRef = 1941D3C82C64D8FF00F4C6EC /* Localizable.strings */; };
 		1966557E2C690FCF00035E67 /* ActionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1966557D2C690FCF00035E67 /* ActionHandler.swift */; };
 		198037332C70C18000F9DBDD /* ExportManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198037322C70C18000F9DBDD /* ExportManager.swift */; };
-		198037352C70F6A400F9DBDD /* Object+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198037342C70F6A400F9DBDD /* Object+.swift */; };
 		1992DCCD2C6F8606004A5259 /* SoundHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1992DCCC2C6F8606004A5259 /* SoundHandler.swift */; };
 		19B473B42C802B850063EAB5 /* image+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B473B32C802B850063EAB5 /* image+.swift */; };
 		19B473BC2C80CD060063EAB5 /* image+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B473B32C802B850063EAB5 /* image+.swift */; };
@@ -256,6 +258,7 @@
 		190B89132C7C6EDC0050099B /* mul */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = mul; path = "mul.lproj/Launch Screen.xcstrings"; sourceTree = "<group>"; };
 		191011762C76090D00BECBA8 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		191011782C76090D00BECBA8 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		192342AB2CB23E7A007FE2F0 /* SearchMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMessageView.swift; sourceTree = "<group>"; };
 		1941D3852C646B1400F4C6EC /* Meow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Meow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1941D3882C646B1400F4C6EC /* MeowApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeowApp.swift; sourceTree = "<group>"; };
 		1941D38A2C646B1400F4C6EC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -320,7 +323,11 @@
 		1941D43E2C64F3A100F4C6EC /* Meow.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Meow.entitlements; sourceTree = "<group>"; };
 		1941D4412C64F95500F4C6EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1947A1442C7F60E300DCCCD3 /* ImageCacheView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheView.swift; sourceTree = "<group>"; };
-		196654E72C6634D200035E67 /* ToolBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolBox.swift; sourceTree = "<group>"; };
+		19580A392CB2859F002B1B58 /* LaunchFirst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchFirst.swift; sourceTree = "<group>"; };
+		19580A3C2CB29EBE002B1B58 /* FullSwipeNavigationStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullSwipeNavigationStack.swift; sourceTree = "<group>"; };
+		19580A3E2CB2C155002B1B58 /* ParallaxImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParallaxImageView.swift; sourceTree = "<group>"; };
+		19580A402CB2D6F6002B1B58 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		196654E72C6634D200035E67 /* PreferenceKey+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PreferenceKey+.swift"; sourceTree = "<group>"; };
 		196654E92C66578C00035E67 /* Monitors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Monitors.swift; sourceTree = "<group>"; };
 		196654EE2C6662F800035E67 /* ExampleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleView.swift; sourceTree = "<group>"; };
 		196654F02C66630900035E67 /* MessagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesView.swift; sourceTree = "<group>"; };
@@ -328,7 +335,6 @@
 		196654F62C6663FD00035E67 /* RingtongView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingtongView.swift; sourceTree = "<group>"; };
 		196654F82C66648900035E67 /* ServerInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerInfo.swift; sourceTree = "<group>"; };
 		196654FA2C66652B00035E67 /* Array+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+.swift"; sourceTree = "<group>"; };
-		196654FC2C6665E200035E67 /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
 		196654FE2C66664F00035E67 /* View+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+.swift"; sourceTree = "<group>"; };
 		196655002C66674F00035E67 /* PushExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushExample.swift; sourceTree = "<group>"; };
 		196655022C66681100035E67 /* AudioPlayerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerManager.swift; sourceTree = "<group>"; };
@@ -365,7 +371,6 @@
 		196655792C67BFF000035E67 /* NotificationServiceExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NotificationServiceExtension.entitlements; sourceTree = "<group>"; };
 		1966557D2C690FCF00035E67 /* ActionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionHandler.swift; sourceTree = "<group>"; };
 		198037322C70C18000F9DBDD /* ExportManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportManager.swift; sourceTree = "<group>"; };
-		198037342C70F6A400F9DBDD /* Object+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Object+.swift"; sourceTree = "<group>"; };
 		1992DCCC2C6F8606004A5259 /* SoundHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundHandler.swift; sourceTree = "<group>"; };
 		19B473B32C802B850063EAB5 /* image+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "image+.swift"; sourceTree = "<group>"; };
 		19B473C02C80CF610063EAB5 /* RealmDefaultConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDefaultConfiguration.swift; sourceTree = "<group>"; };
@@ -390,7 +395,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				190B88D62C7B43CD0050099B /* Shiny in Frameworks */,
 				196655432C6680FC00035E67 /* Kingfisher in Frameworks */,
 				190B88EC2C7B62EB0050099B /* ConcentricOnboarding in Frameworks */,
 				1941D46A2C66215A00F4C6EC /* RealmSwift in Frameworks */,
@@ -435,6 +439,7 @@
 		190B88DC2C7B48C90050099B /* StartPage */ = {
 			isa = PBXGroup;
 			children = (
+				19580A392CB2859F002B1B58 /* LaunchFirst.swift */,
 				190B88DD2C7B49090050099B /* HelpPageView.swift */,
 				190B88E12C7B49660050099B /* StartPageHelpView.swift */,
 				190B88E32C7B4CC80050099B /* MorkData.swift */,
@@ -442,9 +447,23 @@
 			path = StartPage;
 			sourceTree = "<group>";
 		};
+		192342AA2CB23A13007FE2F0 /* MessageView */ = {
+			isa = PBXGroup;
+			children = (
+				192342AB2CB23E7A007FE2F0 /* SearchMessageView.swift */,
+				1966553C2C667CE200035E67 /* MessageView.swift */,
+				1966553A2C667C9500035E67 /* MessageDetailView.swift */,
+				196654EE2C6662F800035E67 /* ExampleView.swift */,
+				196654F62C6663FD00035E67 /* RingtongView.swift */,
+				196655042C66689000035E67 /* RingtoneItemView.swift */,
+			);
+			path = MessageView;
+			sourceTree = "<group>";
+		};
 		1941D37C2C646B1400F4C6EC = {
 			isa = PBXGroup;
 			children = (
+				19580A3B2CB29EB1002B1B58 /* ThirdViews */,
 				190B88D12C7A08F60050099B /* animations */,
 				1966556E2C67412D00035E67 /* README.md */,
 				1941D3FD2C64F32B00F4C6EC /* Sounds */,
@@ -474,6 +493,7 @@
 		1941D3872C646B1400F4C6EC /* Meow */ = {
 			isa = PBXGroup;
 			children = (
+				19580A402CB2D6F6002B1B58 /* GoogleService-Info.plist */,
 				1941D43E2C64F3A100F4C6EC /* Meow.entitlements */,
 				1941D3FA2C64EE1200F4C6EC /* Info.plist */,
 				1941D3882C646B1400F4C6EC /* MeowApp.swift */,
@@ -501,7 +521,6 @@
 			isa = PBXGroup;
 			children = (
 				1941D3982C64D4AE00F4C6EC /* BaseConfig.swift */,
-				196654E72C6634D200035E67 /* ToolBox.swift */,
 				1966550A2C666B2600035E67 /* Enums.swift */,
 				19B473C02C80CF610063EAB5 /* RealmDefaultConfiguration.swift */,
 			);
@@ -594,6 +613,7 @@
 		1941D3EE2C64E39600F4C6EC /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				196654E72C6634D200035E67 /* PreferenceKey+.swift */,
 				1941D3EF2C64E3AB00F4C6EC /* Error+.swift */,
 				196654FA2C66652B00035E67 /* Array+.swift */,
 				196654FE2C66664F00035E67 /* View+.swift */,
@@ -601,7 +621,6 @@
 				1966553E2C6680AF00035E67 /* String+.swift */,
 				196655402C6680C800035E67 /* URLSession+.swift */,
 				196655502C67270800035E67 /* Color+.swift */,
-				198037342C70F6A400F9DBDD /* Object+.swift */,
 				19B473B32C802B850063EAB5 /* image+.swift */,
 				19EB275A2C8364D800956EAC /* toolbar+.swift */,
 			);
@@ -647,9 +666,19 @@
 			path = Sounds;
 			sourceTree = "<group>";
 		};
+		19580A3B2CB29EB1002B1B58 /* ThirdViews */ = {
+			isa = PBXGroup;
+			children = (
+				19580A3E2CB2C155002B1B58 /* ParallaxImageView.swift */,
+				19580A3C2CB29EBE002B1B58 /* FullSwipeNavigationStack.swift */,
+			);
+			path = ThirdViews;
+			sourceTree = "<group>";
+		};
 		196654EB2C66625100035E67 /* Page */ = {
 			isa = PBXGroup;
 			children = (
+				192342AA2CB23A13007FE2F0 /* MessageView */,
 				19F92EBD2CAFE9AB00BD8D46 /* HistoryPhotoView */,
 				190B88DC2C7B48C90050099B /* StartPage */,
 				196654F52C66634500035E67 /* Templates */,
@@ -663,12 +692,6 @@
 		196654F42C66631E00035E67 /* SubPage */ = {
 			isa = PBXGroup;
 			children = (
-				196654F62C6663FD00035E67 /* RingtongView.swift */,
-				196654FC2C6665E200035E67 /* ToastView.swift */,
-				196654EE2C6662F800035E67 /* ExampleView.swift */,
-				196655042C66689000035E67 /* RingtoneItemView.swift */,
-				1966553A2C667C9500035E67 /* MessageDetailView.swift */,
-				1966553C2C667CE200035E67 /* MessageView.swift */,
 				1966554A2C66FAB400035E67 /* ServersView.swift */,
 				196655522C67279B00035E67 /* EmailPageView.swift */,
 				196655592C672A3100035E67 /* CryptoConfigView.swift */,
@@ -683,10 +706,10 @@
 		196654F52C66634500035E67 /* Templates */ = {
 			isa = PBXGroup;
 			children = (
-				19F92EBB2CAFE8CD00BD8D46 /* PinchZoom.swift */,
 				196655302C66791000035E67 /* AsyncImageView.swift */,
 				196655462C66F97100035E67 /* SFSafariView.swift */,
 				196655482C66FA3400035E67 /* AppIconView.swift */,
+				19F92EBB2CAFE8CD00BD8D46 /* PinchZoom.swift */,
 				1966555B2C672BEE00035E67 /* ShareSheet.swift */,
 				196655612C67308600035E67 /* LoadingView.swift */,
 				196655672C67380A00035E67 /* AngularButton.swift */,
@@ -732,7 +755,6 @@
 				196655442C66810D00035E67 /* SwiftyJSON */,
 				196655552C67289E00035E67 /* SwiftSMTP */,
 				1966556C2C67397000035E67 /* QRScanner */,
-				190B88D52C7B43CD0050099B /* Shiny */,
 				190B88EB2C7B62EB0050099B /* ConcentricOnboarding */,
 			);
 			productName = Meow;
@@ -791,7 +813,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1540;
-				LastUpgradeCheck = 1540;
+				LastUpgradeCheck = 1600;
 				TargetAttributes = {
 					1941D3842C646B1400F4C6EC = {
 						CreatedOnToolsVersion = 15.4;
@@ -820,7 +842,6 @@
 				1941D4682C66215A00F4C6EC /* XCRemoteSwiftPackageReference "realm-swift" */,
 				196655542C67289E00035E67 /* XCRemoteSwiftPackageReference "Swift-SMTP" */,
 				1966556B2C67397000035E67 /* XCRemoteSwiftPackageReference "QRScanner" */,
-				190B88D42C7B43CD0050099B /* XCRemoteSwiftPackageReference "shiny" */,
 				190B88EA2C7B62EB0050099B /* XCRemoteSwiftPackageReference "ConcentricOnboarding" */,
 			);
 			productRefGroup = 1941D3862C646B1400F4C6EC /* Products */;
@@ -856,6 +877,7 @@
 				196655182C666FEB00035E67 /* gotosleep.caf in Resources */,
 				196655192C666FEB00035E67 /* healthnotification.caf in Resources */,
 				196655772C67837900035E67 /* InfoPlist.strings in Resources */,
+				19580A412CB2D6F6002B1B58 /* GoogleService-Info.plist in Resources */,
 				1966551A2C666FEB00035E67 /* horn.caf in Resources */,
 				1966551B2C666FEB00035E67 /* ladder.caf in Resources */,
 				1966551C2C666FEB00035E67 /* mailsent.caf in Resources */,
@@ -938,6 +960,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				19580A3D2CB29F5C002B1B58 /* FullSwipeNavigationStack.swift in Sources */,
+				192342AE2CB23ED1007FE2F0 /* SearchMessageView.swift in Sources */,
 				190B88DE2C7B49090050099B /* HelpPageView.swift in Sources */,
 				196655332C6679BE00035E67 /* Error+.swift in Sources */,
 				1966554D2C66FC3A00035E67 /* ResponseModal.swift in Sources */,
@@ -959,10 +983,9 @@
 				1966555C2C672BEE00035E67 /* ShareSheet.swift in Sources */,
 				1941D3992C64D4AE00F4C6EC /* BaseConfig.swift in Sources */,
 				19F92EBF2CAFE9CB00BD8D46 /* KFImageView.swift in Sources */,
-				196654FD2C6665E200035E67 /* ToastView.swift in Sources */,
 				19F92EC12CAFEA1700BD8D46 /* NewImageCacheView.swift in Sources */,
 				1941D39F2C64D67E00F4C6EC /* MainManager.swift in Sources */,
-				196654E82C6634D200035E67 /* ToolBox.swift in Sources */,
+				196654E82C6634D200035E67 /* PreferenceKey+.swift in Sources */,
 				1966553B2C667C9500035E67 /* MessageDetailView.swift in Sources */,
 				196655622C67308600035E67 /* LoadingView.swift in Sources */,
 				196655412C6680C800035E67 /* URLSession+.swift in Sources */,
@@ -982,8 +1005,8 @@
 				1966556A2C67392900035E67 /* ScanView.swift in Sources */,
 				196655492C66FA3400035E67 /* AppIconView.swift in Sources */,
 				1947A1452C7F60E300DCCCD3 /* ImageCacheView.swift in Sources */,
+				19580A3F2CB2C156002B1B58 /* ParallaxImageView.swift in Sources */,
 				1966553F2C6680AF00035E67 /* String+.swift in Sources */,
-				198037352C70F6A400F9DBDD /* Object+.swift in Sources */,
 				1966553D2C667CE200035E67 /* MessageView.swift in Sources */,
 				19EB275B2C8364D800956EAC /* toolbar+.swift in Sources */,
 				19C8C31C2C6CC48800581C8F /* ContactsView.swift in Sources */,
@@ -991,6 +1014,7 @@
 				196654FF2C66664F00035E67 /* View+.swift in Sources */,
 				19B473C12C80CF610063EAB5 /* RealmDefaultConfiguration.swift in Sources */,
 				190B88D32C7A09140050099B /* FontAnimation+.swift in Sources */,
+				19580A3A2CB285BC002B1B58 /* LaunchFirst.swift in Sources */,
 				1941D3892C646B1400F4C6EC /* MeowApp.swift in Sources */,
 				190B88E22C7B49660050099B /* StartPageHelpView.swift in Sources */,
 				19F92EBC2CAFE8D500BD8D46 /* PinchZoom.swift in Sources */,
@@ -1015,7 +1039,7 @@
 				19B473BD2C80CD060063EAB5 /* ImageManager.swift in Sources */,
 				1966557A2C67C26300035E67 /* Localizable.strings in Sources */,
 				1966557E2C690FCF00035E67 /* ActionHandler.swift in Sources */,
-				196655602C672F9A00035E67 /* ToolBox.swift in Sources */,
+				196655602C672F9A00035E67 /* PreferenceKey+.swift in Sources */,
 				1966555F2C672F4A00035E67 /* EmailModal.swift in Sources */,
 				1966552C2C6678AA00035E67 /* Enums.swift in Sources */,
 				1941D3E52C64DF3900F4C6EC /* BaseConfig.swift in Sources */,
@@ -1218,7 +1242,6 @@
 		1941D3942C646B1500F4C6EC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_ALTERNATE_APPICON_NAMES = "AppIcon AppIcon0 AppIcon1";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1261,7 +1284,6 @@
 		1941D3952C646B1500F4C6EC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_ALTERNATE_APPICON_NAMES = "AppIcon AppIcon0 AppIcon1";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1451,14 +1473,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		190B88D42C7B43CD0050099B /* XCRemoteSwiftPackageReference "shiny" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/maustinstar/shiny.git";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
 		190B88EA2C7B62EB0050099B /* XCRemoteSwiftPackageReference "ConcentricOnboarding" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/uuneo/ConcentricOnboarding.git";
@@ -1510,11 +1524,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		190B88D52C7B43CD0050099B /* Shiny */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 190B88D42C7B43CD0050099B /* XCRemoteSwiftPackageReference "shiny" */;
-			productName = Shiny;
-		};
 		190B88EB2C7B62EB0050099B /* ConcentricOnboarding */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 190B88EA2C7B62EB0050099B /* XCRemoteSwiftPackageReference "ConcentricOnboarding" */;

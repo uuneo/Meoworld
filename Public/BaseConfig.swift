@@ -57,9 +57,12 @@ struct BaseConfig {
     static let  realmModalVersion:UInt64 = 3
     static let  defaultSound = "defaultSound"
     static let  activeAppIcon = "setting_active_app_icon"
-    static let customPhotoName = "CustomPhotoName"
-
+    static let 	customPhotoName = "CustomPhotoName"
+	
 }
 
+func Uint64Seconds(_ seconds:Double) -> UInt64{
+	return UInt64(seconds * 1_000_000_000)
+}
 
 

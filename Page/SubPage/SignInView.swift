@@ -9,6 +9,8 @@ import SwiftUI
 
 struct SignInView: View {
     @Environment(\.dismiss) var dismiss
+	@EnvironmentObject private var manager:MainManager
+	
     @State private var emailName:String = ""
     @State private var codeNumber:String = ""
     @State private var isCountingDown:Bool = false
@@ -20,14 +22,15 @@ struct SignInView: View {
     @State private var countdown:Int = 180
     @FocusState private var isPhoneFocused: Bool
     @FocusState private var isCodeFocused: Bool
-    
-    @StateObject private var manager = MainManager.shared
+	
     @StateObject private var router = RouterManager.shared
     
     @State private var selectServerIndex:Int = 0
     @State private var loadingText:String = ""
+	let timer: DispatchSourceTimer = DispatchSource.makeTimerSource()
+
     var filedColor:Color{
-        ToolsManager.isValidEmail(emailName) ? .blue : .red
+		emailName.isValidEmail() ? .blue : .red
     }
     
     
@@ -106,13 +109,11 @@ struct SignInView: View {
         .onAppear { animate() }
         .onChange(of: isCountingDown) { value in
             if value{
-                self.startCountdown()
-                DispatchQueue.global().asyncAfter(deadline: .now() + 0.3){
-                    DispatchQueue.main.async {
-                        self.isPhoneFocused.toggle()
-                        self.isCodeFocused.toggle()
-                    }
-                }
+				self.startCountdown()
+				DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+					self.isPhoneFocused.toggle()
+					self.isCodeFocused.toggle()
+				}
             }
         }
         
@@ -133,21 +134,21 @@ struct SignInView: View {
                     icon: "envelope.fill"
                 )
                 .foregroundStyle(filedColor)
-                .overlay(
-                    GeometryReader { proxy in
-                        let offset = proxy.frame(in: .named("stack")).minY + 32
-                        Color.clear.preference(key: CirclePreferenceKey.self, value: offset)
-                        
-                    }
-                        .onPreferenceChange(CirclePreferenceKey.self) { value in
-                            circleInitialY = value
-                            circleY = value
-                        }
-                )
-                .focused($isPhoneFocused)
-                .onChange(of: isPhoneFocused) {value in
-                    if value {
-                        withAnimation {
+				.overlay(
+					GeometryReader { proxy in
+						let offset = proxy.frame(in: .named("stack")).minY + 32
+						Color.clear.preference(key: CirclePreferenceKey.self, value: offset)
+						
+					}
+						.onPreferenceChange(CirclePreferenceKey.self) { value in
+							circleInitialY = value
+							circleY = value
+						}
+				)
+				.focused($isPhoneFocused)
+				.onChange(of: isPhoneFocused) {value in
+					if value {
+						withAnimation {
                             circleY = circleInitialY
                         }
                     }
@@ -187,24 +188,23 @@ struct SignInView: View {
            
             
             
-            AngularButton(title: !isCountingDown ? NSLocalizedString("signGetCode", comment: "获取验证码") : NSLocalizedString("register", comment: "注册"), disable: !isCountingDown ? !ToolsManager.isValidEmail(emailName) : codeNumber.count == 0,loading: loadingText ){
+            AngularButton(title: !isCountingDown ? NSLocalizedString("signGetCode", comment: "获取验证码") : NSLocalizedString("register", comment: "注册"), disable: !isCountingDown ? !emailName.isValidEmail() : codeNumber.count == 0,loading: loadingText ){
                 if !isCountingDown{
                     self.loadingText = "正在获取验证码"
                     Task{
                         let (success, msg) = await self.sendCode(self.emailName)
                         if success {
-                            DispatchQueue.main.async {
-                                isCountingDown.toggle()
-                            }
+							await MainActor.run {
+								isCountingDown.toggle()
+							}
+                          
                         }else{
-                            DispatchQueue.main.async {
-                                
+							await MainActor.run {
                                 self.loadingText = msg ?? "其他错误"
                             }
                         }
-                        
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                            
+						try? await Task.sleep(nanoseconds: Uint64Seconds(0.5))
+						await MainActor.run {
                             self.loadingText = ""
                         }
                         
@@ -214,30 +214,27 @@ struct SignInView: View {
                     Task{
                         
                         let (success, msg) = await self.register(email: emailName, code: codeNumber)
-                        if success {
-                            dispatch_sync_safely_main_queue {
-                                var result =   manager.servers[selectServerIndex]
-                                  
-                                  result.key = emailName
-                                  
-                                  manager.servers[selectServerIndex] = result
-                                  
-                                dismiss()
-                            }
-                        }else{
-                            dispatch_sync_safely_main_queue {
-                                self.loadingText = msg ?? "其他错误"
-                                
-                            }
-                        }
-                        
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                            
-                            self.loadingText = ""
-                        }
-                    }
-                    
-                }
+						await MainActor.run {
+							if success {
+								var result =   manager.servers[selectServerIndex]
+								
+								result.key = emailName
+								
+								manager.servers[selectServerIndex] = result
+								
+								dismiss()
+							}else{
+								self.loadingText = msg ?? "其他错误"
+							}
+						}
+						
+						try? await Task.sleep(nanoseconds: Uint64Seconds(0.5))
+						await MainActor.run {
+							self.loadingText = ""
+						}
+					}
+					
+				}
             }
             
             
@@ -246,20 +243,25 @@ struct SignInView: View {
         
     }
     
-    func startCountdown() {
-            isCountingDown = true
-            countdown = 180
-            // 使用 Timer 定期更新 countdown
-            Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
-                if countdown > 0 {
-                    countdown -= 1
-                } else {
-                    timer.invalidate()
-                    isCountingDown = false
-                    self.countdown = 180
-                }
-            }
-        }
+	func startCountdown() {
+		isCountingDown = true
+		countdown = 180
+		
+		timer.schedule(deadline: .now(), repeating: 1.0)
+		
+		timer.setEventHandler {
+			
+			if self.countdown > 0 {
+				self.countdown -= 1
+			} else {
+				self.timer.cancel()
+				self.isCountingDown = false
+				self.countdown = 180
+			}
+		}
+		
+		timer.resume()
+	}
     
     func animate() {
         withAnimation(.timingCurve(0.2, 0.8, 0.2, 1, duration: 0.8).delay(0.2)) {

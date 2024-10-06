@@ -7,7 +7,6 @@
 
 @_exported import RealmSwift
 import Foundation
-import UIKit
 
 let defaultStore = UserDefaults(suiteName: BaseConfig.groupName)
 
@@ -15,6 +14,7 @@ let kRealmDefaultConfiguration = {
     let groupUrl = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: BaseConfig.groupName)
     
     let fileUrl = groupUrl?.appendingPathComponent(BaseConfig.realmName)
+	
     
     let config = Realm.Configuration(
         fileURL: fileUrl,
@@ -30,3 +30,4 @@ let kRealmDefaultConfiguration = {
     )
     return config
 }()
+

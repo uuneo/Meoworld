@@ -97,9 +97,7 @@ struct QRScannerSampleView: UIViewControllerRepresentable {
         // Here you can update the controller if needed.
         if restart {
             uiViewController.QRView?.rescan()
-            DispatchQueue.main.async{
-                self.restart = false
-            }
+			self.restart = false
             
         }
         uiViewController.toggleTorch(on: flash)

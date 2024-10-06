@@ -28,14 +28,15 @@ class Monitors: ObservableObject {
       
         monitor = NWPathMonitor()
         monitor.pathUpdateHandler = { [weak self] path in
-            DispatchQueue.main.async {
-                self?.isConnected = path.status == .satisfied
-    
-                if(self?.isConnected ?? false){
-                    self?.checkNetworkConnect()
-                }
-               
-            }
+			guard let self else { return }
+			
+			ToolsManager.asyncTaskAfter() {
+				self.isConnected = path.status == .satisfied
+				if(self.isConnected ){
+					self.checkNetworkConnect()
+				}
+			}
+			
         }
         monitor.start(queue: queue)
         
@@ -68,12 +69,12 @@ class Monitors: ObservableObject {
             let authorizationStatus = settings.authorizationStatus == .authorized
             
             if self.isAuthorized != authorizationStatus{
-                DispatchQueue.main.async {
-                    self.isAuthorized = authorizationStatus
-                    if self.isAuthorized{
-                        self.registerForRemoteNotifications()
-                    }
-                }
+				ToolsManager.asyncTaskAfter() {
+					self.isAuthorized = authorizationStatus
+					if self.isAuthorized{
+						self.registerForRemoteNotifications()
+					}
+				}
             }
             
         }
@@ -85,9 +86,9 @@ class Monitors: ObservableObject {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge, .carPlay], completionHandler: { (_ granted: Bool, _: Error?) -> Void in
             
             if granted {
-                DispatchQueue.main.async{
-                    UIApplication.shared.registerForRemoteNotifications()
-                }
+				ToolsManager.asyncTaskAfter {
+					UIApplication.shared.registerForRemoteNotifications()
+				}
             }
             else {
 #if DEBUG

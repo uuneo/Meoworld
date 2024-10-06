@@ -1,5 +1,5 @@
 {
-  "originHash" : "8871b61a974614a7b0287e20ecf58c944e7d6730a898ca358b079c4de4cd0370",
+  "originHash" : "dd6258257053a439b02e76c324a36a04f5a1ff86b6f90417c4f8a060a4e62dad",
   "pins" : [
     {
       "identity" : "bluecryptor",
@@ -80,15 +80,6 @@
       "state" : {
         "branch" : "master",
         "revision" : "95c99a826aa06dae3ca40011491afd5acf890ad5"
-      }
-    },
-    {
-      "identity" : "shiny",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/maustinstar/shiny.git",
-      "state" : {
-        "branch" : "master",
-        "revision" : "862360b8ab6b9ea9eb1156569a30f154b22625a5"
       }
     },
     {

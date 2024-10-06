@@ -12,10 +12,11 @@ import SwiftUI
 struct MeowApp: SwiftUI.App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     @AppStorage("start_first_pahe") var firstStartShow:Bool = true
+	@StateObject private var realm = RealmManager.shared
+	@StateObject private var manager = MainManager.shared
     
     var body: some Scene {
         WindowGroup {
-            
             ZStack{
                 ContentView()
                 if firstStartShow{
@@ -23,6 +24,8 @@ struct MeowApp: SwiftUI.App {
                 }
                 
             }
+			.environmentObject(realm)
+			.environmentObject(manager)
         }
         
     }

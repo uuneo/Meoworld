@@ -79,11 +79,11 @@ struct AvatarView: View {
         
         Task {
             if let imagePath = await ImageManager.downloadImage(icon) {
-                DispatchQueue.main.async {
+				await MainActor.run {
                     self.image = UIImage(contentsOfFile: imagePath)
                 }
             } else {
-                DispatchQueue.main.async {
+				await MainActor.run {
                     self.success = false
                 }
             }

@@ -9,13 +9,13 @@ import Foundation
 @_exported import RealmSwift
 
 
-@MainActor
 class RealmManager: NSObject,ObservableObject {
     static let shared = RealmManager()
     var realm: Realm?
 
     private override init() {
         realm = try? Realm()
+		realm?.invalidate()
     }
     
   
@@ -94,6 +94,38 @@ class RealmManager: NSObject,ObservableObject {
        
     }
     
+	func exportFiles(_ items:Results<Message>, completion: @escaping ((URL?,String?)-> Void)){
+		
+		Task.detached(priority: .high){
+			do{
+				let messages = Array(items)
+				let jsonData = try JSONEncoder().encode(messages)
+				
+				let fileManager = FileManager.default
+				let tempDirectoryURL = fileManager.temporaryDirectory
+				let fileName = "meow_\(Date().formatString(format: "yyyy_MM_dd_HH_mm_ss")).json"
+				let linkURL = tempDirectoryURL.appendingPathComponent(fileName)
+				
+				try jsonData.write(to: linkURL)
+				
+				await MainActor.run {
+					completion(linkURL,NSLocalizedString("exportSuccess", comment: ""))
+				}
+				
+				
+			} catch {
+#if DEBUG
+				print("errors: \(error.localizedDescription)")
+#endif
+				await MainActor.run {
+					completion(nil, error.localizedDescription)
+				}
+			}
+			
+		}
+		
+		
+	}
 
 
 

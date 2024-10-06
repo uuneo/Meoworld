@@ -21,21 +21,22 @@ extension UIImage {
         
         let oldStatus = PHPhotoLibrary.authorizationStatus()
         PHPhotoLibrary.requestAuthorization({ status in
-            DispatchQueue.main.async(execute: {
-                if status == .denied {
-                    // 用户拒绝当前App访问相册
-                    if oldStatus != .notDetermined {
-                        // 提醒用户打开开关
-                        complete(false, PHAuthorizationStatus.denied)
-                    }
-                } else if status == .authorized {
-                    // 用户允许当前App访问相册
-                    self.p_excuteSaveImage(intoAlbum: albumName, complete: complete)
-                } else if status == .restricted {
-                    // 无法访问相册
-                    complete(false, .restricted)
-                }
-            })
+			ToolsManager.asyncTaskAfter {
+				if status == .denied {
+					// 用户拒绝当前App访问相册
+					if oldStatus != .notDetermined {
+						// 提醒用户打开开关
+						complete(false, PHAuthorizationStatus.denied)
+					}
+				} else if status == .authorized {
+					// 用户允许当前App访问相册
+					self.p_excuteSaveImage(intoAlbum: albumName, complete: complete)
+				} else if status == .restricted {
+					// 无法访问相册
+					complete(false, .restricted)
+				}
+			}
+            
         })
     }
     

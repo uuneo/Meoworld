@@ -45,4 +45,13 @@ extension String{
 		   // 如果既不是远程 URL 也不是本地文件路径，返回 none
 		   return .none
 	   }
+	
+	
+	func isValidEmail() -> Bool {
+		let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+		let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegex)
+		return emailTest.evaluate(with: self)
+	}
 }
+
+

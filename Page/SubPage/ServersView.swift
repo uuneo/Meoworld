@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ServersView: View {
     @Environment(\.dismiss) var dismiss
+	@EnvironmentObject private var manager:MainManager
     @State private var showAction:Bool = false
     @State private var isEditing:EditMode = .inactive
     @State private var toastText:String = ""
@@ -66,7 +67,7 @@ struct ServersView: View {
                                 Button{
                                     
                                     
-                                    let (success,_) = MainManager.shared.addServer(url: serverInfo.serverDefault.url)
+                                    let (success,_) = manager.addServer(url: serverInfo.serverDefault.url)
                                     if success{
                                         self.dismiss()
                                     }
@@ -86,7 +87,7 @@ struct ServersView: View {
                     
                     
                     
-                    ForEach(MainManager.shared.servers,id: \.id){item in
+                    ForEach(manager.servers,id: \.id){item in
                         HStack(alignment: .center){
                             Image(item.status ? "online": "offline")
                                 .padding(.horizontal,5)
@@ -116,7 +117,7 @@ struct ServersView: View {
                             Image(systemName: "doc.on.doc")
                                 .onTapGesture{
                                     self.toastText = NSLocalizedString("copySuccessText", comment: "")
-                                    MainManager.shared.copy(text: item.url + "/" + item.key)
+									manager.copy(text: item.url + "/" + item.key)
                                 }
                             
                         }
@@ -134,8 +135,8 @@ struct ServersView: View {
                         .swipeActions(edge: .leading) {
                             Button{
                                 
-                                if let index = MainManager.shared.servers.firstIndex(where: {$0.id == item.id}){
-                                    MainManager.shared.servers[index].key = ""
+                                if let index = manager.servers.firstIndex(where: {$0.id == item.id}){
+									manager.servers[index].key = ""
                                 }
                                 
                                 Task{
@@ -151,8 +152,8 @@ struct ServersView: View {
                     }
                     .onDelete(perform: { indexSet in
                         if isEditing == .active{
-                            if  MainManager.shared.servers.count > 1{
-                                MainManager.shared.servers.remove(atOffsets: indexSet)
+                            if  manager.servers.count > 1{
+								manager.servers.remove(atOffsets: indexSet)
                             }else{
                                 self.toastText =  NSLocalizedString("needOneServer", comment: "")
                             }
@@ -161,20 +162,20 @@ struct ServersView: View {
                         }
                     })
                     .onMove(perform: { indices, newOffset in
-                        MainManager.shared.servers.move(fromOffsets: indices, toOffset: newOffset)
+						manager.servers.move(fromOffsets: indices, toOffset: newOffset)
                     })
                     
                     
                 }
                 .listRowSpacing(20)
                 .refreshable {
-                    await MainManager.shared.registerAll()
+                    await manager.registerAll()
                 }
                 
                 
             }
             
-            .toast(info: $toastText)
+            .alert(info: $toastText)
             
             .toolbar{
                 
@@ -210,7 +211,7 @@ struct ServersView: View {
             .onChange(of: isEditing) { value in
                 
                 if value == .inactive && serverName.count > 0{
-                    let (_, toast) =  MainManager.shared.addServer(pickerSelect.rawValue, url: serverName)
+                    let (_, toast) =  manager.addServer(pickerSelect.rawValue, url: serverName)
                     self.toastText = toast
                     self.serverName = ""
                 }
