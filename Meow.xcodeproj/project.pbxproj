@@ -165,7 +165,6 @@
 		19A902CB2CB2E596007BC7CD /* ConcentricOnboarding in Frameworks */ = {isa = PBXBuildFile; productRef = 19A902CA2CB2E596007BC7CD /* ConcentricOnboarding */; };
 		19A902CE2CB2E5C8007BC7CD /* SendMail in Frameworks */ = {isa = PBXBuildFile; productRef = 19A902CD2CB2E5C8007BC7CD /* SendMail */; };
 		19A902D02CB2E64D007BC7CD /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 19A902CF2CB2E64D007BC7CD /* RealmSwift */; };
-		19A902D12CB2E64D007BC7CD /* RealmSwift in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 19A902CF2CB2E64D007BC7CD /* RealmSwift */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		19A902D52CB2E64D007BC7CD /* SendMail in Frameworks */ = {isa = PBXBuildFile; productRef = 19A902D42CB2E64D007BC7CD /* SendMail */; };
 		19A902D82CB2E68C007BC7CD /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 19A902D72CB2E68C007BC7CD /* SwiftyJSON */; };
 		19A902DA2CB2E695007BC7CD /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 19A902D92CB2E695007BC7CD /* SwiftyJSON */; };
@@ -241,7 +240,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				19A902D12CB2E64D007BC7CD /* RealmSwift in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
