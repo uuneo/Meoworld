@@ -16,9 +16,7 @@
 			<key>CFBundleURLName</key>
 			<string>me.uuneo.Meoworld</string>
 			<key>CFBundleURLSchemes</key>
-			<array>
-				<string>meoworld</string>
-			</array>
+			<array/>
 		</dict>
 	</array>
 	<key>ITSAppUsesNonExemptEncryption</key>
