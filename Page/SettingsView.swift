@@ -186,12 +186,10 @@ struct SettingsView: View {
 								.scaleEffect(0.9)
 						}
 					}
-					.onChange(of: toolsManager.badgeMode) {value in
-						if value == .auto{
-							ToolsManager.shared.changeBadge(badge: RealmManager.shared.NReadCount())
-						}else{
-							ToolsManager.shared.changeBadge(badge: -1)
-						}
+					.onChange(of: toolsManager.badgeMode) {_ ,value in
+						
+						toolsManager.badge = value == .auto ?  realm.NReadCount() : -1
+						
 					}
 					
 					

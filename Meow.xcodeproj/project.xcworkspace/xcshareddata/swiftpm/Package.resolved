@@ -1,33 +1,6 @@
 {
-  "originHash" : "dd6258257053a439b02e76c324a36a04f5a1ff86b6f90417c4f8a060a4e62dad",
+  "originHash" : "985ec22025708e58d074db180ce2d86af319de931190f487158ab9ddf8d719ab",
   "pins" : [
-    {
-      "identity" : "bluecryptor",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/Kitura/BlueCryptor.git",
-      "state" : {
-        "revision" : "cec97c24b111351e70e448972a7d3fe68a756d6d",
-        "version" : "2.0.2"
-      }
-    },
-    {
-      "identity" : "bluesocket",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/Kitura/BlueSocket.git",
-      "state" : {
-        "revision" : "7b23a867008e0027bfd6f4d398d44720707bc8ca",
-        "version" : "2.0.4"
-      }
-    },
-    {
-      "identity" : "bluesslservice",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/Kitura/BlueSSLService.git",
-      "state" : {
-        "revision" : "b27a94d063962dfa1bba9f79814c4ef202cf33a4",
-        "version" : "2.0.2"
-      }
-    },
     {
       "identity" : "concentriconboarding",
       "kind" : "remoteSourceControl",
@@ -40,25 +13,16 @@
     {
       "identity" : "kingfisher",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/onevcat/Kingfisher.git",
+      "location" : "https://github.com/uuneo/Kingfisher.git",
       "state" : {
-        "revision" : "2ef543ee21d63734e1c004ad6c870255e8716c50",
-        "version" : "7.12.0"
-      }
-    },
-    {
-      "identity" : "loggerapi",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/Kitura/LoggerAPI.git",
-      "state" : {
-        "revision" : "e82d34eab3f0b05391082b11ea07d3b70d2f65bb",
-        "version" : "1.9.200"
+        "branch" : "master",
+        "revision" : "6fd05f7d8c0bc70fd5eaac93d239f186688fbf9a"
       }
     },
     {
       "identity" : "qrscanner",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/96bit/QRScanner.git",
+      "location" : "https://github.com/uuneo/QRScanner.git",
       "state" : {
         "branch" : "master",
         "revision" : "0262bf06c1f4683b6cde9ee9a72f3b720147e81c"
@@ -83,21 +47,12 @@
       }
     },
     {
-      "identity" : "swift-log",
+      "identity" : "sendmail",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/apple/swift-log.git",
+      "location" : "https://github.com/uuneo/SendMail.git",
       "state" : {
-        "revision" : "9cb486020ebf03bfa5b5df985387a14a98744537",
-        "version" : "1.6.1"
-      }
-    },
-    {
-      "identity" : "swift-smtp",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/Kitura/Swift-SMTP.git",
-      "state" : {
-        "revision" : "4b7666bb8cee33f0cb367786af17b9a2ebb63047",
-        "version" : "6.0.0"
+        "branch" : "master",
+        "revision" : "229368e6d376f98bddeb6524642655fec846a2f1"
       }
     },
     {

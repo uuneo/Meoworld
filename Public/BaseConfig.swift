@@ -58,11 +58,7 @@ struct BaseConfig {
     static let  defaultSound = "defaultSound"
     static let  activeAppIcon = "setting_active_app_icon"
     static let 	customPhotoName = "CustomPhotoName"
+	static let 	badge = "MeoworldBadge"
 	
 }
-
-func Uint64Seconds(_ seconds:Double) -> UInt64{
-	return UInt64(seconds * 1_000_000_000)
-}
-
 

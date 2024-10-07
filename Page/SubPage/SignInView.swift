@@ -107,7 +107,7 @@ struct SignInView: View {
         )
         .modifier(OutlineModifier(cornerRadius: 30))
         .onAppear { animate() }
-        .onChange(of: isCountingDown) { value in
+        .onChange(of: isCountingDown) { _,value in
             if value{
 				self.startCountdown()
 				DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
@@ -146,7 +146,7 @@ struct SignInView: View {
 						}
 				)
 				.focused($isPhoneFocused)
-				.onChange(of: isPhoneFocused) {value in
+				.onChange(of: isPhoneFocused) {_,value in
 					if value {
 						withAnimation {
                             circleY = circleInitialY
@@ -163,7 +163,7 @@ struct SignInView: View {
                     .keyboardType(.numberPad)
                     .customField(icon: "key.fill")
                     .focused($isCodeFocused)
-                    .onChange(of: isCodeFocused) {value  in
+                    .onChange(of: isCodeFocused) {_,value  in
                         if value {
                             withAnimation {
                                 circleY = circleInitialY + 70
@@ -202,8 +202,11 @@ struct SignInView: View {
 							await MainActor.run {
                                 self.loadingText = msg ?? "其他错误"
                             }
+							
+							
                         }
-						try? await Task.sleep(nanoseconds: Uint64Seconds(0.5))
+						
+						try? await Task.sleep(for: .seconds(0.5))
 						await MainActor.run {
                             self.loadingText = ""
                         }
@@ -228,7 +231,7 @@ struct SignInView: View {
 							}
 						}
 						
-						try? await Task.sleep(nanoseconds: Uint64Seconds(0.5))
+						try? await Task.sleep(for: .seconds(0.5))
 						await MainActor.run {
 							self.loadingText = ""
 						}

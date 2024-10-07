@@ -9,7 +9,6 @@
 import SwiftUI
 
 extension View {
-	@available(iOS 17.0, *)
 	@ViewBuilder
 	func pinchZoom(_ dimsBackground: Bool = true) -> some View {
 		PinchZoomHelper(dimsBackground: dimsBackground) {
@@ -18,7 +17,6 @@ extension View {
 	}
 }
 
-@available(iOS 17.0, *)
 /// Zoom Container View
 /// Where the Zooming View will be displayed and zoomed
 struct ZoomContainer<Content: View>: View {
@@ -56,7 +54,7 @@ struct ZoomContainer<Content: View>: View {
 }
 
 /// Observable Class to share data between Container and it's Views inside it
-@available(iOS 17.0, *)
+
 @Observable
 fileprivate class ZoomContainerData {
 	var zoomingView: AnyView?
@@ -70,7 +68,6 @@ fileprivate class ZoomContainerData {
 }
 
 /// Helper View
-@available(iOS 17.0, *)
 fileprivate struct PinchZoomHelper<Content: View>: View {
 	var dimsBackground: Bool
 	@ViewBuilder var content: Content
@@ -125,7 +122,6 @@ fileprivate struct PinchZoomHelper<Content: View>: View {
 
 
 /// UIKit Gestures Overlay
-@available(iOS 17.0, *)
 fileprivate struct GestureOverlay: UIViewRepresentable {
 	@Binding var config: Config
 	func makeCoordinator() -> Coordinator {

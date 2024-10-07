@@ -8,9 +8,27 @@
 
 import SwiftUI
 import Kingfisher
+import PhotosUI
+import SwiftData
+
+
+enum AlertType{
+	case delte
+	case save
+}
+
+struct AlertData:Identifiable {
+	var id: UUID = UUID()
+	var title:String
+	var message:String
+	var btn:String
+	var mode:AlertType
+}
+
 
 struct MainImageCacheView:View {
 	
+	@Query private var allItems: [ImageItem]
 	@Environment(\.dismiss) var dismiss
 	@State var images:[URL] = []
 	@State private var isSelect:Bool = false
@@ -19,7 +37,7 @@ struct MainImageCacheView:View {
 	@State private var showEditPhotoName:Bool = false
 	@State private var alart:AlertData?
 	
-	
+	@FocusState private var nameFieldIsFocused
 	// 两列布局
 	var columns:[GridItem]{
 		if ISPAD{
@@ -29,19 +47,36 @@ struct MainImageCacheView:View {
 		}
 	}
 	
+	var imageSize:CGSize{
+		
+		let width = Int(UIScreen.main.bounds.width) / columns.count - 10;
+		
+		return CGSize(width: width, height: width)
+	  
+	   
+	}
+	
 	var body: some View {
-		Group{
-			if #available(iOS 17.0, *) {
-				if isSelect{
-					ImageCacheView(photoCustomName: $photoCustomName, images: $images, selectImageArr: $selectImageArr, isSelect: $isSelect, columns: columns, alart: $alart)
-				}else{
-					ZoomContainer{
-						NewImageCacheView(photoCustomName: $photoCustomName, images: $images, selectImageArr: $selectImageArr, isSelect: $isSelect, columns: columns, alart: $alart)
-					}
-				}
+		VStack{
+			
+			ImageCacheHeader()
+			
+			ScrollView{
 				
-			} else {
-				ImageCacheView(photoCustomName: $photoCustomName, images: $images, selectImageArr: $selectImageArr, isSelect: $isSelect, columns: columns, alart: $alart)
+				LazyVGrid(columns: columns, spacing: 10) {
+					ForEach(images, id: \.self){value in
+						ImageCardView(value:value)
+					}
+					ForEach(allItems) { item in
+						ImageShareCardView(item: item)
+							.frame(width: imageSize.width,height: imageSize.height)
+							.clipShape(RoundedRectangle(cornerRadius: 10))
+						
+					}
+					
+				}
+				.padding(.horizontal, 10)
+				
 			}
 		}
 		.refreshable {
@@ -132,6 +167,100 @@ struct MainImageCacheView:View {
 	
 	
 	
+	@ViewBuilder
+	func ImageCardView(value:URL) -> some View{
+		KFImage(value)
+			.resizable()
+			.aspectRatio(contentMode: .fill)
+			.draggable(Image(uiImage: UIImage(contentsOfFile: value.path())!))
+			.frame(width: imageSize.width,height: imageSize.height)
+			.overlay {
+				if isSelect && selectImageArr.contains(value){
+					ZStack{
+						RoundedRectangle(cornerRadius: 0)
+							.foregroundStyle(Color.clear)
+							.background(.ultraThinMaterial.opacity(0.6))
+						VStack{
+							Spacer()
+							HStack {
+								Spacer()
+								Image(systemName: "checkmark.circle")
+									.foregroundStyle(Color.green)
+									.padding()
+								
+							}
+						}
+					}
+					
+				}else{
+					EmptyView()
+				}
+				
+			}
+			
+			.onTapGesture {
+				if isSelect{
+					if selectImageArr.contains(value){
+						self.selectImageArr.removeAll { $0 == value }
+					}else{
+						self.selectImageArr.append(value)
+					}
+				}
+			}
+		   
+			
+			.clipShape(RoundedRectangle(cornerRadius: 10))
+		
+	}
+	
+	@ViewBuilder
+	func ImageCacheHeader() -> some View{
+		HStack{
+			Label(NSLocalizedString("photoAlbumName", comment: "相册名"), systemImage: "photo.badge.plus")
+			Spacer()
+			TextField(
+				   "Photo album Name",
+				   text: $photoCustomName
+			)
+			.foregroundStyle(Color.appProfileBlue)
+			.multilineTextAlignment(.trailing)
+			.padding(.trailing, 30)
+			.overlay {
+				HStack{
+					Spacer()
+					Button {
+						self.nameFieldIsFocused.toggle()
+					} label: {
+						Image(systemName: "pencil.line")
+					}
+					
+				}
+			}
+			.focused($nameFieldIsFocused)
+			.onChange(of: photoCustomName) {_, newValue in
+				// 去除空格并更新绑定的文本值
+				photoCustomName = newValue.trimmingCharacters(in: .whitespaces)
+			}
+			.toolbar {
+				ToolbarItemGroup(placement: .keyboard) {
+					Button("Clear") {
+						self.photoCustomName = ""
+					}
+				   
+					Spacer()
+					Button("Done") {
+						nameFieldIsFocused = false
+					}
+					
+				}
+			}
+			
+			
+		   
+		}.padding()
+		.padding(.horizontal)
+	}
+	
 	
 	func saveImage(_ url:URL){
 		guard  let image = UIImage(contentsOfFile: url.path()) else {
@@ -149,7 +278,7 @@ struct MainImageCacheView:View {
 		
 		for url in urls{
 
-			if  let image = UIImage(contentsOfFile: url.path()){
+			if let image = UIImage(contentsOfFile: url.path()){
 				image.bat_save(intoAlbum: photoName) { success, status in
 					debugPrint(success,status)
 				}
@@ -162,9 +291,6 @@ struct MainImageCacheView:View {
 		
 		
 	}
-	
-	
-	
 	
 	func getAllImages(){
 		
@@ -218,3 +344,37 @@ struct MainImageCacheView:View {
 		
 	}
 }
+
+
+/// CardView
+struct ImageShareCardView: View {
+	var item: ImageItem
+	/// View Properties
+	@State private var previewImage: UIImage?
+	var body: some View {
+		GeometryReader {
+			let size = $0.size
+			
+			if let previewImage {
+				Image(uiImage: previewImage)
+					.resizable()
+					.aspectRatio(contentMode: .fill)
+//					.frame(width: size.width, height: size.height)
+					.draggable(Image(uiImage: previewImage))
+			} else {
+				ProgressView()
+					.frame(width: size.width, height: size.height)
+					.task {
+						/// Creating Thumbnail Image
+						Task.detached(priority: .high) {
+							let thumbnail = await UIImage(data: item.data)?.byPreparingThumbnail(ofSize: size)
+							await MainActor.run {
+								previewImage = thumbnail
+							}
+						}
+					}
+			}
+		}
+	}
+}
+

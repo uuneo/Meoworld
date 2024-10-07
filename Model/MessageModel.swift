@@ -8,7 +8,7 @@
 import Foundation
 import RealmSwift
 import CoreTransferable
-import CryptoKit
+import SwiftData
 
 
 final class Message: Object , ObjectKeyIdentifiable, Codable {
@@ -59,6 +59,7 @@ final class Message: Object , ObjectKeyIdentifiable, Codable {
 		try container.encode(self.createDate, forKey: .createDate)
 		try container.encode(self.read, forKey: .read)
 	}
+	
 
 }
 
@@ -75,3 +76,4 @@ extension Message{
         ]
     
 }
+

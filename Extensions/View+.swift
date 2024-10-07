@@ -42,7 +42,7 @@ extension View {
 						info.wrappedValue = ""
 					}
 				)){}
-				.onChange(of: info.wrappedValue) { newValue in
+				.onChange(of: info.wrappedValue) {_, newValue in
 					if newValue.count > 0{
 						ToolsManager.asyncTaskAfter(duration: duration) {
 							info.wrappedValue = ""

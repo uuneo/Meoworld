@@ -51,7 +51,7 @@ struct MessageDetailView: View {
 		}
 		
 		.alert(info: $toastText)
-		.onChange(of: messages) { value in
+		.onChange(of: messages) { _,value in
 			if value.count <= 0 {
 				dismiss()
 			}

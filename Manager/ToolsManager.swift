@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 import SwiftyJSON
 import Combine
-import SwiftSMTP
+import SendMail
 
 class ToolsManager: ObservableObject {
     static let shared = ToolsManager()
@@ -23,6 +23,12 @@ class ToolsManager: ObservableObject {
     @AppStorage(BaseConfig.emailConfig,store: defaultStore) var email:emailConfig = emailConfig.data
     
     @AppStorage(BaseConfig.defaultSound, store: defaultStore) var sound:String = "silence"
+	
+	@AppStorage(BaseConfig.badge,store: defaultStore) var badge:Int = 0 {
+		didSet{
+			UNUserNotificationCenter.current().setBadgeCount(badge)
+		}
+	}
     
     // MARK: 解密
     func decrypt(ciphertext: String, iv: String? = nil) throws -> [AnyHashable: Any] {
@@ -90,14 +96,7 @@ extension ToolsManager{
         return group ?? NSLocalizedString("defaultGroup",comment: "")
     }
     
-    
-    
-     func changeBadge(badge:Int = -1){
-		 if badge == -1{
-			 UNUserNotificationCenter.current().setBadgeCount(0)
-		 }
-		 UNUserNotificationCenter.current().setBadgeCount(badge)
-    }
+
 }
 
 
@@ -129,7 +128,7 @@ extension ToolsManager{
 	
 	static func asyncTaskAfter( duration:Double = 0,completion: @escaping ()-> Void){
 		Task.detached(priority: .background) {
-			try await Task.sleep(nanoseconds: Uint64Seconds(duration))
+			try await Task.sleep(for: .seconds(duration))
 			await MainActor.run {
 				completion()
 			}

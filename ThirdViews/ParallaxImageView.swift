@@ -7,7 +7,6 @@
 import SwiftUI
 
 
-@available(iOS 17.0, *)
 ///  ParallaxImageView(maximumMovement: 150, usesFullWidth: true) { size in
 ///  				Image(.pic2)
 ///						.resizable()

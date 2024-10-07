@@ -208,7 +208,7 @@ struct ServersView: View {
             .environment(\.editMode, $isEditing)
             .navigationTitle(NSLocalizedString("serverList",comment: ""))
             
-            .onChange(of: isEditing) { value in
+            .onChange(of: isEditing) {_, value in
                 
                 if value == .inactive && serverName.count > 0{
                     let (_, toast) =  manager.addServer(pickerSelect.rawValue, url: serverName)

@@ -53,7 +53,7 @@ struct AvatarView: View {
             
         }
         .aspectRatio(contentMode: imageMode)
-        .onChange(of: icon) { value in
+        .onChange(of: icon) { _,value in
             loadImage(icon: value)
         }
         .onAppear {

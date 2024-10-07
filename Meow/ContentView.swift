@@ -86,7 +86,7 @@ struct ContentView: View {
 				self.firstStart = false
 			}
 		}
-		.onChange(of: scenePhase) { newPhase in
+		.onChange(of: scenePhase) { _,newPhase in
 			
 			self.backgroundModeHandler(of: newPhase)
 			
@@ -251,11 +251,8 @@ extension ContentView{
 		
 		let toolManager = ToolsManager.shared
 		
-		if toolManager.badgeMode == .auto{
-			toolManager.changeBadge(badge: realm.NReadCount())
-		}else{
-			toolManager.changeBadge(badge: -1)
-		}
+		toolManager.badge = toolManager.badgeMode == .auto ? realm.NReadCount() : -1
+		
 		
 	}
 }

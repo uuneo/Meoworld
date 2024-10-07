@@ -26,7 +26,8 @@ struct MeowApp: SwiftUI.App {
             }
 			.environmentObject(realm)
 			.environmentObject(manager)
+			.modelContainer(for: ImageItem.self)
         }
-        
+		
     }
 }

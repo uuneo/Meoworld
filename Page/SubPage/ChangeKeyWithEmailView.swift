@@ -93,7 +93,7 @@ struct ChangeKeyWithEmailView: View {
                 appearBackground = true
             }
         }
-        .onChange(of: dismissModalData) {value in
+        .onChange(of: dismissModalData) {_,value in
             dismissModal()
         }
         .accessibilityAddTraits(.isModal)

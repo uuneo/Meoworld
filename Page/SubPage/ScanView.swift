@@ -20,7 +20,7 @@ struct ScanView: View {
     var body: some View {
         ZStack{
             QRScannerSampleView(restart: $restart,flash: $torchIsOn,value: $scanCode)
-                .onChange(of: scanCode) { value in
+                .onChange(of: scanCode) {_, value in
 #if DEBUG
                     debugPrint(scanCode)
 #endif
